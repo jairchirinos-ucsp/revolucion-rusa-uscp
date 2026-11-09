@@ -1,0 +1,181 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Merriweather', serif;
+  background-color: #0f1115;
+  color: #e0e6ed;
+  line-height: 1.8;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* SECCIÓN 1: CABECERA (HERO) */
+.hero-section {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: radial-gradient(circle at center, #1f2430 0%, #0d0f14 100%);
+  padding: 60px 20px;
+  border-bottom: 3px solid #c99700;
+}
+
+.badge {
+  display: inline-block;
+  font-family: 'Cinzel', serif;
+  font-size: 0.85rem;
+  letter-spacing: 3px;
+  color: #c99700;
+  text-transform: uppercase;
+  margin-bottom: 15px;
+  border: 1px solid #c99700;
+  padding: 6px 16px;
+  border-radius: 4px;
+}
+
+.main-title {
+  font-family: 'Cinzel', serif;
+  font-size: 3.8rem;
+  font-weight: 900;
+  color: #f4f6f9;
+  letter-spacing: 2px;
+  text-shadow: 0px 4px 15px rgba(0, 0, 0, 0.8);
+  margin-bottom: 10px;
+  line-height: 1.1;
+}
+
+.subtitle {
+  font-size: 1.3rem;
+  color: #a0aec0;
+  font-style: italic;
+  margin-bottom: 35px;
+}
+
+/* CAJA DE PREGUNTA CENTRAL */
+.question-card {
+  background: rgba(26, 32, 44, 0.85);
+  border-left: 5px solid #bd2d2d;
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  max-width: 800px;
+  margin: 0 auto 40px auto;
+  padding: 25px 30px;
+  border-radius: 6px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.question-card h2 {
+  font-family: 'Cinzel', serif;
+  font-size: 1.1rem;
+  color: #e53e3e;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.question-text {
+  font-size: 1.25rem;
+  font-weight: 400;
+  color: #ffffff;
+}
+
+/* BOTÓN DE SCROLL */
+.scroll-btn {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  color: #a0aec0;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.3s;
+}
+
+.scroll-btn:hover {
+  color: #c99700;
+}
+
+.arrow {
+  font-size: 1.4rem;
+  margin-top: 5px;
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+  40% { transform: translateY(-8px); }
+  60% { transform: translateY(-4px); }
+}
+
+/* SECCIÓN 2: INTRODUCCIÓN */
+.intro-section {
+  padding: 80px 0;
+  background-color: #14171d;
+}
+
+.section-title {
+  font-family: 'Cinzel', serif;
+  font-size: 2.2rem;
+  text-align: center;
+  color: #f4f6f9;
+  margin-bottom: 15px;
+}
+
+.divider {
+  width: 80px;
+  height: 3px;
+  background-color: #c99700;
+  margin: 0 auto 35px auto;
+}
+
+.intro-card {
+  background-color: #1a202c;
+  padding: 35px 40px;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.intro-paragraph {
+  font-size: 1.15rem;
+  color: #cbd5e0;
+}
+
+.intro-paragraph strong {
+  color: #ffffff;
+}
+
+/* SECCIÓN 3: MAPA MENTAL (PLACEHOLDER) */
+.map-section {
+  padding: 80px 0;
+  min-height: 80vh;
+  background-color: #0f1115;
+}
+
+.section-subtitle {
+  text-align: center;
+  color: #718096;
+  margin-bottom: 40px;
+}
+
+.map-placeholder {
+  width: 100%;
+  height: 500px;
+  border: 2px dashed #4a5568;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #718096;
+  font-family: 'Cinzel', serif;
+}

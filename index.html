@@ -1,11 +1,70 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <title>Utopías Sociales</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>De la Utopía a las Armas | Historia Interactiva</title>
+  
+  <!-- Fuentes históricas de Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Merriweather:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Bienvenido a nuestra página sobre la Revolución Rusa</h1>
-    <p>Este es el espacio de trabajo para nuestro proyecto.</p>
+
+  <!-- SECCIÓN 1: CABECERA PRINCIPAL (HERO SECTION) -->
+  <header class="hero-section">
+    <div class="overlay"></div>
+    <div class="hero-content">
+      <span class="badge">HISTORIA DE OCCIDENTE • REVOLUCIÓN RUSA</span>
+      
+      <h1 class="main-title">DE LA UTOPÍA A LAS ARMAS</h1>
+      <p class="subtitle">Socialismo, Comunismo y el Estallido de 1917</p>
+
+      <!-- Caja destacada para la Pregunta Central -->
+      <div class="question-card">
+        <h2>Pregunta Central de Indagación:</h2>
+        <p class="question-text">
+          "¿Cómo pasaron las ideas de igualdad del papel a la realidad durante la Revolución Rusa?"
+        </p>
+      </div>
+
+      <a href="#introduccion" class="scroll-btn">
+        <span>Comenzar exploración</span>
+        <div class="arrow">↓</div>
+      </a>
+    </div>
+  </header>
+
+  <!-- SECCIÓN 2: INTRODUCCIÓN Y CONTEXTO HISTÓRICO -->
+  <section id="introduccion" class="intro-section">
+    <div class="container">
+      <h2 class="section-title">El Punto de Partida: ¿Por qué cambió el mundo?</h2>
+      <div class="divider"></div>
+      
+      <div class="intro-card">
+        <p class="intro-paragraph">
+          Durante el siglo XIX, las drásticas desigualdades de la Revolución Industrial motivaron a pensadores como Karl Marx a concebir <strong>utopías sociales</strong> basándose en la igualdad absoluta y el fin de la explotación laboral. Sin embargo, no fue hasta 1917, en una Rusia devastada por la miseria y la Primera Guerra Mundial, donde estas teorías se convirtieron en un motor político real. El descontento popular derrocó la autocracia zarista y abrió paso al primer Estado socialista de la historia, transformando para siempre el equilibrio geopolítico global.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCIÓN 3: ESPACIO RESERVADO PARA EL MAPA MENTAL -->
+  <section id="mapa-mental-section" class="map-section">
+    <div class="container">
+      <h2 class="section-title">Red Interactiva de Relaciones Históricas</h2>
+      <p class="section-subtitle">Haz clic en los nodos para explorar las causas, actores, eventos y consecuencias del proceso.</p>
+      
+      <div id="contenedor-mapa-mental" class="map-placeholder">
+        <p>[ Aquí se desplegará el Mapa Mental Interactivo ]</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Enlace al archivo JavaScript -->
+  <script src="script.js"></script>
 </body>
 </html>
