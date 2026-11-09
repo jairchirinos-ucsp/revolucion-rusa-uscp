@@ -13,6 +13,22 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+   <nav class="nav-principal" id="nav-principal" aria-label="Navegación principal">
+    <div class="nav-principal__contenido">
+      <a href="#inicio" class="nav-principal__marca">De la Utopía a las Armas</a>
+ 
+      <button class="nav-principal__toggle" id="nav-toggle" type="button"
+              aria-expanded="false" aria-controls="nav-enlaces" aria-label="Abrir menú">
+        <span></span><span></span><span></span>
+      </button>
+ 
+      <ul class="nav-principal__enlaces" id="nav-enlaces">
+        <li><a href="#inicio" class="nav-enlace">Inicio</a></li>
+        <li><a href="#introduccion" class="nav-enlace">Contexto histórico</a></li>
+        <li><a href="#mapa-mental-section" class="nav-enlace">Mapa mental</a></li>
+      </ul>
+    </div>
+  </nav>
 
   <!-- SECCIÓN 1: CABECERA PRINCIPAL (HERO SECTION) -->
   <header class="hero-section">
@@ -52,15 +68,74 @@
     </div>
   </section>
 
-  <!-- SECCIÓN 3: ESPACIO RESERVADO PARA EL MAPA MENTAL -->
+   <!-- SECCIÓN 3: MAPA MENTAL INTERACTIVO -->
   <section id="mapa-mental-section" class="map-section">
     <div class="container">
       <h2 class="section-title">Red Interactiva de Relaciones Históricas</h2>
-      <p class="section-subtitle">Haz clic en los nodos para explorar las causas, actores, eventos y consecuencias del proceso.</p>
-      
-      <div id="contenedor-mapa-mental" class="map-placeholder">
-        <p>[ Aquí se desplegará el Mapa Mental Interactivo ]</p>
+      <div class="divider"></div>
+      <p class="section-subtitle">Haz clic en los nodos para explorar las ideas del socialismo y el comunismo, y las causas, actores, acontecimientos y consecuencias de la Revolución Rusa.</p>
+ 
+      <!-- CAMBIO: el marcador de posición se reemplazó por la estructura del mapa.
+           Se conserva el mismo id="contenedor-mapa-mental". Los nodos los genera script.js -->
+      <div id="contenedor-mapa-mental" class="mm">
+ 
+        <!-- Barra superior: indicador de nivel, ruta y controles -->
+        <div class="mm-barra">
+          <div class="mm-ubicacion">
+            <span class="mm-nivel" id="mm-nivel">Nivel 1</span>
+            <div class="mm-migas" id="mm-migas" aria-label="Ubicación en el mapa"></div>
+          </div>
+          <div class="mm-controles">
+            <button type="button" class="mm-btn" id="mm-btn-general" title="Volver al mapa general" aria-label="Volver al mapa general">
+              <span aria-hidden="true">⌂</span><span class="mm-btn__texto">Mapa general</span>
+            </button>
+            <button type="button" class="mm-btn" id="mm-btn-atras" title="Regresar al nivel anterior" aria-label="Regresar al nivel anterior">
+              <span aria-hidden="true">←</span><span class="mm-btn__texto">Nivel anterior</span>
+            </button>
+            <button type="button" class="mm-btn" id="mm-btn-expandir" title="Expandir todas las ramas" aria-label="Expandir todas las ramas">
+              <span aria-hidden="true" id="mm-btn-expandir-icono">⊕</span><span class="mm-btn__texto" id="mm-btn-expandir-texto">Expandir todo</span>
+            </button>
+          </div>
+        </div>
+ 
+        <!-- Área del mapa: se puede arrastrar y hacer zoom -->
+        <div class="mm-vista" id="mm-vista">
+          <div class="mm-mundo" id="mm-mundo">
+            <svg class="mm-lineas" id="mm-lineas" aria-hidden="true"></svg>
+            <div class="mm-nodos" id="mm-nodos"></div>
+          </div>
+ 
+          <!-- Controles de zoom -->
+          <div class="mm-zoom">
+            <button type="button" id="mm-zoom-mas" title="Acercar" aria-label="Acercar">+</button>
+            <button type="button" id="mm-zoom-menos" title="Alejar" aria-label="Alejar">−</button>
+            <button type="button" id="mm-zoom-ajustar" title="Centrar la vista" aria-label="Centrar la vista">⤢</button>
+          </div>
+ 
+          <p class="mm-ayuda">
+            <span class="mm-ayuda__raton">Arrastra para moverte · Ctrl + rueda para zoom</span>
+            <span class="mm-ayuda__tactil">Arrastra para moverte · Pellizca para zoom</span>
+          </p>
+ 
+          <!-- Tarjeta informativa de los conceptos finales -->
+          <aside class="mm-tarjeta" id="mm-tarjeta" tabindex="-1" aria-live="polite">
+            <button type="button" class="mm-tarjeta__cerrar" id="mm-tarjeta-cerrar" aria-label="Cerrar ficha">×</button>
+            <p class="mm-tarjeta__ruta" id="mm-tarjeta-ruta"></p>
+            <h3 class="mm-tarjeta__titulo" id="mm-tarjeta-titulo"></h3>
+            <p class="mm-tarjeta__texto" id="mm-tarjeta-texto"></p>
+            <div class="mm-tarjeta__bloque" id="mm-tarjeta-bloque-fechas">
+              <h4>Fechas clave</h4>
+              <ul class="mm-fechas" id="mm-tarjeta-fechas"></ul>
+            </div>
+            <div class="mm-tarjeta__bloque" id="mm-tarjeta-bloque-personajes">
+              <h4>Personajes relacionados</h4>
+              <ul class="mm-chips" id="mm-tarjeta-personajes"></ul>
+            </div>
+          </aside>
+        </div>
       </div>
+ 
+      <p class="mm-nota">Las fechas de 1917 siguen el calendario juliano que usaba Rusia; entre paréntesis se indica su equivalente en el calendario actual.</p>
     </div>
   </section>
 

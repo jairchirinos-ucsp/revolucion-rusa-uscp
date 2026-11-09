@@ -179,3 +179,1061 @@ body {
   color: #718096;
   font-family: 'Cinzel', serif;
 }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Merriweather', serif;
+  background-color: #0f1115;
+  color: #e0e6ed;
+  line-height: 1.8;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* SECCIÓN 1: CABECERA (HERO) */
+.hero-section {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: radial-gradient(circle at center, #1f2430 0%, #0d0f14 100%);
+  padding: 60px 20px;
+  border-bottom: 3px solid #c99700;
+}
+
+.badge {
+  display: inline-block;
+  font-family: 'Cinzel', serif;
+  font-size: 0.85rem;
+  letter-spacing: 3px;
+  color: #c99700;
+  text-transform: uppercase;
+  margin-bottom: 15px;
+  border: 1px solid #c99700;
+  padding: 6px 16px;
+  border-radius: 4px;
+}
+
+.main-title {
+  font-family: 'Cinzel', serif;
+  font-size: 3.8rem;
+  font-weight: 900;
+  color: #f4f6f9;
+  letter-spacing: 2px;
+  text-shadow: 0px 4px 15px rgba(0, 0, 0, 0.8);
+  margin-bottom: 10px;
+  line-height: 1.1;
+}
+
+.subtitle {
+  font-size: 1.3rem;
+  color: #a0aec0;
+  font-style: italic;
+  margin-bottom: 35px;
+}
+
+/* CAJA DE PREGUNTA CENTRAL */
+.question-card {
+  background: rgba(26, 32, 44, 0.85);
+  border-left: 5px solid #bd2d2d;
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  max-width: 800px;
+  margin: 0 auto 40px auto;
+  padding: 25px 30px;
+  border-radius: 6px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.question-card h2 {
+  font-family: 'Cinzel', serif;
+  font-size: 1.1rem;
+  color: #e53e3e;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.question-text {
+  font-size: 1.25rem;
+  font-weight: 400;
+  color: #ffffff;
+}
+
+/* BOTÓN DE SCROLL */
+.scroll-btn {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  color: #a0aec0;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.3s;
+}
+
+.scroll-btn:hover {
+  color: #c99700;
+}
+
+.arrow {
+  font-size: 1.4rem;
+  margin-top: 5px;
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+  40% { transform: translateY(-8px); }
+  60% { transform: translateY(-4px); }
+}
+
+/* SECCIÓN 2: INTRODUCCIÓN */
+.intro-section {
+  padding: 80px 0;
+  background-color: #14171d;
+}
+
+.section-title {
+  font-family: 'Cinzel', serif;
+  font-size: 2.2rem;
+  text-align: center;
+  color: #f4f6f9;
+  margin-bottom: 15px;
+}
+
+.divider {
+  width: 80px;
+  height: 3px;
+  background-color: #c99700;
+  margin: 0 auto 35px auto;
+}
+
+.intro-card {
+  background-color: #1a202c;
+  padding: 35px 40px;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.intro-paragraph {
+  font-size: 1.15rem;
+  color: #cbd5e0;
+}
+
+.intro-paragraph strong {
+  color: #ffffff;
+}
+
+/* SECCIÓN 3: MAPA MENTAL */
+.map-section {
+  padding: 80px 0;
+  min-height: 80vh;
+  background-color: #0f1115;
+}
+
+.section-subtitle {
+  text-align: center;
+  color: #718096;
+  margin-bottom: 40px;
+}
+
+/* (Se eliminó .map-placeholder: el marcador fue reemplazado por el mapa real) */
+
+
+/* ==========================================================================
+   ==========================================================================
+   NUEVO — TODO LO QUE SIGUE FUE AÑADIDO PARA EL MENÚ FIJO Y EL MAPA MENTAL
+   ==========================================================================
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   A. DESPLAZAMIENTO SUAVE
+   scroll-padding-top evita que el menú fijo tape el título de cada sección.
+   -------------------------------------------------------------------------- */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 72px;
+}
+
+/* --------------------------------------------------------------------------
+   B. MENÚ FIJO
+   -------------------------------------------------------------------------- */
+.nav-principal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  border-bottom: 1px solid transparent;
+  transition: background-color 0.3s, border-color 0.3s, box-shadow 0.3s;
+}
+
+/* Fondo sólido al bajar por la página (lo activa script.js) */
+.nav-principal.con-fondo {
+  background-color: rgba(15, 17, 21, 0.95);
+  border-bottom-color: rgba(201, 151, 0, 0.25);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+}
+
+.nav-principal__contenido {
+  max-width: 1100px;
+  height: 64px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.nav-principal__marca {
+  font-family: 'Cinzel', serif;
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: 2px;
+  color: #c99700;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.nav-principal__enlaces {
+  list-style: none;
+  display: flex;
+  gap: 28px;
+}
+
+.nav-enlace {
+  position: relative;
+  display: inline-block;
+  padding: 6px 0;
+  font-family: 'Cinzel', serif;
+  font-size: 0.8rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #a0aec0;
+  text-decoration: none;
+  transition: color 0.25s;
+}
+
+/* Subrayado dorado animado */
+.nav-enlace::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #c99700;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s;
+}
+
+.nav-enlace:hover,
+.nav-enlace.activo {
+  color: #f4f6f9;
+}
+
+.nav-enlace:hover::after,
+.nav-enlace.activo::after {
+  transform: scaleX(1);
+}
+
+/* Botón hamburguesa (solo en pantallas pequeñas) */
+.nav-principal__toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 40px;
+  height: 40px;
+  padding: 0 9px;
+  background: transparent;
+  border: 1px solid rgba(201, 151, 0, 0.45);
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.nav-principal__toggle span {
+  display: block;
+  height: 2px;
+  background-color: #e0e6ed;
+  border-radius: 2px;
+  transition: transform 0.3s, opacity 0.3s;
+}
+
+.nav-principal__toggle.abierto span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-principal__toggle.abierto span:nth-child(2) { opacity: 0; }
+.nav-principal__toggle.abierto span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+@media (max-width: 760px) {
+  .nav-principal__toggle {
+    display: flex;
+  }
+
+  .nav-principal__enlaces {
+    position: absolute;
+    top: 64px;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    gap: 0;
+    max-height: 0;
+    overflow: hidden;
+    background-color: rgba(15, 17, 21, 0.98);
+    transition: max-height 0.35s ease;
+  }
+
+  .nav-principal__enlaces.abierto {
+    max-height: 320px;
+    border-bottom: 1px solid rgba(201, 151, 0, 0.25);
+  }
+
+  .nav-enlace {
+    display: block;
+    padding: 16px 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  .nav-enlace::after {
+    display: none;
+  }
+
+  .nav-enlace.activo {
+    color: #c99700;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   C. MAPA MENTAL — CONTENEDOR Y BARRA DE CONTROLES
+   -------------------------------------------------------------------------- */
+.mm {
+  position: relative;
+  background-color: #14171d;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+}
+
+.mm-barra {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px 16px;
+  padding: 12px 16px;
+  background-color: #1a202c;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.mm-ubicacion {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1 1 280px;
+  min-width: 0;
+}
+
+/* Indicador del nivel actual */
+.mm-nivel {
+  flex: none;
+  padding: 3px 10px;
+  font-family: 'Cinzel', serif;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #0f1115;
+  background-color: #c99700;
+  border-radius: 20px;
+  white-space: nowrap;
+}
+
+/* Ruta (migas de pan) */
+.mm-migas {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 2px 4px;
+  min-width: 0;
+  font-size: 0.8rem;
+  line-height: 1.5;
+}
+
+.mm-miga {
+  padding: 2px 4px;
+  font: inherit;
+  color: #a0aec0;
+  background: none;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.mm-miga:hover {
+  color: #f4f6f9;
+}
+
+.mm-miga[aria-current="location"] {
+  color: var(--c, #f4f6f9);
+  font-weight: 700;
+  cursor: default;
+}
+
+.mm-miga-sep {
+  color: #4a5568;
+}
+
+.mm-miga-hoja {
+  color: #f4f6f9;
+  font-style: italic;
+}
+
+.mm-controles {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.mm-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 12px;
+  font-family: 'Cinzel', serif;
+  font-size: 0.7rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #e0e6ed;
+  background: transparent;
+  border: 1px solid rgba(201, 151, 0, 0.45);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: color 0.2s, border-color 0.2s, background-color 0.2s, opacity 0.2s;
+}
+
+.mm-btn:hover:not(:disabled) {
+  color: #c99700;
+  border-color: #c99700;
+  background-color: rgba(201, 151, 0, 0.08);
+}
+
+.mm-btn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.mm-btn:focus-visible,
+.mm-miga:focus-visible,
+.mm-zoom button:focus-visible,
+.mm-tarjeta__cerrar:focus-visible {
+  outline: 2px solid #c99700;
+  outline-offset: 2px;
+}
+
+/* --------------------------------------------------------------------------
+   D. MAPA MENTAL — ÁREA DE EXPLORACIÓN (CÁMARA)
+   -------------------------------------------------------------------------- */
+.mm-vista {
+  position: relative;
+  height: clamp(440px, 72vh, 680px);
+  overflow: hidden;
+  cursor: grab;
+  touch-action: none;          /* permite arrastrar y pellizcar dentro del mapa */
+  -webkit-user-select: none;
+  user-select: none;
+  background-color: #0f1115;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 26px 26px;
+}
+
+.mm-vista.arrastrando {
+  cursor: grabbing;
+}
+
+/* "Mundo": capa que se mueve y escala con la cámara */
+.mm-mundo {
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform-origin: 0 0;
+  will-change: transform;
+}
+
+.mm-lineas {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1px;
+  height: 1px;
+  overflow: visible;
+  pointer-events: none;
+}
+
+/* Líneas curvas que conectan los nodos */
+.mm-linea {
+  fill: none;
+  stroke-linecap: round;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+
+.mm-linea.es-visible {
+  opacity: 0.7;
+}
+
+.mm-linea.es-visible.es-atenuada {
+  opacity: 0.14;
+}
+
+.mm-nodos {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+/* --------------------------------------------------------------------------
+   E. MAPA MENTAL — NODOS
+   --c = color de la rama · --t = color de texto sobre ese color
+   -------------------------------------------------------------------------- */
+.mm-nodo {
+  --c: #c99700;
+  --t: #0f1115;
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Merriweather', serif;
+  text-align: left;
+  line-height: 1.35;
+  border-radius: 10px;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.35s ease, visibility 0.35s, box-shadow 0.25s,
+              border-color 0.25s, background-color 0.25s, color 0.25s, filter 0.25s;
+}
+
+.mm-nodo.es-visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Ramas que pierden protagonismo cuando se explora otra */
+.mm-nodo.es-visible.es-atenuado {
+  opacity: 0.3;
+}
+
+.mm-nodo.es-visible.es-atenuado:hover {
+  opacity: 0.85;
+}
+
+.mm-nodo:focus-visible {
+  outline: 2px solid #f4f6f9;
+  outline-offset: 3px;
+}
+
+/* En el lado izquierdo el símbolo +/− va hacia afuera (a la izquierda) */
+.mm-nodo[data-lado="izq"] {
+  flex-direction: row-reverse;
+  text-align: right;
+}
+
+.mm-nodo__texto {
+  flex: 1;
+  min-width: 0;
+}
+
+/* Nivel 0: nodo central */
+.mm-nodo--p0 {
+  width: 220px;
+  padding: 18px 20px;
+  justify-content: center;
+  text-align: center;
+  font-family: 'Cinzel', serif;
+  font-size: 0.92rem;
+  font-weight: 900;
+  letter-spacing: 1px;
+  color: #14171d;
+  background-color: #efe6d2;
+  border: 2px solid #c99700;
+  border-radius: 14px;
+  box-shadow: 0 0 0 6px rgba(201, 151, 0, 0.12), 0 12px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* Nivel 1: ramas principales */
+.mm-nodo--p1 {
+  width: 180px;
+  padding: 14px 16px;
+  font-family: 'Cinzel', serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--t);
+  background-color: var(--c);
+  border: 2px solid var(--c);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.45);
+}
+
+/* Nivel 2: subdivisiones (Causas, Actores…) */
+.mm-nodo--p2 {
+  width: 190px;
+  padding: 10px 14px;
+  font-family: 'Cinzel', serif;
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: #f4f6f9;
+  background-color: #1a202c;
+  border: 1.5px solid var(--c);
+}
+
+/* Nivel 3 o más con subtemas */
+.mm-nodo--p3 {
+  width: 165px;
+  padding: 9px 12px;
+  font-size: 0.78rem;
+  color: #f4f6f9;
+  background-color: #1a202c;
+  border: 1px solid var(--c);
+}
+
+/* Conceptos finales (abren una tarjeta) */
+.mm-nodo--hoja {
+  width: 165px;
+  padding: 8px 10px 8px 12px;
+  font-size: 0.74rem;
+  color: #cbd5e0;
+  background-color: #14171d;
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-left: 3px solid var(--c);
+  border-radius: 8px;
+}
+
+.mm-nodo[data-lado="izq"].mm-nodo--hoja {
+  padding: 8px 12px 8px 10px;
+  border-left: 1px solid rgba(255, 255, 255, 0.09);
+  border-right: 3px solid var(--c);
+}
+
+/* Efectos hover (solo en dispositivos con ratón, para que no queden
+   "pegados" al tocar la pantalla en celulares) */
+@media (hover: hover) {
+  .mm-nodo:hover {
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.08), 0 8px 20px rgba(0, 0, 0, 0.45);
+  }
+
+  .mm-nodo--p0:hover {
+    box-shadow: 0 0 0 8px rgba(201, 151, 0, 0.2), 0 12px 30px rgba(0, 0, 0, 0.5);
+  }
+
+  .mm-nodo--p1:hover {
+    filter: brightness(1.12);
+  }
+
+  .mm-nodo--p2:hover,
+  .mm-nodo--p3:hover {
+    background-color: #222a38;
+  }
+
+  .mm-nodo--hoja:hover {
+    color: #ffffff;
+    background-color: #1a202c;
+    border-color: var(--c);
+  }
+}
+
+/* Nodo en foco (el que se está explorando) */
+.mm-nodo.es-foco {
+  box-shadow: 0 0 0 3px #0f1115, 0 0 0 5px var(--c), 0 10px 28px rgba(0, 0, 0, 0.5);
+}
+
+/* Concepto final cuya tarjeta está abierta */
+.mm-nodo.es-seleccionado {
+  color: #ffffff;
+  background-color: #1a202c;
+  border-color: var(--c);
+  box-shadow: 0 0 0 2px var(--c), 0 8px 20px rgba(0, 0, 0, 0.45);
+}
+
+/* Símbolo + / − de los nodos que se expanden */
+.mm-nodo__signo {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  font-family: 'Merriweather', serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  line-height: 1;
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.22);
+  border-radius: 50%;
+}
+
+.mm-nodo--p2 .mm-nodo__signo,
+.mm-nodo--p3 .mm-nodo__signo {
+  color: var(--t);
+  background-color: var(--c);
+}
+
+/* Icono "i" de los conceptos con ficha */
+.mm-nodo__info {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  font-family: 'Merriweather', serif;
+  font-size: 0.6rem;
+  font-style: italic;
+  font-weight: 700;
+  color: var(--c);
+  border: 1px solid var(--c);
+  border-radius: 50%;
+}
+
+/* Versión compacta (celulares y pantallas angostas: la activa script.js) */
+.mm--compacto .mm-nodo--p0   { width: 150px; padding: 14px; font-size: 0.78rem; }
+.mm--compacto .mm-nodo--p1   { width: 140px; padding: 11px 12px; font-size: 0.74rem; }
+.mm--compacto .mm-nodo--p2   { width: 150px; padding: 9px 11px; font-size: 0.68rem; }
+.mm--compacto .mm-nodo--p3   { width: 140px; font-size: 0.72rem; }
+.mm--compacto .mm-nodo--hoja { width: 140px; font-size: 0.7rem; }
+
+/* --------------------------------------------------------------------------
+   F. MAPA MENTAL — CONTROLES DE ZOOM Y AYUDA
+   -------------------------------------------------------------------------- */
+.mm-zoom {
+  position: absolute;
+  left: 14px;
+  bottom: 14px;
+  z-index: 4;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.mm-zoom button {
+  width: 36px;
+  height: 36px;
+  font-size: 1.1rem;
+  line-height: 1;
+  color: #e0e6ed;
+  background-color: rgba(26, 32, 44, 0.92);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: border-color 0.2s, color 0.2s;
+}
+
+.mm-zoom button:hover {
+  color: #c99700;
+  border-color: #c99700;
+}
+
+.mm-ayuda {
+  position: absolute;
+  right: 14px;
+  bottom: 12px;
+  z-index: 3;
+  padding: 3px 8px;
+  font-size: 0.7rem;
+  color: #718096;
+  background-color: rgba(15, 17, 21, 0.75);
+  border-radius: 4px;
+  pointer-events: none;
+}
+
+.mm-ayuda__tactil {
+  display: none;
+}
+
+@media (hover: none) {
+  .mm-ayuda__raton  { display: none; }
+  .mm-ayuda__tactil { display: inline; }
+}
+
+.mm-nota {
+  margin-top: 14px;
+  font-size: 0.78rem;
+  font-style: italic;
+  text-align: center;
+  color: #718096;
+}
+
+/* --------------------------------------------------------------------------
+   G. MAPA MENTAL — TARJETA INFORMATIVA
+   -------------------------------------------------------------------------- */
+.mm-tarjeta {
+  --c: #c99700;
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  z-index: 5;
+  width: 340px;
+  max-width: calc(100% - 32px);
+  max-height: calc(100% - 32px);
+  overflow-y: auto;
+  padding: 22px 22px 20px;
+  background-color: #1a202c;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-top: 4px solid var(--c);
+  border-radius: 10px;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.55);
+  cursor: auto;
+  -webkit-user-select: text;
+  user-select: text;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateX(20px);
+  transition: opacity 0.3s, transform 0.3s, visibility 0.3s;
+}
+
+.mm-tarjeta.abierta {
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+}
+
+.mm-tarjeta:focus {
+  outline: none;
+}
+
+.mm-tarjeta__cerrar {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 30px;
+  height: 30px;
+  font-size: 1.2rem;
+  line-height: 1;
+  color: #a0aec0;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.mm-tarjeta__cerrar:hover {
+  color: #f4f6f9;
+  border-color: var(--c);
+}
+
+.mm-tarjeta__ruta {
+  margin: 0 34px 8px 0;
+  font-family: 'Cinzel', serif;
+  font-size: 0.66rem;
+  letter-spacing: 1.5px;
+  line-height: 1.5;
+  text-transform: uppercase;
+  color: var(--c);
+}
+
+.mm-tarjeta__titulo {
+  margin-bottom: 12px;
+  font-family: 'Cinzel', serif;
+  font-size: 1.15rem;
+  line-height: 1.3;
+  color: #f4f6f9;
+}
+
+.mm-tarjeta__texto {
+  font-size: 0.88rem;
+  line-height: 1.7;
+  color: #cbd5e0;
+}
+
+.mm-tarjeta__bloque {
+  margin-top: 16px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.mm-tarjeta__bloque h4 {
+  margin-bottom: 8px;
+  font-family: 'Cinzel', serif;
+  font-size: 0.68rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #a0aec0;
+}
+
+.mm-fechas {
+  list-style: none;
+}
+
+.mm-fechas li {
+  position: relative;
+  margin-bottom: 6px;
+  padding-left: 14px;
+  font-size: 0.8rem;
+  line-height: 1.5;
+  color: #cbd5e0;
+}
+
+.mm-fechas li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 6px;
+  height: 6px;
+  background-color: var(--c);
+  border-radius: 50%;
+}
+
+.mm-fechas strong {
+  color: #f4f6f9;
+}
+
+.mm-chips {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.mm-chips li {
+  padding: 3px 10px;
+  font-size: 0.74rem;
+  color: #e0e6ed;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 20px;
+}
+
+/* En modo compacto la tarjeta aparece desde abajo */
+.mm--compacto .mm-tarjeta {
+  top: auto;
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
+  width: auto;
+  max-width: none;
+  max-height: 58%;
+  padding: 18px 16px 16px;
+  transform: translateY(20px);
+}
+
+.mm--compacto .mm-tarjeta.abierta {
+  transform: none;
+}
+
+/* --------------------------------------------------------------------------
+   H. AJUSTES RESPONSIVE PARA LAS SECCIONES QUE YA EXISTÍAN
+   (en computadora se ven exactamente igual que antes)
+   -------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+  .hero-section {
+    padding: 100px 20px 60px;
+  }
+
+  .main-title {
+    font-size: 2.4rem;
+  }
+
+  .subtitle {
+    font-size: 1.05rem;
+  }
+
+  .question-card {
+    padding: 20px;
+  }
+
+  .question-text {
+    font-size: 1.05rem;
+  }
+
+  .intro-section,
+  .map-section {
+    padding: 60px 0;
+  }
+
+  .section-title {
+    font-size: 1.6rem;
+  }
+
+  .intro-card {
+    padding: 24px 20px;
+  }
+
+  .intro-paragraph {
+    font-size: 1rem;
+  }
+
+  .section-subtitle {
+    margin-bottom: 28px;
+    font-size: 0.9rem;
+  }
+
+  .mm-vista {
+    height: 68vh;
+    min-height: 420px;
+  }
+}
+
+@media (max-width: 520px) {
+  .main-title {
+    font-size: 1.9rem;
+  }
+
+  .badge {
+    font-size: 0.62rem;
+    letter-spacing: 2px;
+  }
+
+  .nav-principal__marca {
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+  }
+
+  /* En celulares los botones del mapa muestran solo el icono */
+  .mm-btn__texto {
+    display: none;
+  }
+
+  .mm-btn {
+    padding: 7px 11px;
+    font-size: 0.95rem;
+  }
+
+  .mm-barra {
+    padding: 10px 12px;
+  }
+}
+
+/* Respeta a quienes prefieren menos movimiento */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .mm-nodo,
+  .mm-linea,
+  .mm-tarjeta {
+    transition: none;
+  }
+}
