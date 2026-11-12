@@ -1125,6 +1125,140 @@ html {
   border-radius: 20px;
 }
 
+/* Fuentes citadas en la tarjeta (formato APA breve) */
+.mm-fuentes {
+  list-style: none;
+}
+
+.mm-fuentes li {
+  margin-bottom: 4px;
+  font-size: 0.72rem;
+  line-height: 1.45;
+  font-style: italic;
+  color: #a0aec0;
+}
+
+/* Caja de imágenes de la tarjeta */
+.mm-imagenes {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.mm-imagen {
+  margin: 0;
+}
+
+.mm-imagen__boton {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 6px;
+  overflow: hidden;
+  background: #0f1115;
+  cursor: zoom-in;
+  transition: border-color 0.2s, transform 0.2s;
+}
+
+.mm-imagen__boton:hover,
+.mm-imagen__boton:focus-visible {
+  border-color: var(--c);
+  transform: translateY(-2px);
+  outline: none;
+}
+
+.mm-imagen__boton img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  filter: sepia(0.25) contrast(1.05);
+}
+
+.mm-imagen figcaption {
+  margin-top: 5px;
+  font-size: 0.7rem;
+  line-height: 1.4;
+  color: #a0aec0;
+}
+
+/* Visor de imagen ampliada */
+.mm-visor {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: rgba(8, 10, 14, 0.92);
+  cursor: zoom-out;
+}
+
+.mm-visor[hidden] {
+  display: none;
+}
+
+.mm-visor__figura {
+  max-width: min(1100px, 100%);
+  max-height: 100%;
+  margin: 0;
+  cursor: default;
+  text-align: center;
+}
+
+.mm-visor__figura img {
+  max-width: 100%;
+  max-height: 78vh;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 6px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7);
+}
+
+.mm-visor__figura figcaption {
+  margin-top: 12px;
+  font-size: 0.9rem;
+  color: #e0e6ed;
+}
+
+.mm-visor__figura figcaption small {
+  display: block;
+  margin-top: 4px;
+  font-size: 0.72rem;
+  font-style: italic;
+  color: #a0aec0;
+}
+
+.mm-visor__figura figcaption a {
+  color: #c99700;
+}
+
+.mm-visor__cerrar {
+  position: absolute;
+  top: 16px;
+  right: 20px;
+  width: 42px;
+  height: 42px;
+  font-size: 1.6rem;
+  line-height: 1;
+  color: #f4f6f9;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+body.mm-visor-abierto {
+  overflow: hidden;
+}
+
+@media (max-width: 600px) {
+  .mm-imagenes {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* En modo compacto la tarjeta aparece desde abajo */
 .mm--compacto .mm-tarjeta {
   top: auto;

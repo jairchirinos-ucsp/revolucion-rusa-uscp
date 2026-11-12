@@ -84,7 +84,9 @@ console.log("Script cargado correctamente.");
    Para editar textos solo hay que cambiar este objeto.
    - grupo(título, [hijos])   → nodo que se expande.
    - hoja(título, ficha)      → concepto final que abre una tarjeta.
-     ficha = { texto, fechas: [[fecha, descripción], …], personajes: [...] }
+     ficha = { texto, fechas: [[fecha, descripción], …], personajes: [...],
+               fuentes: [...],     ← opcional: citas breves (APA) que se muestran en la tarjeta
+               imagenes: [...] }   ← opcional: caja de imágenes, ver función img()
    ========================================================================== */
 function grupo(titulo, hijos) {
   return { titulo: titulo, hijos: hijos };
@@ -92,6 +94,18 @@ function grupo(titulo, hijos) {
 
 function hoja(titulo, ficha) {
   return { titulo: titulo, ficha: ficha, hijos: [] };
+}
+
+/* Imágenes de Wikimedia Commons (dominio público).
+   img(nombreDelArchivo, pie) → objeto que la tarjeta muestra en la caja de imágenes.
+   Para usar una imagen propia: { src: 'img/mi-foto.jpg', pie: 'Descripción', credito: 'Autor' } */
+function img(archivo, pie) {
+  return {
+    src: 'https://commons.wikimedia.org/wiki/Special:FilePath/' + encodeURIComponent(archivo) + '?width=900',
+    enlace: 'https://commons.wikimedia.org/wiki/File:' + encodeURIComponent(archivo),
+    pie: pie,
+    credito: 'Wikimedia Commons (dominio público)'
+  };
 }
 
 const DATOS_MAPA = {
@@ -447,76 +461,183 @@ const DATOS_MAPA = {
           ])
         ]),
 
-        /* C. ACONTECIMIENTOS */
+        /* C. ACONTECIMIENTOS
+           Investigación: Jair. Fuente principal: Hubeñák (2006), cap. 12,
+           «La revolución rusa», pp. 363-365. Cronología completada con
+           Encyclopaedia Britannica y el Archivo Histórico Provincial de Málaga. */
         grupo('Acontecimientos', [
           grupo('Revolución de Febrero de 1917', [
-            hoja('Protestas y manifestaciones', {
-              texto: 'El Día de la Mujer Trabajadora, obreras de Petrogrado salieron a protestar por la falta de pan. En pocos días la huelga fue general, y los soldados enviados a reprimir se unieron a los manifestantes.',
+            hoja('Antecedentes: un zar sin prestigio', {
+              texto: 'Según Hubeñák, los movimientos populistas, socialistas y anarquistas del siglo XIX «encontraron terreno propicio en el clima socio-religioso de Rusia y en la pérdida de prestigio del Zar». Nicolás II, «el padre del pueblo», quedó debilitado por su personalidad, por la derrota ante Japón (1904-1905) y por su «lamentable papel» en la Primera Guerra Mundial. Hacia el invierno de 1916-1917, «el ansia de guerra se había agotado».',
               fechas: [
-                ['23 de febrero de 1917 (8 de marzo)', 'Comienzan las protestas.'],
-                ['27 de febrero de 1917 (12 de marzo)', 'Las tropas se unen a la revuelta.']
+                ['1904-1905', 'Derrota en la guerra ruso-japonesa.'],
+                ['1905', 'Sublevación del acorazado Potemkin, símbolo del descontento.'],
+                ['Invierno 1916-1917', 'Agotamiento de la guerra y escasez de alimentos.']
               ],
-              personajes: []
+              personajes: ['Nicolás II'],
+              fuentes: ['Hubeñák (2006, pp. 362-364)'],
+              imagenes: [
+                img('Nikolaus II. (Russland).jpg', 'Nicolás II, último zar de Rusia.')
+              ]
+            }),
+            hoja('Huelgas y motín en Petrogrado', {
+              texto: 'El 23 de febrero, Día Internacional de la Mujer, unos 130 000 obreros salieron a las calles de Petrogrado; la principal queja era la falta de pan. En dos días la huelga era general. El zar ordenó reprimirla y, tras una jornada con decenas de muertos, los regimientos de la Guardia se amotinaron y se pasaron a los manifestantes. Los ministros huyeron y nació el Sóviet de Petrogrado.',
+              fechas: [
+                ['23 de febrero de 1917 (8 de marzo)', 'Comienzan las huelgas: unos 130 000 obreros.'],
+                ['25 de febrero de 1917 (10 de marzo)', 'Huelga general; el zar ordena reprimirla.'],
+                ['26 de febrero de 1917 (11 de marzo)', 'La policía dispara; la Guardia se amotina.'],
+                ['27 de febrero de 1917 (12 de marzo)', 'Huida de los ministros; se funda el Sóviet de Petrogrado.']
+              ],
+              personajes: ['Nicolás II', 'General Serguéi Jabálov'],
+              fuentes: ['Encyclopaedia Britannica (s. f.-b)'],
+              imagenes: [
+                img("International Women's Day - February Revolution - Petrograd.jpg", 'Manifestación del Día Internacional de la Mujer en Petrogrado, 23 de febrero (8 de marzo) de 1917.'),
+                img('Soldiers demonstration.February 1917.jpg', 'Soldados amotinados se suman a la revolución, febrero de 1917.')
+              ]
             }),
             hoja('Abdicación de Nicolás II', {
-              texto: 'Sin control de la capital y presionado por sus generales y por la Duma, el zar abdicó.',
-              fechas: [['2 de marzo de 1917 (15 de marzo)', 'Abdicación.']],
-              personajes: ['Nicolás II']
+              texto: 'Sin control de la capital y presionado por la Duma y sus generales, el zar abdicó por él y por su hijo, el zarévich Alexis, a favor de su hermano, el gran duque Miguel. Hubeñák interpreta el «golpe de estado» de febrero como un intento, «al estilo francés de medio siglo antes», de formar una monarquía constitucional, impulsado por una intelligentsia «embebida en las ideas liberales».',
+              fechas: [
+                ['2 de marzo de 1917 (15 de marzo)', 'Nicolás II abdica.']
+              ],
+              personajes: ['Nicolás II', 'Gran duque Miguel', 'Aleksandr Guchkov', 'Vasili Shulguín'],
+              fuentes: ['Hubeñák (2006, p. 364)', 'Encyclopaedia Britannica (s. f.-b; s. f.-c)'],
+              imagenes: [
+                img('1917 март Отречение Николая II манифест.jpg', 'Manifiesto de abdicación de Nicolás II, marzo de 1917.'),
+                img('The last photo of Nicholas II.jpg', 'Nicolás II tras su abdicación, en Tsárskoye Seló (1917).')
+              ]
             }),
-            hoja('Caída de la monarquía', {
-              texto: 'La negativa del gran duque Miguel a aceptar el trono puso fin al zarismo. El futuro régimen de Rusia quedó en manos de una Asamblea Constituyente que debía elegirse.',
-              fechas: [['3 de marzo de 1917 (16 de marzo)', 'Miguel rechaza la corona.']],
-              personajes: ['Gran duque Miguel']
-            }),
-            hoja('Formación del Gobierno provisional', {
-              texto: 'Diputados de la Duma formaron un gobierno liberal presidido por el príncipe Gueorgui Lvov. Al mismo tiempo actuaba el Sóviet de Petrogrado: comenzaba el «doble poder».',
-              fechas: [['2 de marzo de 1917 (15 de marzo)', 'Se forma el Gobierno provisional.']],
-              personajes: ['Gueorgui Lvov', 'Aleksandr Kérenski']
+            hoja('Fin de la dinastía Románov', {
+              texto: 'Al día siguiente el gran duque Miguel rechazó la corona. Terminaban así más de tres siglos de gobierno de los Románov. El futuro régimen de Rusia quedaba en manos de una Asamblea Constituyente que debía elegirse.',
+              fechas: [
+                ['3 de marzo de 1917 (16 de marzo)', 'Miguel rechaza el trono: cae la monarquía.']
+              ],
+              personajes: ['Gran duque Miguel'],
+              fuentes: ['Encyclopaedia Britannica (s. f.-b)']
             })
           ]),
           grupo('Gobierno provisional', [
-            hoja('Características', {
-              texto: 'Gobierno liberal y moderado que proclamó libertades civiles y una amnistía política, pero aplazó las grandes decisiones, como la reforma agraria, hasta la Asamblea Constituyente. Desde julio lo encabezó Kérenski.',
+            hoja('Formación y «doble poder»', {
+              texto: 'El Comité de la Duma formó un gobierno liberal presidido por el príncipe Gueorgui Lvov. Al mismo tiempo actuaba el Sóviet de Petrogrado, cuya Orden n.º 1 puso a los soldados bajo su autoridad. Surgieron así «dos autoridades separadas, ambas afirmando hablar en nombre del pueblo»: el Gobierno tenía la autoridad formal; el Sóviet era «depositario del poder real».',
               fechas: [
-                ['Marzo de 1917', 'Gobierno de Lvov.'],
-                ['Julio de 1917', 'Kérenski pasa a dirigir el gobierno.']
+                ['28 de febrero de 1917 (13 de marzo)', 'La Duma acuerda un gobierno presidido por Lvov.'],
+                ['1 de marzo de 1917 (14 de marzo)', 'Asume el Gobierno provisional; Orden n.º 1 del Sóviet.']
               ],
-              personajes: ['Gueorgui Lvov', 'Aleksandr Kérenski']
+              personajes: ['Gueorgui Lvov', 'Aleksandr Kérenski'],
+              fuentes: ['Encyclopaedia Britannica (s. f.-b; s. f.-c)'],
+              imagenes: [
+                img('Governo provvisorio russo marzo 1917.jpg', 'Primer Gobierno provisional, marzo de 1917.'),
+                img('Georgy Lvov 1917.jpg', 'El príncipe Gueorgui Lvov, primer jefe del Gobierno provisional.')
+              ]
             }),
-            hoja('Continuidad en la Primera Guerra Mundial', {
-              texto: 'Para cumplir con sus aliados, mantuvo a Rusia en la guerra. El fracaso de la ofensiva de junio-julio de 1917 hundió su popularidad.',
-              fechas: [['Junio-julio de 1917', 'Ofensiva Kérenski, que fracasa.']],
-              personajes: ['Aleksandr Kérenski']
-            }),
-            hoja('Conflictos con los bolcheviques', {
-              texto: 'Tras las Jornadas de Julio el gobierno persiguió a los bolcheviques y Lenin huyó a Finlandia. En agosto, el intento de golpe del general Kornílov obligó a Kérenski a armar a los obreros, y los bolcheviques salieron fortalecidos.',
+            hoja('Programa y límites', {
+              texto: 'El Sóviet exigía paz inmediata, tierra para los campesinos, jornada de ocho horas y república democrática. El Gobierno provisional, en cambio, aplazó las grandes decisiones hasta la Asamblea Constituyente y mantuvo a Rusia en la guerra. El fracaso de la ofensiva de junio hundió su popularidad: los soldados, dijo Lenin, «votaron por la paz con los pies».',
               fechas: [
-                ['Julio de 1917', 'Jornadas de Julio.'],
-                ['Agosto de 1917', 'Intento de golpe de Kornílov.']
+                ['18 de junio de 1917 (1 de julio)', 'Ofensiva de Brusílov, que fracasa en dos semanas.']
               ],
-              personajes: ['Vladimir Lenin', 'Aleksandr Kérenski', 'Lavr Kornílov']
+              personajes: ['Gueorgui Lvov', 'Aleksandr Kérenski', 'Alekséi Brusílov'],
+              fuentes: ['Archivo Histórico Provincial de Málaga (2017)', 'Encyclopaedia Britannica (s. f.-b)'],
+              imagenes: [
+                img('Political demonstration at Petrograd, 18th June 1917 (14264213940).jpg', 'Manifestación política en Petrogrado, 18 de junio (1 de julio) de 1917.')
+              ]
+            }),
+            hoja('De Lvov a Kérenski', {
+              texto: 'Tras las Jornadas de Julio, un levantamiento bolchevique fallido con más de 400 muertos, Lenin pasó a la clandestinidad y Trotski fue encarcelado. Lvov renunció y Aleksandr Kérenski, socialista moderado, asumió como primer ministro. Hubeñák llama a este gobierno el gobierno «democrático».',
+              fechas: [
+                ['3-4 de julio de 1917 (16-17 de julio)', 'Jornadas de Julio.'],
+                ['8 de julio de 1917 (21 de julio)', 'Kérenski reemplaza a Lvov como primer ministro.']
+              ],
+              personajes: ['Aleksandr Kérenski', 'Gueorgui Lvov', 'Vladimir Lenin', 'León Trotski'],
+              fuentes: ['Hubeñák (2006, p. 364)', 'Encyclopaedia Britannica (s. f.-b; s. f.-c)'],
+              imagenes: [
+                img('Alexander Kerensky 1917.jpg', 'Aleksandr Kérenski, primer ministro desde julio de 1917.'),
+                img('19170704 Riot on Nevsky prosp Petrograd.jpg', 'Jornadas de Julio: disparos sobre la multitud en la avenida Nevski, 4 (17) de julio de 1917.')
+              ]
+            }),
+            hoja('El asunto Kornílov', {
+              texto: 'A fines de agosto el general Kornílov, comandante en jefe, marchó sobre Petrogrado para aplastar a los sóviets. El Gobierno, incapaz de defenderse, aceptó armar a los obreros, y bajo mando bolchevique el golpe fue sofocado. Las masas se radicalizaron: los bolcheviques ganaron prestigio y, en septiembre, la mayoría en los sóviets de Petrogrado y Moscú.',
+              fechas: [
+                ['Fines de agosto de 1917 (septiembre)', 'Intento de golpe de Kornílov.'],
+                ['Mediados de septiembre de 1917', 'Mayoría bolchevique en Petrogrado y Moscú.']
+              ],
+              personajes: ['Lavr Kornílov', 'Aleksandr Kérenski', 'León Trotski'],
+              fuentes: ['Archivo Histórico Provincial de Málaga (2017)', 'Encyclopaedia Britannica (2026; s. f.-b)'],
+              imagenes: [
+                img('Kornilov 1917.jpg', 'El general Lavr Kornílov en 1917.')
+              ]
             })
           ]),
           grupo('Revolución de Octubre de 1917', [
-            hoja('Organización de los bolcheviques', {
-              texto: 'El Comité Central bolchevique aprobó la insurrección. El Comité Militar Revolucionario del Sóviet de Petrogrado, dirigido en la práctica por Trotski, coordinó a la Guardia Roja, a soldados y a marineros.',
-              fechas: [['10 de octubre de 1917 (23 de octubre)', 'Se aprueba la insurrección.']],
-              personajes: ['Vladimir Lenin', 'León Trotski']
+            hoja('Lenin y las Tesis de abril', {
+              texto: 'Lenin llegó a Petrogrado desde el exilio. En las Tesis de abril propuso no apoyar al Gobierno provisional, paz inmediata, confiscación de las tierras de los terratenientes y «todo el poder a los sóviets». Hubeñák destaca esta obra, junto a «¿Qué hacer?», como clave para entender la revolución.',
+              fechas: [
+                ['3 de abril de 1917 (16 de abril)', 'Lenin regresa a Petrogrado.'],
+                ['Abril de 1917', 'Tesis de abril; la Conferencia del partido las adopta.']
+              ],
+              personajes: ['Vladimir Lenin'],
+              fuentes: ['Hubeñák (2006, p. 364, n. 21)', 'Encyclopaedia Britannica (s. f.-d)'],
+              imagenes: [
+                img('Lenin in Stockholm 1917.jpg', 'Lenin en Estocolmo, de regreso a Rusia, abril de 1917.'),
+                img('Vladimir Lenin, 1917.jpg', 'Vladímir Lenin en 1917.')
+              ]
             }),
-            hoja('Toma del poder', {
-              texto: 'Las fuerzas revolucionarias ocuparon puentes, estaciones, centrales telefónicas y edificios clave de Petrogrado casi sin resistencia.',
-              fechas: [['24-25 de octubre de 1917 (6-7 de noviembre)', 'Insurrección en Petrogrado.']],
-              personajes: ['León Trotski']
+            hoja('Preparación de la insurrección', {
+              texto: 'Lenin, de regreso clandestino desde Finlandia, convenció al Comité Central de preparar la toma armada del poder. Trotski, presidente del Sóviet de Petrogrado, dirigió el Comité Militar Revolucionario, que logró que la guarnición de la capital lo reconociera como único órgano de poder. Hubeñák subraya que los comunistas actuaron «organizados en soviets (consejos)».',
+              fechas: [
+                ['10 de octubre de 1917 (23 de octubre)', 'El Comité Central aprueba la insurrección.'],
+                ['21-22 de octubre de 1917 (3-4 de noviembre)', 'La guarnición obedece al Comité Militar Revolucionario.']
+              ],
+              personajes: ['Vladimir Lenin', 'León Trotski'],
+              fuentes: ['Hubeñák (2006, p. 364)', 'Encyclopaedia Britannica (s. f.-b; s. f.-d)'],
+              imagenes: [
+                img('LeninAsIvanov1917.jpg', 'Lenin disfrazado, con el nombre falso de «Ivánov», durante la clandestinidad (1917).'),
+                img('Leo Trotzki 1917.jpg', 'León Trotski en 1917, presidente del Sóviet de Petrogrado.')
+              ]
             }),
             hoja('Toma del Palacio de Invierno', {
-              texto: 'El palacio, sede del Gobierno provisional, fue tomado de madrugada. La señal la dio un disparo de fogueo del crucero Aurora. Kérenski ya había huido y sus ministros fueron arrestados.',
-              fechas: [['26 de octubre de 1917 (8 de noviembre)', 'Toma del palacio.']],
-              personajes: ['Aleksandr Kérenski']
+              texto: 'Guardias Rojos, soldados y marinos ocuparon estaciones, puentes y el telégrafo de Petrogrado casi sin resistencia. Kérenski partió hacia el frente en busca de tropas. En la noche siguiente fue tomado el Palacio de Invierno, sede del Gobierno provisional, y sus ministros fueron arrestados. Britannica lo describe como un golpe «en gran medida incruento».',
+              fechas: [
+                ['24-25 de octubre de 1917 (6-7 de noviembre)', 'Ocupación de los puntos clave de Petrogrado.'],
+                ['Noche del 25 al 26 de octubre de 1917 (7-8 de noviembre)', 'Toma del Palacio de Invierno; arresto de los ministros.']
+              ],
+              personajes: ['León Trotski', 'Aleksandr Kérenski'],
+              fuentes: ['Archivo Histórico Provincial de Málaga (2017)', 'Encyclopaedia Britannica (s. f.-b; s. f.-c)'],
+              imagenes: [
+                img('Stormningen av vinterpalatset.jpg', 'La toma del Palacio de Invierno (imagen difundida posteriormente).'),
+                img('After the capture of the Winter Palace 26 October 1917.jpg', 'Tras la toma del Palacio de Invierno, 26 de octubre (8 de noviembre) de 1917.')
+              ]
             }),
             hoja('Victoria bolchevique', {
-              texto: 'El II Congreso de los Sóviets aprobó la toma del poder y formó el Consejo de Comisarios del Pueblo, presidido por Lenin. Sus primeras leyes fueron el Decreto sobre la Paz y el Decreto sobre la Tierra.',
-              fechas: [['25-26 de octubre de 1917 (7-8 de noviembre)', 'II Congreso de los Sóviets.']],
-              personajes: ['Vladimir Lenin', 'León Trotski']
+              texto: 'El II Congreso Panruso de los Sóviets asumió el poder; mencheviques y socialrevolucionarios moderados se retiraron. El Congreso creó el Consejo de Comisarios del Pueblo, presidido por Lenin y con Trotski en Asuntos Exteriores, y aprobó el Decreto de Paz y el Decreto de Tierra. Para Hubeñák fue «la primera revolución proletaria de la historia».',
+              fechas: [
+                ['25 de octubre de 1917 (7 de noviembre)', 'Se abre el II Congreso de los Sóviets.'],
+                ['26 de octubre de 1917 (8 de noviembre)', 'Consejo de Comisarios del Pueblo; Decretos de Paz y de Tierra.']
+              ],
+              personajes: ['Vladimir Lenin', 'León Trotski'],
+              fuentes: ['Hubeñák (2006, p. 364)', 'Encyclopaedia Britannica (s. f.-b; s. f.-d)'],
+              imagenes: [
+                img("Gothic Hall of the Winter Palace after the seizure by Soviets' military troops.jpg", 'Sala del Palacio de Invierno tras la ocupación por las tropas de los sóviets.')
+              ]
+            }),
+            hoja('La proclama de los sóviets', {
+              texto: 'Hubeñák recoge la proclama bolchevique de octubre: «Nosotros, los soviets de los diputados obreros, soldados y campesinos, vamos a intentar una experiencia única en la historia. Vamos a fundar un gobierno cuya única meta será la de satisfacer las necesidades de los soldados, obreros y campesinos». Los bolcheviques («mayoritarios», de bolshie) se llamaban así frente a los mencheviques («minoritarios»).',
+              fechas: [
+                ['Octubre de 1917', 'Proclama del nuevo gobierno de los sóviets.']
+              ],
+              personajes: ['Vladimir Lenin', 'León Trotski'],
+              fuentes: ['Hubeñák (2006, p. 364, n. 24)']
+            }),
+            hoja('Leyenda y realidad', {
+              texto: 'Hubeñák advierte que el asalto al Palacio de Invierno, como la toma de la Bastilla, fue un hecho «relativamente insignificante» en lo militar: «su verdadero papel fue simbólico» y muestra «la importancia de los mitos en los acontecimientos históricos». La «dictadura del proletariado» se institucionalizó después, tras la guerra civil, con el Komintern (1919) y la URSS (1922).',
+              fechas: [
+                ['1919', 'Creación de la III Internacional (Komintern).'],
+                ['1922', 'Conformación de la URSS.']
+              ],
+              personajes: ['Vladimir Lenin', 'León Trotski', 'Iósif Stalin'],
+              fuentes: ['Hubeñák (2006, pp. 364-365)'],
+              imagenes: [
+                img('May 1st 1917, Petrograd (14264130389).jpg', 'Multitud en Petrogrado, 1.º de mayo de 1917.')
+              ]
             })
           ])
         ]),
@@ -626,6 +747,14 @@ const DATOS_MAPA = {
   const tarjetaPersonajes = document.getElementById('mm-tarjeta-personajes');
   const bloqueFechas = document.getElementById('mm-tarjeta-bloque-fechas');
   const bloquePersonajes = document.getElementById('mm-tarjeta-bloque-personajes');
+  const tarjetaFuentes = document.getElementById('mm-tarjeta-fuentes');
+  const bloqueFuentes = document.getElementById('mm-tarjeta-bloque-fuentes');
+  const tarjetaImagenes = document.getElementById('mm-tarjeta-imagenes');
+  const bloqueImagenes = document.getElementById('mm-tarjeta-bloque-imagenes');
+  const visor = document.getElementById('mm-visor');
+  const visorImg = document.getElementById('mm-visor-img');
+  const visorPie = document.getElementById('mm-visor-pie');
+  const visorCredito = document.getElementById('mm-visor-credito');
 
   /* ---------- 4.2 Ajustes generales ---------- */
   const AJUSTES = {
@@ -1184,6 +1313,43 @@ const DATOS_MAPA = {
     });
     bloquePersonajes.hidden = !(f.personajes && f.personajes.length);
 
+    // Fuentes (opcional): si la ficha no las tiene, el bloque se oculta.
+    if (tarjetaFuentes) {
+      tarjetaFuentes.innerHTML = '';
+      (f.fuentes || []).forEach(function (fu) {
+        const li = document.createElement('li');
+        li.textContent = fu;
+        tarjetaFuentes.appendChild(li);
+      });
+      bloqueFuentes.hidden = !(f.fuentes && f.fuentes.length);
+    }
+
+    // Caja de imágenes (opcional): miniaturas con pie; al hacer clic se amplían.
+    if (tarjetaImagenes) {
+      tarjetaImagenes.innerHTML = '';
+      (f.imagenes || []).forEach(function (im) {
+        const fig = document.createElement('figure');
+        fig.className = 'mm-imagen';
+        const boton = document.createElement('button');
+        boton.type = 'button';
+        boton.className = 'mm-imagen__boton';
+        boton.setAttribute('aria-label', 'Ampliar imagen: ' + (im.pie || ''));
+        const el = document.createElement('img');
+        el.src = im.src;
+        el.alt = im.pie || '';
+        el.loading = 'lazy';
+        el.addEventListener('error', function () { fig.remove(); });   // si no carga, se oculta
+        boton.appendChild(el);
+        boton.addEventListener('click', function () { abrirVisor(im); });
+        fig.appendChild(boton);
+        const pie = document.createElement('figcaption');
+        pie.textContent = im.pie || '';
+        fig.appendChild(pie);
+        tarjetaImagenes.appendChild(fig);
+      });
+      bloqueImagenes.hidden = !(f.imagenes && f.imagenes.length);
+    }
+
     tarjeta.scrollTop = 0;
     tarjeta.classList.add('abierta');
     tarjeta.focus({ preventScroll: true });
@@ -1191,6 +1357,43 @@ const DATOS_MAPA = {
     actualizarEstados();
     actualizarBarra();
     encuadrar(true);
+  }
+
+  /* Visor de imagen ampliada */
+  function abrirVisor(im) {
+    if (!visor) return;
+    visorImg.src = im.src.replace('?width=900', '?width=1600');
+    visorImg.alt = im.pie || '';
+    visorPie.textContent = im.pie || '';
+    visorCredito.innerHTML = '';
+    if (im.credito) {
+      if (im.enlace) {
+        const a = document.createElement('a');
+        a.href = im.enlace; a.target = '_blank'; a.rel = 'noopener';
+        a.textContent = im.credito;
+        visorCredito.appendChild(a);
+      } else {
+        visorCredito.textContent = im.credito;
+      }
+    }
+    visor.hidden = false;
+    document.body.classList.add('mm-visor-abierto');
+  }
+
+  function cerrarVisor() {
+    if (!visor || visor.hidden) return;
+    visor.hidden = true;
+    visorImg.src = '';
+    document.body.classList.remove('mm-visor-abierto');
+  }
+
+  if (visor) {
+    visor.addEventListener('click', function (e) {
+      if (e.target === visor || e.target.id === 'mm-visor-cerrar') cerrarVisor();
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') cerrarVisor();
+    });
   }
 
   function cerrarTarjeta(reencuadrar) {
