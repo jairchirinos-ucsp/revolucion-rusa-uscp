@@ -293,35 +293,29 @@ const DATOS_MAPA = {
           ]),
           grupo('Factor detonante', [
             hoja('Rusia en la Primera Guerra Mundial', {
-              texto: 'Rusia entró en la guerra en 1914 junto a Francia y el Reino Unido. Su ejército era numeroso, pero le faltaban armas, munición y buenos mandos. En 1915 el propio zar asumió el mando militar, lo que lo hizo responsable directo de las derrotas.',
-              fechas: [
-                ['1914', 'Rusia entra en la guerra.'],
-                ['1915', 'Nicolás II asume el mando del ejército.']
-              ],
+              texto: 'La entrada de Rusia en la Gran Guerra arrastró al imperio a un colapso irreversible al exigir un esfuerzo bélico moderno para el cual el país no tenía capacidad industrial ni logística. Toda la producción agrícola y las redes ferroviarias se confiscaron de forma exclusiva para abastecer al frente oriental, estrangulando la economía interna. Así, el conflicto funcionó como el catalizador final que aceleró la quiebra de un sistema político y socioeconómico ya agonizante.',
+              fechas: [['1 de agosto 1914', 'Declaración de guerra de Alemania a Rusia, marcando el ingreso oficial del Imperio Ruso en la Primera Guerra Mundial.']],
               personajes: ['Nicolás II']
             }),
             hoja('Derrotas militares', {
-              texto: 'Desde la derrota de Tannenberg y las grandes retiradas de 1915, Rusia sufrió millones de bajas entre muertos, heridos y prisioneros. La moral se hundió y aumentaron las deserciones.',
-              fechas: [
-                ['Agosto de 1914', 'Derrota de Tannenberg.'],
-                ['1915', 'Gran retirada del frente ruso.']
-              ],
-              personajes: []
+              texto: 'A pesar de contar con el ejército más numeroso del conflicto, las tropas formadas por campesinos y obreros reclutados a la fuerza eran enviadas a combatir descalzas, sin abrigos de invierno y con escasez de armas y municiones frente al poderío alemán. El Zar Nicolás II asumió personalmente el mando militar en el frente, volviéndose responsable directo de las millones de bajas, las humillantes derrotas y las deserciones masivas que destruyeron la moral del ejército.',
+              fechas: [['Agosto de 1914 - Septiembre de 1915', 'Catastrófica derrota rusa en la Batalla de Tannenberg en 1914 y decisión de Nicolás II en septiembre de 1915 de asumir el mando supremo en el frente']],
+              personajes: ['Nicolás II']
             }),
             hoja('Escasez de alimentos', {
-              texto: 'La movilización de millones de campesinos redujo las cosechas, y los ferrocarriles, saturados por la guerra, no llevaban suficientes alimentos ni combustible a las ciudades.',
-              fechas: [],
+              texto: 'En el frente interno, el reclutamiento masivo de campesinos dejó los campos sin mano de obra suficiente, provocando una caída drástica en la producción agrícola nacional. Al mismo tiempo, la parálisis y el colapso de las redes de transporte ferroviario priorizadas para uso militar y congeladas por el crudo invierno interrumpieron el suministro hacia las ciudades, generando un desabastecimiento absoluto de harina, carne y carbón en los centros urbanos.',
+              fechas: [['Invierno de 1916–1917', 'Congelamiento y colapso total de las líneas ferroviarias que dejó a Petrogrado y Moscú sin abastecimiento básico.']],
               personajes: []
             }),
             hoja('Hambre', {
-              texto: 'En el invierno de 1916-1917 las ciudades sufrieron largas colas para conseguir pan y una fuerte subida de precios. El hambre en Petrogrado fue la chispa directa de las protestas de febrero de 1917.',
-              fechas: [['Invierno 1916-1917', 'Colas y escasez de pan en Petrogrado.']],
+              texto: 'El desabastecimiento extremo desató una inflación incontrolable sobre los productos básicos y sumió a los centros industriales en una hambruna intolerable. En las calles congeladas de Petrogrado, la población civil se veía obligada a hacer filas interminables durante días enteros bajo temperaturas extremas apenas para conseguir un pedazo de pan, llevando la crisis social a un límite biológico de pura desesperación y supervivencia.',
+              fechas: [['Febrero de 1917', 'Agudización crítica de la hambruna y racionamiento extremo del pan en Petrogrado que desencadenó las protestas callejeras.']],
               personajes: []
             }),
             hoja('Descontento popular', {
-              texto: 'Obreros, campesinos, soldados e incluso parte de la nobleza perdieron la confianza en el zar. La influencia de Rasputín sobre la familia imperial desprestigió aún más a la monarquía.',
-              fechas: [['Diciembre de 1916', 'Asesinato de Rasputín.']],
-              personajes: ['Grigori Rasputín', 'Alejandra Fiódorovna', 'Nicolás II']
+              texto: 'El hambre extrema unificó finalmente los reclamos del campo, el odio acumulado en las fábricas y el cansancio de los soldados amotinados en el frente. Por pura desesperación, el miedo secular a la policía del zar desapareció, transformando las quejas cotidianas por alimentos en una insurrección masiva que exigía el derrocamiento inmediato de la autocracia y forzó la caída definitiva de la monarquía.',
+              fechas: [['23 de febrero al 2 de marzo de 1917', 'Estallido de la Revolución de Febrero en Petrogrado y abdicación forzada del Zar Nicolás II.']],
+              personajes: ['Nicolás II']
             })
           ])
         ]),
