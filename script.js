@@ -243,7 +243,7 @@ const DATOS_MAPA = {
         grupo('Causas', [
           grupo('Causas políticas', [
             hoja('Autocracia del zar Nicolás II', {
-              texto: 'Rusia era una autocracia: el zar concentraba todo el poder, se consideraba elegido por Dios y no respondía ante ninguna constitución. Nicolás II se negó a compartir el poder pese a las presiones de la sociedad.',
+              texto: 'A inicios del siglo XX, el Imperio Ruso permanecía estancado en un absolutismo monárquico obsoleto bajo el mandato de Nicolás II, quien gobernaba amparado en el "derecho divino". El monarca estaba firmemente convencido de que su poder provenía de un mandato sagrado otorgado por Dios, por lo que su voluntad era ley suprema y no debía rendir cuentas ni ante un parlamento ni ante sus súbditos. Como señala Florencio Hubeñak, esta mentalidad autocrática y rígida aceleró la descomposición política de la corona, volviéndola completamente impermeable frente a cualquier intento de modernización o reforma institucional. De este modo, el zarismo mantuvo al Estado anclado en prácticas propias del Antiguo Régimen, rechazando todo límite legal a la autoridad absoluta del emperador.',
               fechas: [['1894', 'Nicolás II llega al trono.']],
               personajes: ['Nicolás II']
             }),
