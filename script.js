@@ -266,31 +266,28 @@ const DATOS_MAPA = {
           ]),
           grupo('Causas económicas y sociales', [
             hoja('Pobreza extrema', {
-              texto: 'A inicios del siglo XX la gran mayoría de la población rusa era campesina, pobre y en buena parte analfabeta. Las malas cosechas provocaban hambrunas periódicas.',
-              fechas: [['1891-1892', 'Gran hambruna en el Volga y otras regiones.']],
+              texto: 'La economía rusa arrastraba un desfase insostenible que condenaba a la mayoría de la población a una miseria crónica en el campo y las ciudades. Mientras más del 80% de los habitantes sobrevivía sin tierras propias, los núcleos industriales sufrían una inflación descontrolada que pulverizaba el poder adquisitivo de las familias. Esta precariedad impedía cubrir siquiera las necesidades alimentarias básicas, convirtiendo la supervivencia diaria en una lucha desesperada que asfixió a las mayorías populares.',
+              fechas: [['1891-1892', '(Gran hambruna rusa que evidenció la vulnerabilidad extrema y la miseria estructural de millones de campesinos y trabajadores.']],
               personajes: []
             }),
             hoja('Explotación de los trabajadores', {
-              texto: 'La industrialización, concentrada en San Petersburgo y Moscú, trajo jornadas que solían superar las diez horas, salarios bajos y viviendas insalubres. Los obreros eran una minoría, pero se agrupaban en grandes fábricas, lo que facilitó su organización.',
-              fechas: [['1890-1914', 'Rápida industrialización con capital extranjero.']],
+              texto: 'La industrialización acelerada y tardía en ciudades como San Petersburgo y Moscú consolidó un nuevo proletariado urbano sometido a una explotación despiadada. Respaldados por la prohibición real de huelgas y sindicatos, los empresarios imponían jornadas laborales de 12 a 14 horas diarias con salarios miserables que apenas costeaban el pan. La falta absoluta de leyes de protección médica o laboral obligaba a los obreros a hacinarse en suburbios insalubres, volviendo las fábricas un polvorín social.',
+              fechas: [['1897', 'Aprobación de una ley laboral limitada a 11,5 horas máximas de trabajo, sistemáticamente incumplida por los dueños con aval del régimen.']],
               personajes: []
             }),
             hoja('Desigualdad social', {
-              texto: 'Una pequeña élite de nobles, alto clero y gran burguesía concentraba la riqueza y la tierra, mientras millones de campesinos y obreros vivían en la miseria.',
-              fechas: [],
+              texto: 'La sociedad rusa presentaba una polarización extrema que fracturaba al imperio entre una diminuta élite privilegiada y una masa mayoritaria desposeída. La aristocracia terrateniente (boyardos), la familia imperial y la Iglesia Ortodoxa monopolizaban las tierras fértiles, el capital industrial y los privilegios políticos. Esta rígida estructura cerraba toda movilidad social a campesinos y obreros, generando un resentimiento profundo contra un sistema que protegía exclusivamente a una minoría.',
+              fechas: [['1897', 'Primer censo del Imperio Ruso, que expuso estadísticamente que menos del 2% de nobleza concentraba la riqueza frente a más del 80% de campesinos pobres.']],
               personajes: []
             }),
             hoja('Explotación agraria', {
-              texto: 'Aunque la servidumbre se abolió en 1861, los campesinos recibieron poca tierra y debieron pagarla durante décadas. La mejor tierra siguió en manos de los nobles terratenientes.',
-              fechas: [
-                ['1861', 'Abolición de la servidumbre.'],
-                ['1906', 'Reforma agraria de Stolypin, con resultados limitados.']
-              ],
+              texto: 'El núcleo productivo del imperio se sostenía sobre una estructura agraria semifeudal que mantenía atados a los trabajadores del campo a un sistema opresivo. Aunque la servidumbre legal se abolió décadas atrás, la reforma agraria fracasó: las familias rurales continuaban atadas a deudas estatales perpetuas por tierras infértiles. Debido al monopolio terrateniente sobre los mejores terrenos, los campesinos carecían de parcelas propias y trabajaban en condiciones de semiesclavitud para pagar impuestos abusivos.',
+              fechas: [['1861', 'Edicto de Emancipación de los siervos de Alejandro II, reforma que abolió la servidumbre legal pero endeudó de por vida a los campesinos.']],
               personajes: ['Alejandro II', 'Piotr Stolypin']
             }),
             hoja('Vida del campesinado', {
-              texto: 'Las familias campesinas trabajaban con técnicas atrasadas dentro de la comuna rural (mir), que repartía las tierras entre ellas. El deseo de tener tierra propia fue una de las grandes aspiraciones de la revolución.',
-              fechas: [],
+              texto: 'Más del 80% de la población del Imperio Ruso estaba compuesta por campesinos sumidos en el analfabetismo, el aislamiento y la precariedad absoluta. Al carecer de capital, apoyo estatal y parcelas productivas, las comunidades rurales empleaban técnicas de cultivo rudimentarias que mantenían la agricultura en niveles medievales. Esta fragilidad los exponía a padecer hambrunas cíclicas severas cada vez que fallaban las cosechas o el clima, empujando a millones hacia las ciudades en busca de sustento.',
+              fechas: [['1906', 'Inicio de la reforma agraria de Piotr Stolipin, intento tardío por crear campesinos propietarios que no logró revertir la miseria rural.']],
               personajes: []
             })
           ]),
