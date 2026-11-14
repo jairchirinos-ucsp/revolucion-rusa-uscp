@@ -243,29 +243,24 @@ const DATOS_MAPA = {
         grupo('Causas', [
           grupo('Causas políticas', [
             hoja('Autocracia del zar Nicolás II', {
-              texto: 'A inicios del siglo XX, el Imperio Ruso permanecía estancado en un absolutismo monárquico obsoleto bajo el mandato de Nicolás II, quien gobernaba amparado en el "derecho divino". El monarca estaba firmemente convencido de que su poder provenía de un mandato sagrado otorgado por Dios, por lo que su voluntad era ley suprema y no debía rendir cuentas ni ante un parlamento ni ante sus súbditos. Como señala Florencio Hubeñak, esta mentalidad autocrática y rígida aceleró la descomposición política de la corona, volviéndola completamente impermeable frente a cualquier intento de modernización o reforma institucional. De este modo, el zarismo mantuvo al Estado anclado en prácticas propias del Antiguo Régimen, rechazando todo límite legal a la autoridad absoluta del emperador.',
-              fechas: [['1894', 'Nicolás II llega al trono.']],
+              texto: 'A inicios del siglo XX, el Imperio Ruso permanecía estancado en un absolutismo monárquico obsoleto bajo el mandato de Nicolás II, quien gobernaba amparado en el "derecho divino". El monarca estaba firmemente convencido de que su poder provenía de un mandato sagrado otorgado por Dios, por lo que su voluntad era ley suprema y no debía rendir cuentas ni ante un parlamento ni ante sus súbditos.',
+              fechas: [['1894', 'Año en que Nicolás II asciende al trono y reafirma públicamente su compromiso de mantener intacto el absolutismo monárquico y el "derecho divino" heredado de su padre.']],
               personajes: ['Nicolás II']
             }),
             hoja('Concentración del poder político', {
-              texto: 'Las decisiones dependían del zar, de su corte y de una burocracia ineficaz. Tras la Revolución de 1905 se creó la Duma (parlamento), pero el zar la disolvió varias veces y limitó sus funciones.',
-              fechas: [
-                ['1905', 'Revolución de 1905.'],
-                ['1906', 'Se reúne la primera Duma.']
-              ],
+              texto: 'El Estado ruso estaba estructurado para que todas las decisiones recayeran exclusivamente en el emperador, gobernando sin una Constitución real ni elecciones democráticas auténticas que limitaran sus atribuciones. Nicolás II monopolizaba de forma absoluta la creación de las leyes, el mando supremo del ejército y el control de la justicia en todo el imperio, anulando cualquier equilibrio institucional o participación ciudadana real.',
+              fechas: [['23 de abril de 1906', 'Promulgación de las Leyes Fundamentales, decreto con el que Nicolás II reafirmó su autoridad autocrática suprema sobre la creación de leyes, el ejército y la justicia, anulando en la práctica cualquier poder real del parlamento.']],
               personajes: ['Nicolás II']
             }),
             hoja('Represión política', {
-              texto: 'La Ojrana, policía secreta zarista, vigilaba, encarcelaba o deportaba a Siberia a los opositores. En el «Domingo Sangriento», las tropas dispararon contra una marcha pacífica de obreros que llevaba peticiones al zar.',
-              fechas: [['9 de enero de 1905 (22 de enero)', 'Domingo Sangriento en San Petersburgo.']],
+              texto: 'Para sostener su poder absoluto, el régimen levantó un aparato de terror estatal centrado en la Ochrana, la temida policía secreta encargada de vigilar, infiltrar y aplastar brutalmente cualquier foco de oposición. Mediante el espionaje sistemático, el encarcelamiento masivo sin juicio justo y el exilio forzado a los inhóspitos campos de trabajo en Siberia, el Estado buscaba neutralizar a líderes obreros, estudiantes e intelectuales.Esta violencia estatal alcanzó su punto más crítico en el Domingo Sangriento de 1905, cuando las tropas imperiales abrieron fuego contra una manifestación pacífica de familias trabajadoras que pedían pan y derechos básicos. Esta masacre destruyó el mito del zar como "padre protector", transformando la reverencia popular en un odio profundo.',
+              fechas: [['22 de enero de 1905', 'Domingo Sangriento en San Petersburgo.']],
               personajes: ['Nicolás II', 'Gueorgui Gapón']
             }),
             hoja('Falta de libertades políticas', {
-              texto: 'Había censura de prensa y los partidos y sindicatos estaban prohibidos o muy limitados. Por eso muchos opositores actuaban en la clandestinidad o desde el exilio, como los socialdemócratas rusos.',
+              texto: 'Bajo el régimen zarista, los habitantes no eran ciudadanos con derechos garantizados, sino súbditos privados de las libertades civiles básicas que ya existían en otras potencias europeas. La libertad de expresión y de prensa estaba anulada por una censura implacable que confiscaba cualquier publicación crítica con la corona o la Iglesia Ortodoxa, mientras se prohibían las huelgas, los sindicatos independientes y los partidos opositores.',
               fechas: [
-                ['1898', 'Se funda el Partido Obrero Socialdemócrata Ruso.'],
-                ['1903', 'El partido se divide en bolcheviques y mencheviques.']
-              ],
+                ['17 de octubre de 1905', 'Firma del Manifiesto de Octubre, documento con el que el zar prometió falsamente conceder libertades civiles, de prensa y de asociación tras las protestas masivas, pero que fue incumplido y censurado casi de inmediato por la corona.']],
               personajes: ['Vladimir Lenin', 'Yuli Mártov']
             })
           ]),
