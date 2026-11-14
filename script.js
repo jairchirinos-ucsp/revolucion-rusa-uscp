@@ -646,71 +646,59 @@ const DATOS_MAPA = {
         grupo('Consecuencias', [
           grupo('Tratado de Brest-Litovsk', [
             hoja('Firma del tratado', {
-              texto: 'Firmado con Alemania y sus aliados. Rusia perdió Polonia, Finlandia, los países bálticos y Ucrania: alrededor de un tercio de su población y buena parte de su industria y de sus minas de carbón.',
-              fechas: [['3 de marzo de 1918', 'Firma del tratado.']],
+              texto: 'Firmado con Alemania y sus aliados para cumplir la promesa bolchevique de paz. Rusia cedió extensos territorios estratégicos, perdiendo el control sobre Polonia, Finlandia y los países bálticos.',
+              fechas: [['Marzo de 1918', 'Firma del Tratado de Brest-Litovsk.']],
               personajes: ['Vladimir Lenin', 'León Trotski']
             }),
             hoja('Salida de la Primera Guerra Mundial', {
-              texto: 'Con el tratado Rusia abandonó la guerra, como había prometido Lenin. El tratado quedó anulado tras la derrota alemana, aunque Polonia, Finlandia y los países bálticos se mantuvieron independientes.',
+              texto: 'Rusia abandonó el conflicto mundial para priorizar la supervivencia de la revolución interna. Tras la derrota de los imperios centrales en noviembre de 1918, resurgieron o se consolidaron como repúblicas independientes Polonia, Finlandia, Lituania, Estonia y Letonia.',
               fechas: [
-                ['Marzo de 1918', 'Rusia sale de la guerra.'],
-                ['Noviembre de 1918', 'Se anula el tratado.']
+                ['Marzo de 1918', 'Retirada oficial de Rusia de la guerra.'],
+                ['Noviembre de 1918', 'Fin de la Primera Guerra Mundial y caída de los imperios absolutistas.']
               ],
               personajes: ['Vladimir Lenin']
             })
           ]),
-          grupo('Guerra civil rusa', [
+          grupo('Guerra Civil Rusa', [
             hoja('Ejército Rojo contra Ejército Blanco', {
-              texto: 'El Ejército Rojo bolchevique se enfrentó al Ejército Blanco, una coalición de monárquicos, liberales y antiguos oficiales, apoyada por potencias extranjeras. Los rojos vencieron gracias a su unidad de mando y al control del centro del país.',
-              fechas: [['1918-1921', 'Guerra civil.']],
-              personajes: ['León Trotski', 'Antón Denikin', 'Aleksandr Kolchak', 'Piotr Wrangel']
+              texto: 'Enfrentamiento sangriento entre el Ejército Rojo bolchevique y el Ejército Blanco (monárquicos y fuerzas antibolcheviques apoyadas por potencias extranjeras). La victoria comunista aseguró la supervivencia del nuevo régimen.',
+              fechas: [['1918-1922', 'Desarrollo de la Guerra Civil Rusa.']],
+              personajes: ['Vladimir Lenin', 'León Trotski']
             }),
-            hoja('Consecuencias políticas, económicas y sociales', {
-              texto: 'Se consolidó la dictadura de partido único y la Cheka (policía política) aplicó el «terror rojo». El «comunismo de guerra» y la destrucción hundieron la economía. La guerra, el hambre y las epidemias causaron millones de muertos.',
-              fechas: [
-                ['Diciembre de 1917', 'Se crea la Cheka.'],
-                ['1921-1922', 'Gran hambruna.']
-              ],
-              personajes: ['Vladimir Lenin', 'Félix Dzerzhinski']
+            hoja('Choque entre utopía y realidad autoritaria', {
+              texto: 'Para ganar la guerra, se institucionalizó la «dictadura del proletariado» y el monopolio absoluto del Partido Comunista. El racionamiento, las requisas de grano y la violencia bélica provocaron una grave escasez y millones de víctimas.',
+              fechas: [['1918-1922', 'Consolidación del poder único bolchevique.']],
+              personajes: ['Vladimir Lenin', 'León Trotski']
             })
           ]),
-          grupo('Creación de la URSS', [
-            hoja('Fundación en 1922', {
-              texto: 'Rusia, Ucrania, Bielorrusia y la Federación Transcaucásica firmaron el tratado que creó la Unión de Repúblicas Socialistas Soviéticas (URSS).',
-              fechas: [['30 de diciembre de 1922', 'Fundación de la URSS.']],
+          grupo('Transformaciones económicas y sociales', [
+            hoja('Abolición de la propiedad privada', {
+              texto: 'Se transfirió el poder a los sóviets de obreros, soldados y campesinos. El Estado expropió sin indemnización las tierras de la nobleza y nacionalizó fábricas, bancos y medios de producción.',
+              fechas: [['Octubre de 1917', 'Primeros decretos revolucionarios de tierra y control estatal.']],
+              personajes: ['Vladimir Lenin']
+            }),
+            hoja('Comunismo de guerra y planificación estatal', {
+              texto: 'Durante la guerra civil el Estado aplicó la requisa forzosa de cosechas a los campesinos para sostener al ejército. Posteriormente, el régimen impulsó una economía planificada basada en la electrificación y la industrialización.',
+              fechas: [['1918-1922', 'Aplicación del «comunismo de guerra».']],
+              personajes: ['Vladimir Lenin', 'Iósif Stalin']
+            })
+          ]),
+          grupo('Creación de la URSS y legado global', [
+            hoja('Fundación de la URSS y el Komintern', {
+              texto: 'Tras la victoria bolchevique se fundó la Unión de Repúblicas Socialistas Soviéticas (URSS), con eje en Rusia e incorporando repúblicas de Europa y Asia. Previamente, en 1919, se creó la III Internacional (Komintern) para expandir la revolución comunista al resto del mundo.',
+              fechas: [
+                ['1919', 'Creación de la III Internacional o Komintern.'],
+                ['1922', 'Fundación oficial de la URSS.']
+              ],
               personajes: ['Vladimir Lenin', 'Iósif Stalin']
             }),
-            hoja('Organización del Estado soviético', {
-              texto: 'Era formalmente una federación de repúblicas, pero el poder real lo tenía el Partido Comunista, el único permitido. La Constitución de 1924 fijó su estructura. Tras la muerte de Lenin, Stalin se impuso como líder.',
+            hoja('Ascenso de Stalin y proyección del siglo XX', {
+              texto: 'Tras la muerte de Lenin en 1924, Stalin eliminó a la oposición interna mediante purgas, gobernó con mano de hierro hasta 1953 e impuso los planes quinquenales y la colectivización forzosa del campo. La URSS se consolidó como superpotencia, dividiendo al mundo en bloques durante la Guerra Fría hasta su disolución en 1991.',
               fechas: [
-                ['Enero de 1924', 'Muere Lenin.'],
-                ['1924', 'Primera Constitución de la URSS.']
+                ['1924', 'Muerte de Lenin y ascenso de Stalin al poder.'],
+                ['1945-1991', 'Expansión soviética, Guerra Fría y desintegración de la URSS.']
               ],
               personajes: ['Iósif Stalin', 'León Trotski']
-            })
-          ]),
-          grupo('Primeras medidas bolcheviques', [
-            hoja('Nacionalización de industrias', {
-              texto: 'Primero se estableció el control obrero de las fábricas; después se nacionalizaron los bancos, el comercio exterior y la gran industria, que pasaron a manos del Estado.',
-              fechas: [
-                ['Noviembre de 1917', 'Decreto de control obrero.'],
-                ['Diciembre de 1917', 'Nacionalización de la banca.'],
-                ['Junio de 1918', 'Nacionalización de la gran industria.']
-              ],
-              personajes: ['Vladimir Lenin']
-            }),
-            hoja('Transformación de la propiedad de la tierra', {
-              texto: 'El Decreto sobre la Tierra abolió la gran propiedad sin indemnización y entregó las tierras de los nobles, la Iglesia y la Corona a los comités campesinos para que las repartieran.',
-              fechas: [['26 de octubre de 1917 (8 de noviembre)', 'Decreto sobre la Tierra.']],
-              personajes: ['Vladimir Lenin']
-            }),
-            hoja('Cambios en la organización económica', {
-              texto: 'Durante la guerra civil se aplicó el «comunismo de guerra»: requisa obligatoria de cosechas, prohibición del comercio privado y control total del Estado. Ante la crisis, Lenin lo sustituyó en 1921 por la Nueva Política Económica (NEP), que permitió un capitalismo limitado.',
-              fechas: [
-                ['1918-1921', 'Comunismo de guerra.'],
-                ['1921', 'Nueva Política Económica (NEP).']
-              ],
-              personajes: ['Vladimir Lenin']
             })
           ])
         ])
@@ -718,7 +706,6 @@ const DATOS_MAPA = {
     }
   ]
 };
-
 
 /* ==========================================================================
    4. MAPA MENTAL — FUNCIONAMIENTO
