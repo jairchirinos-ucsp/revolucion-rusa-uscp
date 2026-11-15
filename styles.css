@@ -416,6 +416,7 @@ html {
   font-size: 0.8rem;
   letter-spacing: 2px;
   text-transform: uppercase;
+  white-space: nowrap;           /* el menú ya tiene 6 enlaces: evita que se partan en dos líneas */
   color: #a0aec0;
   text-decoration: none;
   transition: color 0.25s;
@@ -471,6 +472,17 @@ html {
 .nav-principal__toggle.abierto span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
 .nav-principal__toggle.abierto span:nth-child(2) { opacity: 0; }
 .nav-principal__toggle.abierto span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+@media (min-width: 761px) and (max-width: 1100px) {
+  .nav-principal__enlaces {
+    gap: 16px;
+  }
+
+  .nav-enlace {
+    font-size: 0.7rem;
+    letter-spacing: 1.2px;
+  }
+}
 
 @media (max-width: 760px) {
   .nav-principal__toggle {
@@ -1361,9 +1373,19 @@ body.mm-visor-abierto {
   border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
 
+/* Título grande y dorado de la sección */
+.curiosos-titulo {
+  font-size: 3rem;
+  font-weight: 900;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #c99700;
+  text-shadow: 0 4px 18px rgba(201, 151, 0, 0.25);
+}
+
 .curiosos-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 26px;
 }
 
@@ -1441,6 +1463,10 @@ body.mm-visor-abierto {
     max-width: 640px;
     margin: 0 auto;
   }
+
+  .curiosos-titulo {
+    font-size: 2.2rem;
+  }
 }
 
 @media (max-width: 520px) {
@@ -1450,6 +1476,11 @@ body.mm-visor-abierto {
 
   .curioso-card {
     padding: 24px 20px 26px;
+  }
+
+  .curiosos-titulo {
+    font-size: 1.7rem;
+    letter-spacing: 2px;
   }
 }
 
