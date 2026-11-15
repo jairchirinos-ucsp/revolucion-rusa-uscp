@@ -27,6 +27,7 @@
         <li><a href="#introduccion" class="nav-enlace">Contexto histórico</a></li>
         <li><a href="#mapa-mental-section" class="nav-enlace">Mapa mental</a></li>
         <li><a href="#datos-curiosos" class="nav-enlace">Datos curiosos</a></li>
+        <li><a href="#cuestionario" class="nav-enlace">Cuestionario</a></li>
         <li><a href="#conclusiones" class="nav-enlace">Conclusiones</a></li>
       </ul>
     </div>
@@ -214,6 +215,63 @@
       </div>
     </div>
   </section>
+
+  <!-- SECCIÓN 5: CUESTIONARIO INTERACTIVO (las preguntas están en script.js, arreglo PREGUNTAS) -->
+  <section id="cuestionario" class="quiz-section">
+    <div class="container">
+      <h2 class="section-title">Pon a Prueba lo Aprendido</h2>
+      <div class="divider"></div>
+      <p class="section-subtitle">Un cuestionario sobre las ideas, los actores y los hechos que llevaron de la utopía a las armas. Al final recibirás tu nota.</p>
+
+      <div class="quiz" id="quiz" tabindex="-1">
+
+        <!-- Barra de progreso y puntaje -->
+        <div class="quiz-progreso" aria-hidden="true">
+          <div class="quiz-progreso__barra" id="quiz-barra"></div>
+        </div>
+
+        <!-- Pantalla de inicio -->
+        <div class="quiz-panel quiz-inicio" id="quiz-inicio">
+          <span class="quiz-icono" aria-hidden="true">☭</span>
+          <h3 class="quiz-panel__titulo">¿Cuánto sabes de la Revolución Rusa?</h3>
+          <p class="quiz-panel__texto">
+            <strong id="quiz-total">0</strong> preguntas de opción múltiple elaboradas por el equipo. Cada respuesta trae su explicación y al terminar verás tu nota sobre 20.
+          </p>
+          <p class="quiz-panel__ayuda">Consejo: también puedes responder con las teclas A, B, C y D.</p>
+          <button type="button" class="quiz-btn" id="quiz-empezar">Comenzar el cuestionario</button>
+        </div>
+
+        <!-- Pantalla de pregunta -->
+        <div class="quiz-panel" id="quiz-pregunta" hidden>
+          <div class="quiz-cabecera">
+            <span class="quiz-tema" id="quiz-tema"></span>
+            <span class="quiz-numero" id="quiz-numero"></span>
+            <span class="quiz-puntaje" id="quiz-puntaje"></span>
+          </div>
+          <h3 class="quiz-texto" id="quiz-texto" tabindex="-1"></h3>
+          <ul class="quiz-opciones" id="quiz-opciones"></ul>
+          <p class="quiz-feedback" id="quiz-feedback" role="status" aria-live="polite" hidden></p>
+          <div class="quiz-acciones">
+            <button type="button" class="quiz-btn" id="quiz-siguiente" hidden>Siguiente pregunta →</button>
+          </div>
+        </div>
+
+        <!-- Pantalla final -->
+        <div class="quiz-panel quiz-final" id="quiz-final" hidden>
+          <div class="quiz-circulo" id="quiz-circulo" style="--p: 0">
+            <div class="quiz-circulo__interior">
+              <span class="quiz-circulo__nota" id="quiz-nota">0</span>
+              <span class="quiz-circulo__sobre">/ 20</span>
+            </div>
+          </div>
+          <h3 class="quiz-panel__titulo" id="quiz-mensaje"></h3>
+          <p class="quiz-panel__texto" id="quiz-resumen"></p>
+          <ul class="quiz-temas" id="quiz-temas" aria-label="Resultados por tema"></ul>
+          <div class="quiz-acciones quiz-acciones--centro">
+            <button type="button" class="quiz-btn" id="quiz-reiniciar">Intentar de nuevo</button>
+            <a href="#mapa-mental-section" class="quiz-btn quiz-btn--secundario">Repasar en el mapa mental</a>
+          </div>
+        </div>
 
 <!-- SECCIÓN: CONCLUSIONES Y LEGADO ACTUAL -->
   <section id="conclusiones" class="conclusions-section">

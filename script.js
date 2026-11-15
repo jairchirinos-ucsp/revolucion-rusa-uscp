@@ -6,6 +6,7 @@ console.log("Script cargado correctamente.");
    2. Menú fijo
    3. Mapa mental: CONTENIDO (aquí se editan los textos)
    4. Mapa mental: FUNCIONAMIENTO (generación, líneas, zoom, niveles, fichas)
+   5. Cuestionario interactivo (preguntas al final del archivo)
    ========================================================================== */
 
 console.log("Script cargado correctamente.");
@@ -1607,4 +1608,362 @@ const DATOS_MAPA = {
     ? document.fonts.ready
     : Promise.resolve();
   fuentesListas.then(iniciar, iniciar);
+})();
+
+
+/* ==========================================================================
+   5. CUESTIONARIO INTERACTIVO
+   --------------------------------------------------------------------------
+   Para editar preguntas solo hay que cambiar el arreglo PREGUNTAS.
+   Cada pregunta: { tema, texto, opciones: [{ t: 'texto', ok: true/false, f: 'retroalimentación' }] }
+   La nota final se calcula sobre 20.
+   ========================================================================== */
+const PREGUNTAS = [
+  {
+    tema: 'Contexto histórico',
+    texto: '¿Qué motivó a pensadores como Karl Marx a concebir nuevas teorías sociales durante el siglo XIX?',
+    opciones: [
+      { t: 'La caída de la autocracia zarista tras la Primera Guerra Mundial.', ok: false,
+        f: 'Incorrecto. La caída del zarismo ocurrió en 1917, décadas después de que Marx formulara sus ideas.' },
+      { t: 'Las drásticas desigualdades y la explotación laboral generadas por la Revolución Industrial.', ok: true,
+        f: 'Correcto. La miseria obrera de la Revolución Industrial fue el punto de partida de las utopías sociales y del pensamiento de Marx.' },
+      { t: 'La creación del primer Estado socialista en Europa Occidental.', ok: false,
+        f: 'Incorrecto. El primer Estado socialista surgió en Rusia en 1917, no en Europa Occidental, y fue consecuencia de esas ideas, no su causa.' },
+      { t: 'El enfrentamiento militar directo entre el proletariado ruso y los bolcheviques.', ok: false,
+        f: 'Incorrecto. Los bolcheviques se presentaban como el partido del proletariado; no hubo tal enfrentamiento, y además es posterior a Marx.' }
+    ]
+  },
+  {
+    tema: 'Contexto histórico',
+    texto: '¿Cuál era el objetivo central de las ideas de Karl Marx sobre las que se fundamentó el cambio social hacia el socialismo?',
+    opciones: [
+      { t: 'Mantener el sistema industrial bajo el control de la monarquía.', ok: false,
+        f: 'Incorrecto. Marx no defendía ninguna monarquía; proponía que los trabajadores tomaran el control de los medios de producción.' },
+      { t: 'Promover la igualdad absoluta y el fin de la explotación laboral.', ok: true,
+        f: 'Correcto. La igualdad y el fin de la explotación del trabajo son el núcleo de la propuesta marxista.' },
+      { t: 'Reformar el calendario juliano para modernizar la economía rusa.', ok: false,
+        f: 'Incorrecto. El cambio de calendario lo hicieron los bolcheviques en 1918; no tiene relación con las ideas de Marx.' },
+      { t: 'Establecer alianzas comerciales entre las potencias de la Primera Guerra Mundial.', ok: false,
+        f: 'Incorrecto. Marx murió en 1883, antes de la Primera Guerra Mundial, y su crítica era al capitalismo, no un plan comercial.' }
+    ]
+  },
+  {
+    tema: 'Socialismo y comunismo',
+    texto: '¿Cuál de las siguientes opciones describe mejor la postura de los socialistas utópicos para lograr el cambio social?',
+    opciones: [
+      { t: 'Organizar al proletariado para tomar el poder político mediante la lucha de clases.', ok: false,
+        f: 'Incorrecta. Esta es la postura del socialismo científico de Marx y Engels. Los utópicos no confiaban en la lucha política, sino en el ejemplo y la buena voluntad.' },
+      { t: 'Crear comunidades modelo basadas en la cooperación, confiando en el ejemplo y la buena voluntad.', ok: true,
+        f: 'Correcta. Owen con New Lanark y New Harmony, y Fourier con el falansterio, buscaban demostrar con comunidades ideales que la cooperación era posible, sin recurrir a la lucha política.' },
+      { t: 'Analizar las leyes económicas del capitalismo para predecir su colapso inevitable.', ok: false,
+        f: 'Incorrecta. Este enfoque de análisis histórico y económico del capitalismo es propio del socialismo científico. Los utópicos denunciaban la miseria obrera, pero no la explicaban con un análisis económico.' },
+      { t: 'Fundar partidos obreros que participaran en las elecciones del siglo XIX.', ok: false,
+        f: 'Incorrecta. Los utópicos descartaban la vía política. Además, esta opción no corresponde a ninguna de las dos corrientes descritas en el material.' }
+    ]
+  },
+  {
+    tema: 'Socialismo y comunismo',
+    texto: '¿Qué diferencia fundamental separa al socialismo científico del socialismo utópico?',
+    opciones: [
+      { t: 'El socialismo científico rechazaba la crítica a la miseria obrera de la Revolución Industrial.', ok: false,
+        f: 'Incorrecta. Ambas corrientes criticaban las condiciones del capitalismo. Lo que las separa es cómo explicaban el problema y cómo proponían resolverlo.' },
+      { t: 'El socialismo científico buscaba la armonía entre las clases mediante la razón y la moral.', ok: false,
+        f: 'Incorrecta. Esto describe a los utópicos. El socialismo científico veía el conflicto entre clases como inevitable y no creía en la armonía.' },
+      { t: 'El socialismo científico se basaba en el análisis histórico y veía el conflicto de clases como motor del cambio.', ok: true,
+        f: 'Correcta. Marx y Engels pretendían fundamentar su doctrina en el análisis de la historia y la economía, y planteaban que los trabajadores debían tomar el poder político mediante la lucha organizada.' },
+      { t: 'El socialismo científico proponía crear comunidades ideales como New Harmony y el falansterio.', ok: false,
+        f: 'Incorrecta. Las comunidades ideales son propias del socialismo utópico: New Harmony fue fundada por Owen y el falansterio fue propuesto por Fourier.' }
+    ]
+  },
+  {
+    tema: 'Causas de la Revolución',
+    texto: '¿Cuál fue la consecuencia principal de la masacre del Domingo Sangriento de 1905 en la relación entre el zar Nicolás II y el pueblo ruso?',
+    opciones: [
+      { t: 'El zar aceptó redactar una Constitución democrática y limitar su poder absoluto.', ok: false,
+        f: 'Incorrecto. Nicolás II solo concedió a regañadientes una Duma con el Manifiesto de Octubre, pero siguió gobernando sin un control real.' },
+      { t: 'Se destruyó el mito del zar como «padre protector», hiriendo de muerte la legitimidad de la corona.', ok: true,
+        f: 'Correcto. Al disparar contra una marcha pacífica que iba a pedirle ayuda, el zar perdió su imagen de «padre del pueblo» y la monarquía quedó deslegitimada.' },
+      { t: 'La policía secreta (Ojrana) fue disuelta por orden de la Iglesia Ortodoxa.', ok: false,
+        f: 'Incorrecto. La Ojrana siguió funcionando hasta 1917 y la Iglesia no tenía poder para disolverla.' },
+      { t: 'Se abolió inmediatamente la servidumbre legal y se repartieron tierras a los campesinos.', ok: false,
+        f: 'Incorrecto. La servidumbre se había abolido en 1861, y el reparto de tierras no llegó hasta el Decreto sobre la Tierra de 1917.' }
+    ]
+  },
+  {
+    tema: 'Causas de la Revolución',
+    texto: '¿Por qué la Primera Guerra Mundial actuó como el «detonante definitivo» de la Revolución Rusa?',
+    opciones: [
+      { t: 'Porque Alemania invadió Petrogrado y obligó al ejército ruso a rendirse en 1914.', ok: false,
+        f: 'Incorrecto. Alemania nunca tomó Petrogrado; las derrotas rusas fueron en el frente, como Tannenberg y los Lagos Masurianos.' },
+      { t: 'Porque el zar se negó a enviar tropas al frente, provocando el enojo de los generales.', ok: false,
+        f: 'Incorrecto. Ocurrió lo contrario: Nicolás II asumió personalmente el mando del ejército en 1915 y cargó con la culpa de las derrotas.' },
+      { t: 'Porque aceleró el colapso económico y provocó una hambruna extrema que unificó el descontento social contra la monarquía.', ok: true,
+        f: 'Correcto. La guerra agotó la economía, trajo escasez de pan en las ciudades y unió a obreros, soldados y campesinos contra el zar.' },
+      { t: 'Porque los obreros de las fábricas recibieron mejores salarios y decidieron financiar una rebelión armada.', ok: false,
+        f: 'Incorrecto. Los salarios perdieron valor por la inflación y la escasez; la revolución de febrero empezó precisamente por la falta de pan.' }
+    ]
+  },
+  {
+    tema: 'Actores',
+    texto: '¿Qué papel desempeñó Vladimir Lenin en el desarrollo del pensamiento comunista durante la Revolución rusa?',
+    opciones: [
+      { t: 'Defendió la continuidad del gobierno zarista y sus estructuras políticas.', ok: false,
+        f: 'Incorrecto. Lenin buscaba terminar con el régimen zarista y establecer un gobierno socialista dirigido por los trabajadores.' },
+      { t: 'Adaptó las ideas de Karl Marx a la realidad rusa mediante el pensamiento bolchevique.', ok: true,
+        f: 'Correcto. Lenin adaptó el marxismo a un país mayoritariamente campesino, con un partido de revolucionarios profesionales y la alianza entre obreros y campesinos.' },
+      { t: 'Promovió el capitalismo como principal modelo para modernizar Rusia.', ok: false,
+        f: 'Incorrecto. Lenin defendió la construcción de un Estado socialista y la eliminación del sistema capitalista.' },
+      { t: 'Apoyó la permanencia de la monarquía bajo reformas económicas.', ok: false,
+        f: 'Incorrecto. Lenin impulsó la abolición de la monarquía y la transformación revolucionaria del Estado.' }
+    ]
+  },
+  {
+    tema: 'Actores',
+    texto: '¿Qué papel tuvo León Trotski en la Revolución de Octubre de 1917?',
+    opciones: [
+      { t: 'Fue el último zar de Rusia.', ok: false,
+        f: 'Incorrecto. El último zar fue Nicolás II. Trotski era un revolucionario marxista.' },
+      { t: 'Presidió el Sóviet de Petrogrado y organizó la toma del poder.', ok: true,
+        f: 'Correcto. En octubre ya era presidente del Sóviet de Petrogrado y, desde el Comité Militar Revolucionario, organizó la toma del poder.' },
+      { t: 'Escribió El Manifiesto Comunista junto con Engels.', ok: false,
+        f: 'Incorrecto. El Manifiesto Comunista lo escribieron Marx y Engels en 1848, cuando Trotski aún no había nacido.' },
+      { t: 'Dirigió el Gobierno Provisional.', ok: false,
+        f: 'Incorrecto. El Gobierno Provisional lo dirigieron Lvov y luego Kérenski; Trotski fue precisamente quien lo derrocó.' }
+    ]
+  },
+  {
+    tema: 'Actores',
+    texto: '¿Qué eran los sóviets?',
+    opciones: [
+      { t: 'Los ejércitos del zar.', ok: false,
+        f: 'Incorrecto. Los sóviets nacieron desde abajo, entre obreros y soldados, en contra del poder zarista.' },
+      { t: 'Los partidos de la burguesía.', ok: false,
+        f: 'Incorrecto. Los partidos burgueses, como los kadetes, formaron el Gobierno Provisional; los sóviets representaban a obreros y soldados.' },
+      { t: 'Consejos de delegados elegidos por obreros, soldados y campesinos.', ok: true,
+        f: 'Correcto. «Sóviet» significa «consejo» en ruso. Los delegados se elegían de abajo hacia arriba, en las fábricas y los regimientos, y formaban consejos más grandes, como el Sóviet de Petrogrado.' },
+      { t: 'Los ministros del Gobierno Provisional.', ok: false,
+        f: 'Incorrecto. El Sóviet de Petrogrado era la otra autoridad del «doble poder», rival del Gobierno Provisional.' }
+    ]
+  },
+  {
+    tema: 'Acontecimientos',
+    texto: '¿Cómo influyó la Revolución de Octubre de 1917 en la expansión del pensamiento comunista?',
+    opciones: [
+      { t: 'Permitió el fortalecimiento de la monarquía rusa y sus privilegios.', ok: false,
+        f: 'Incorrecto. La Revolución de Octubre terminó con el gobierno provisional y permitió que los bolcheviques tomaran el poder.' },
+      { t: 'Estableció un gobierno basado en los principios del liberalismo económico.', ok: false,
+        f: 'Incorrecto. Se estableció un gobierno que buscaba aplicar principios socialistas inspirados en el marxismo.' },
+      { t: 'Convirtió a Rusia en el primer Estado gobernado por un partido comunista, impulsando la difusión de estas ideas en otros países.', ok: true,
+        f: 'Correcto. Fue la primera «revolución proletaria» de la historia y, a través de la III Internacional (1919), el modelo soviético se difundió por el mundo.' },
+      { t: 'Eliminó las ideas de Karl Marx y promovió un sistema económico exclusivamente capitalista.', ok: false,
+        f: 'Incorrecto. La revolución fortaleció la influencia de las ideas marxistas y su aplicación política y económica en Rusia.' }
+    ]
+  },
+  {
+    tema: 'Consecuencias',
+    texto: 'Tras tomar el poder en Rusia, ¿qué decisión tomaron los bolcheviques en marzo de 1918 para asegurar la supervivencia de la revolución y qué conflicto estalló inmediatamente después?',
+    opciones: [
+      { t: 'Mantuvieron a Rusia en la Primera Guerra Mundial junto a los Aliados hasta derrotar a Alemania, logrando recuperar Polonia y Finlandia sin conflictos internos.', ok: false,
+        f: 'Incorrecto. Los bolcheviques llegaron al poder prometiendo sacar a Rusia de la guerra; cedieron Polonia, Finlandia y los países bálticos en marzo de 1918, y sí enfrentaron una devastadora guerra civil.' },
+      { t: 'Disolvieron el Ejército Rojo y convocaron elecciones libres multipartidistas, logrando una transición pacífica hacia una democracia parlamentaria.', ok: false,
+        f: 'Incorrecto. Lejos de disolver sus fuerzas o crear un sistema multipartidista, los bolcheviques organizaron el Ejército Rojo para vencer al Ejército Blanco e instauraron la «dictadura del proletariado» con partido único.' },
+      { t: 'Firmaron el Tratado de Brest-Litovsk cediendo territorios estratégicos para salir de la Primera Guerra Mundial, tras lo cual estalló la Guerra Civil Rusa (1918-1922).', ok: true,
+        f: 'Correcto. Para priorizar la revolución interna, Lenin firmó el Tratado de Brest-Litovsk con Alemania en marzo de 1918 cediendo Polonia, Finlandia y los países bálticos, tras lo cual el Ejército Rojo enfrentó al Ejército Blanco en una sangrienta guerra civil hasta 1922.' },
+      { t: 'Firmaron una alianza militar con el zar Nicolás II para expulsar a las potencias extranjeras, conservando intactas todas las fronteras del antiguo Imperio Ruso.', ok: false,
+        f: 'Incorrecto. La monarquía zarista ya había caído en 1917 y los sectores monárquicos integraron el Ejército Blanco contra los bolcheviques; además, las fronteras imperiales se desmembraron tras Brest-Litovsk.' }
+    ]
+  },
+  {
+    tema: 'Consecuencias',
+    texto: 'Tras la toma del poder por los bolcheviques, ¿qué consecuencias económicas y políticas definieron la construcción del nuevo Estado entre 1917 y 1922?',
+    opciones: [
+      { t: 'Se mantuvieron las propiedades de la nobleza y se instauró un gobierno multipartidista donde los sóviets compartían el poder con los antiguos ministros del zar.', ok: false,
+        f: 'Incorrecto. El Estado expropió sin indemnización las tierras de la nobleza y consolidó el monopolio absoluto del Partido Comunista.' },
+      { t: 'Se permitió el libre mercado capitalista en las fábricas y bancos, mientras cada república independiente mantuvo su propio ejército y fronteras imperiales.', ok: false,
+        f: 'Incorrecto. Se abolió la propiedad privada estatizando bancos y fábricas, y en 1922 las repúblicas se unificaron bajo el poder centralizado de la URSS en Moscú.' },
+      { t: 'Tras vencer el Ejército Blanco en la Guerra Civil, se devolvió la tierra a sus antiguos dueños y se disolvieron los consejos de obreros y soldados.', ok: false,
+        f: 'Incorrecto. Quien venció fue el Ejército Rojo comunista, transfiriendo el poder a los sóviets y consolidando la «dictadura del proletariado».' },
+      { t: 'Se abolió la propiedad privada nacionalizando tierras y fábricas, se aplicó el «comunismo de guerra» con partido único y se fundó la URSS en diciembre de 1922.', ok: true,
+        f: 'Correcto. Para ganar la Guerra Civil y aplicar el régimen, el Estado expropió tierras, estatizó bancos e industrias, requisó cosechas por la fuerza e instauró el partido único antes de fundar la URSS en 1922.' }
+    ]
+  }
+];
+
+(function iniciarCuestionario() {
+  const raiz = document.getElementById('quiz');
+  if (!raiz || !PREGUNTAS.length) return;
+
+  const elInicio = document.getElementById('quiz-inicio');
+  const elPregunta = document.getElementById('quiz-pregunta');
+  const elFinal = document.getElementById('quiz-final');
+  const elTema = document.getElementById('quiz-tema');
+  const elNumero = document.getElementById('quiz-numero');
+  const elTexto = document.getElementById('quiz-texto');
+  const elOpciones = document.getElementById('quiz-opciones');
+  const elFeedback = document.getElementById('quiz-feedback');
+  const elBarra = document.getElementById('quiz-barra');
+  const elPuntaje = document.getElementById('quiz-puntaje');
+  const btnSiguiente = document.getElementById('quiz-siguiente');
+  const btnEmpezar = document.getElementById('quiz-empezar');
+  const btnReiniciar = document.getElementById('quiz-reiniciar');
+  const elTotalInicio = document.getElementById('quiz-total');
+
+  const LETRAS = ['A', 'B', 'C', 'D', 'E'];
+  let orden = [];        // índices de preguntas en orden barajado
+  let actual = 0;
+  let aciertos = 0;
+  let respondida = false;
+  const detalle = [];    // {tema, ok}
+
+  elTotalInicio.textContent = PREGUNTAS.length;
+
+  function barajar(arr) {
+    const a = arr.slice();
+    for (let i = a.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [a[i], a[j]] = [a[j], a[i]];
+    }
+    return a;
+  }
+
+  function mostrar(panel) {
+    [elInicio, elPregunta, elFinal].forEach(function (p) { p.hidden = (p !== panel); });
+  }
+
+  function empezar() {
+    orden = barajar(PREGUNTAS.map(function (_, i) { return i; }));
+    actual = 0;
+    aciertos = 0;
+    detalle.length = 0;
+    mostrar(elPregunta);
+    pintarPregunta();
+    raiz.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  function pintarPregunta() {
+    const q = PREGUNTAS[orden[actual]];
+    respondida = false;
+    elTema.textContent = q.tema;
+    elNumero.textContent = 'Pregunta ' + (actual + 1) + ' de ' + PREGUNTAS.length;
+    elTexto.textContent = q.texto;
+    elPuntaje.textContent = aciertos + ' ' + (aciertos === 1 ? 'acierto' : 'aciertos');
+    elBarra.style.width = ((actual) / PREGUNTAS.length * 100) + '%';
+    elFeedback.hidden = true;
+    elFeedback.className = 'quiz-feedback';
+    btnSiguiente.hidden = true;
+    btnSiguiente.textContent = (actual === PREGUNTAS.length - 1) ? 'Ver mi nota →' : 'Siguiente pregunta →';
+
+    elOpciones.innerHTML = '';
+    barajar(q.opciones).forEach(function (op, i) {
+      const li = document.createElement('li');
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'quiz-opcion';
+      const letra = document.createElement('span');
+      letra.className = 'quiz-opcion__letra';
+      letra.textContent = LETRAS[i];
+      const txt = document.createElement('span');
+      txt.className = 'quiz-opcion__texto';
+      txt.textContent = op.t;
+      btn.appendChild(letra);
+      btn.appendChild(txt);
+      btn.addEventListener('click', function () { responder(op, btn, q); });
+      li.appendChild(btn);
+      elOpciones.appendChild(li);
+    });
+  }
+
+  function responder(op, btn, q) {
+    if (respondida) return;
+    respondida = true;
+    if (op.ok) aciertos++;
+    detalle.push({ tema: q.tema, ok: op.ok });
+
+    Array.from(elOpciones.querySelectorAll('.quiz-opcion')).forEach(function (b) {
+      b.disabled = true;
+      const texto = b.querySelector('.quiz-opcion__texto').textContent;
+      const esCorrecta = q.opciones.some(function (o) { return o.t === texto && o.ok; });
+      if (esCorrecta) b.classList.add('es-correcta');
+    });
+    btn.classList.add(op.ok ? 'elegida-correcta' : 'elegida-incorrecta');
+
+    elFeedback.textContent = op.f;
+    elFeedback.classList.add(op.ok ? 'quiz-feedback--ok' : 'quiz-feedback--mal');
+    elFeedback.hidden = false;
+    elPuntaje.textContent = aciertos + ' ' + (aciertos === 1 ? 'acierto' : 'aciertos');
+    elBarra.style.width = ((actual + 1) / PREGUNTAS.length * 100) + '%';
+    btnSiguiente.hidden = false;
+    btnSiguiente.focus({ preventScroll: true });
+  }
+
+  function siguiente() {
+    if (actual < PREGUNTAS.length - 1) {
+      actual++;
+      pintarPregunta();
+      elTexto.focus({ preventScroll: true });
+    } else {
+      terminar();
+    }
+  }
+
+  function terminar() {
+    const total = PREGUNTAS.length;
+    const nota = Math.round((aciertos / total) * 20 * 10) / 10;   // sobre 20, un decimal
+    const pct = Math.round(aciertos / total * 100);
+
+    let mensaje, clase;
+    if (pct === 100)      { mensaje = '¡Impecable! Dominas la historia de la Revolución Rusa.'; clase = 'nivel-4'; }
+    else if (pct >= 80)   { mensaje = '¡Excelente! Tienes muy claro el camino de la utopía a las armas.'; clase = 'nivel-3'; }
+    else if (pct >= 55)   { mensaje = 'Bien. Conoces lo esencial; repasa la red interactiva para afinar detalles.'; clase = 'nivel-2'; }
+    else                  { mensaje = 'Aún falta. Vuelve a explorar el mapa mental y vuelve a intentarlo.'; clase = 'nivel-1'; }
+
+    document.getElementById('quiz-nota').textContent = Number.isInteger(nota) ? nota : nota.toFixed(1);
+    document.getElementById('quiz-resumen').textContent = aciertos + ' de ' + total + ' respuestas correctas (' + pct + ' %)';
+    document.getElementById('quiz-mensaje').textContent = mensaje;
+    const circulo = document.getElementById('quiz-circulo');
+    circulo.className = 'quiz-circulo ' + clase;
+    circulo.style.setProperty('--p', pct);
+
+    // Resumen por tema
+    const porTema = {};
+    detalle.forEach(function (d) {
+      porTema[d.tema] = porTema[d.tema] || { ok: 0, n: 0 };
+      porTema[d.tema].n++;
+      if (d.ok) porTema[d.tema].ok++;
+    });
+    const lista = document.getElementById('quiz-temas');
+    lista.innerHTML = '';
+    Object.keys(porTema).forEach(function (t) {
+      const li = document.createElement('li');
+      const nombre = document.createElement('span');
+      nombre.textContent = t;
+      const val = document.createElement('strong');
+      val.textContent = porTema[t].ok + ' / ' + porTema[t].n;
+      val.className = porTema[t].ok === porTema[t].n ? 'ok' : (porTema[t].ok === 0 ? 'mal' : '');
+      li.appendChild(nombre);
+      li.appendChild(val);
+      lista.appendChild(li);
+    });
+
+    elBarra.style.width = '100%';
+    mostrar(elFinal);
+    raiz.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  btnEmpezar.addEventListener('click', empezar);
+  btnSiguiente.addEventListener('click', siguiente);
+  btnReiniciar.addEventListener('click', empezar);
+
+  // Teclado: A/B/C/D para responder, Enter para continuar
+  raiz.addEventListener('keydown', function (e) {
+    if (elPregunta.hidden) return;
+    const k = e.key.toUpperCase();
+    const idx = LETRAS.indexOf(k);
+    if (idx !== -1 && !respondida) {
+      const b = elOpciones.querySelectorAll('.quiz-opcion')[idx];
+      if (b) b.click();
+    } else if (e.key === 'Enter' && respondida && document.activeElement !== btnSiguiente) {
+      siguiente();
+    }
+  });
 })();
