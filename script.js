@@ -1967,3 +1967,66 @@ const PREGUNTAS = [
     }
   });
 })();
+
+// SECCIÓN: FUENTES BIBLIOGRÁFICAS DEL SÍLABO 
+// ==========================================================================
+const fuentesSilabo = [
+  {
+    enfoque: "Origen del Socialismo y Siglo XIX",
+    citaHTML: "Hobsbawm, E. (2011). <em>La era de la revolución, 1789-1848</em>. Barcelona: Crítica.",
+    aporte: "Sustenta el contexto de la Revolución Industrial, la crisis obrera del siglo XIX y el surgimiento de las primeras utopías sociales y corrientes comunistas."
+  },
+  {
+    enfoque: "Historia de las Ideologías",
+    citaHTML: "Fazio, M. (2012). <em>Historia de las ideas contemporáneas: Una lectura del proceso de secularización</em>. Madrid: Ediciones Rialp S.A.",
+    aporte: "Respalda el análisis filosófico y político del marxismo, el socialismo científico y su consolidación como ideologías de masas."
+  },
+  {
+    enfoque: "Proceso Integral y Revolución Rusa",
+    citaHTML: "Hubeñak, F. (2006). <em>Historia integral de Occidente</em> (Caps. 11 y 12). Buenos Aires: Educa.",
+    aporte: "Fuente base para conectar las teorías socialistas con la crisis europea, la Primera Guerra Mundial y el estallido revolucionario en Rusia."
+  },
+  {
+    enfoque: "Cronología y Síntesis Histórica",
+    citaHTML: "Krebs, R. (2006). <em>Breve historia universal</em>.",
+    aporte: "Permitió verificar las fechas clave, los acontecimientos de 1905 y 1917, y las consecuencias geopolíticas hasta la formación de la URSS."
+  }
+];
+
+function cargarFuentes() {
+  const contenedor = document.getElementById("contenedor-fuentes");
+  if (!contenedor) return;
+
+  contenedor.innerHTML = "";
+
+  fuentesSilabo.forEach((fuente, index) => {
+    const tarjeta = document.createElement("div");
+    tarjeta.className = "source-card";
+
+    tarjeta.innerHTML = `
+      <span class="source-category">${fuente.enfoque}</span>
+      <p class="source-citation">${fuente.citaHTML}</p>
+      <button class="source-btn" onclick="alternarAporteFuente(${index}, this)">
+        Ver sustento en el proyecto
+      </button>
+      <p id="aporte-fuente-${index}" class="source-usage">
+        <strong>Aporte histórico:</strong> ${fuente.aporte}
+      </p>
+    `;
+
+    contenedor.appendChild(tarjeta);
+  });
+}
+
+function alternarAporteFuente(index, boton) {
+  const detalle = document.getElementById(`aporte-fuente-${index}`);
+  if (detalle.style.display === "block") {
+    detalle.style.display = "none";
+    boton.textContent = "Ver sustento en el proyecto";
+  } else {
+    detalle.style.display = "block";
+    boton.textContent = "Ocultar sustento";
+  }
+}
+
+document.addEventListener("DOMContentLoaded", cargarFuentes);
