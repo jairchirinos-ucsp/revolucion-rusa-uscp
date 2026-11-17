@@ -113,7 +113,7 @@ const DATOS_MAPA = {
   titulo: 'Utopías sociales, socialismo, comunismo y Revolución Rusa',
   hijos: [
 
-    /* ------------------------------------------------------------------
+/* ------------------------------------------------------------------
        RAMA 1: SOCIALISMO Y COMUNISMO (lado izquierdo, dorado)
        ------------------------------------------------------------------ */
     {
@@ -122,6 +122,14 @@ const DATOS_MAPA = {
       colorTexto: '#0f1115',
       lado: -1,
       hijos: [
+        hoja('¿Qué son y en qué se diferencian?', {
+          texto: 'Ambos surgieron en el siglo XIX frente a las desigualdades del capitalismo industrial para defender la igualdad social, pero no son iguales. El socialismo propone reorganizar la economía mediante la cooperación o el control colectivo de la producción para frenar la explotación obrera. El comunismo, formulado por Karl Marx y Friedrich Engels en el Manifiesto Comunista (1848), es su corriente más radical: plantea la lucha de clases, la abolición total de la propiedad privada y la «dictadura del proletariado» para alcanzar una sociedad sin clases ni Estado.',
+          fechas: [
+            ['Siglo XIX', 'Surgimiento del socialismo frente a la Revolución Industrial.'],
+            ['1848', 'Publicación del Manifiesto Comunista de Marx y Engels.']
+          ],
+          personajes: ['Robert Owen', 'Charles Fourier', 'Karl Marx', 'Friedrich Engels']
+        }),
         grupo('Socialismo utópico y científico', [
           hoja('Socialismo utópico', {
             texto: 'Primera corriente socialista, surgida a inicios del siglo XIX. Sus pensadores denunciaron la miseria obrera de la Revolución Industrial y propusieron comunidades ideales basadas en la cooperación. Confiaban en el ejemplo y en la buena voluntad, no en la lucha política.',
@@ -132,6 +140,9 @@ const DATOS_MAPA = {
             ],
             personajes: ['Henri de Saint-Simon', 'Charles Fourier', 'Robert Owen']
           }),
+
+
+
           hoja('Socialismo científico', {
             texto: 'Nombre que Marx y Engels dieron a su doctrina para diferenciarla de la de los utópicos. Pretendía basarse en el análisis histórico y económico del capitalismo y sostenía que el cambio social llegaría mediante la lucha organizada del proletariado.',
             fechas: [
@@ -239,6 +250,13 @@ const DATOS_MAPA = {
       colorTexto: '#ffffff',
       lado: 1,
       hijos: [
+        hoja('¿Qué fue la Revolución Rusa?', {
+          texto: 'Fue el estallido social y político de 1917 que derrocó la monarquía autocrática del zar Nicolás II en el Imperio Ruso, tras el colapso provocado por la Primera Guerra Mundial y la extrema miseria campesina y obrera. Conducido por los bolcheviques y los sóviets, este proceso puso fin a siglos de régimen zarista e instauró el primer Estado socialista de la historia.',
+          fechas: [
+            ['1917', 'Estallido revolucionario y caída del Imperio Ruso.']
+          ],
+          personajes: ['Zar Nicolás II', 'Vladimir Lenin', 'León Trotski']
+        }),
 
         /* A. CAUSAS */
         grupo('Causas', [
@@ -248,6 +266,7 @@ const DATOS_MAPA = {
               fechas: [['1894', 'Año en que Nicolás II asciende al trono y reafirma públicamente su compromiso de mantener intacto el absolutismo monárquico y el "derecho divino" heredado de su padre.']],
               personajes: ['Nicolás II']
             }),
+
             hoja('Concentración del poder político', {
               texto: 'El Estado ruso estaba estructurado para que todas las decisiones recayeran exclusivamente en el emperador, gobernando sin una Constitución real ni elecciones democráticas auténticas que limitaran sus atribuciones. Nicolás II monopolizaba de forma absoluta la creación de las leyes, el mando supremo del ejército y el control de la justicia en todo el imperio, anulando cualquier equilibrio institucional o participación ciudadana real.',
               fechas: [['23 de abril de 1906', 'Promulgación de las Leyes Fundamentales, decreto con el que Nicolás II reafirmó su autoridad autocrática suprema sobre la creación de leyes, el ejército y la justicia, anulando en la práctica cualquier poder real del parlamento.']],
