@@ -1,23 +1,7 @@
 console.log("Script cargado correctamente.");
-/* ==========================================================================
-   script.js — De la Utopía a las Armas
-   --------------------------------------------------------------------------
-   1. Mensaje de carga (original)
-   2. Menú fijo
-   3. Mapa mental: CONTENIDO (aquí se editan los textos)
-   4. Mapa mental: FUNCIONAMIENTO (generación, líneas, zoom, niveles, fichas)
-   5. Cuestionario interactivo (preguntas al final del archivo)
-   ========================================================================== */
 
 console.log("Script cargado correctamente.");
 
-
-/* ==========================================================================
-   2. MENÚ FIJO
-   - Fondo sólido al bajar por la página.
-   - Menú desplegable (hamburguesa) en celulares.
-   - Resalta la sección que se está viendo.
-   ========================================================================== */
 (function iniciarMenuFijo() {
   const nav = document.getElementById('nav-principal');
   if (!nav) return;
@@ -58,7 +42,6 @@ console.log("Script cargado correctamente.");
   window.addEventListener('scroll', actualizarFondo, { passive: true });
   actualizarFondo();
 
-  // Resaltar en el menú la sección visible
   const secciones = enlaces
     .map(function (a) { return document.querySelector(a.getAttribute('href')); })
     .filter(Boolean);
@@ -78,18 +61,6 @@ console.log("Script cargado correctamente.");
   }
 })();
 
-
-/* ==========================================================================
-   3. MAPA MENTAL — CONTENIDO
-   --------------------------------------------------------------------------
-   Para editar textos solo hay que cambiar este objeto.
-   - grupo(título, [hijos])   → nodo que se expande.
-   - hoja(título, ficha)      → concepto final que abre una tarjeta.
-     ficha = { texto, fechas: [[fecha, descripción], …], personajes: [...],
-               fuentes: [...],     ← opcional: citas breves (APA) que se muestran en la tarjeta
-               imagenes: [...],    ← opcional: caja de imágenes, ver función img()
-               videos: [...] }     ← opcional: caja de video, ver función vid()
-   ========================================================================== */
 function grupo(titulo, hijos) {
   return { titulo: titulo, hijos: hijos };
 }
@@ -98,9 +69,6 @@ function hoja(titulo, ficha) {
   return { titulo: titulo, ficha: ficha, hijos: [] };
 }
 
-/* Imágenes de Wikimedia Commons (dominio público).
-   img(nombreDelArchivo, pie) → objeto que la tarjeta muestra en la caja de imágenes.
-   Para usar una imagen propia: { src: 'img/mi-foto.jpg', pie: 'Descripción', credito: 'Autor' } */
 function img(archivo, pie) {
   return {
     src: 'https://commons.wikimedia.org/wiki/Special:FilePath/' + encodeURIComponent(archivo) + '?width=900',
@@ -110,14 +78,7 @@ function img(archivo, pie) {
   };
 }
 
-/* ==========================================================================
-   VIDEOS DEL EQUIPO (YouTube)
-   - Para agregar o cambiar un video, solo se edita esta lista.
-   - id = lo que va después de "youtu.be/" en el enlace.
-   - Las escenas se ven dentro del mapa mental (hojas «▶ Video»).
-   - El video completo se ve en la sección «Video Reportaje».
-   ========================================================================== */
-const VIDEO_COMPLETO = { id: '', titulo: 'Video reportaje completo' };   // ← pegar aquí el id cuando esté listo
+const VIDEO_COMPLETO = { id: '', titulo: 'Video reportaje completo' };
 
 const ESCENAS = [
   { id: 'GABMLU0QNLM', titulo: 'Primera escena' },
@@ -129,8 +90,6 @@ const ESCENAS = [
   { id: 'Gdrias7sG-8', titulo: 'Séptima escena' }
 ];
 
-/* vid(número de escena) → video para la caja «Video» de una ficha del mapa.
-   Ejemplo dentro de una hoja:  videos: [vid(3)] */
 function vid(numero, pie) {
   const e = ESCENAS[numero - 1];
   if (!e || !e.id) return null;
@@ -147,9 +106,6 @@ const DATOS_MAPA = {
   titulo: 'Utopías sociales, socialismo, comunismo y Revolución Rusa',
   hijos: [
 
-/* ------------------------------------------------------------------
-       RAMA 1: SOCIALISMO Y COMUNISMO (lado izquierdo, dorado)
-       ------------------------------------------------------------------ */
     {
       titulo: 'Socialismo y comunismo',
       color: '#c99700',
@@ -186,8 +142,6 @@ const DATOS_MAPA = {
             ],
             personajes: ['Henri de Saint-Simon', 'Charles Fourier', 'Robert Owen']
           }),
-
-
 
           hoja('Socialismo científico', {
             texto: 'Nombre que Marx y Engels dieron a su doctrina para diferenciarla de la de los utópicos. Pretendía basarse en el análisis histórico y económico del capitalismo y sostenía que el cambio social llegaría mediante la lucha organizada del proletariado.',
@@ -287,9 +241,6 @@ const DATOS_MAPA = {
       ]
     },
 
-    /* ------------------------------------------------------------------
-       RAMA 2: REVOLUCIÓN RUSA (lado derecho, rojo)
-       ------------------------------------------------------------------ */
     {
       titulo: 'Revolución Rusa',
       color: '#cf3b3b',
@@ -304,7 +255,6 @@ const DATOS_MAPA = {
           personajes: ['Zar Nicolás II', 'Vladimir Lenin', 'León Trotski']
         }),
 
-        /* A. CAUSAS */
         grupo('Causas', [
           grupo('Causas políticas', [
             hoja('▶ Video: Un soldado bajo la autocracia', {
@@ -392,7 +342,6 @@ const DATOS_MAPA = {
           ])
         ]),
 
-        /* B. ACTORES */
         grupo('Actores', [
           grupo('Karl Marx', [
             hoja('Biografía breve', {
@@ -525,9 +474,6 @@ const DATOS_MAPA = {
           ])
         ]),
 
-        /* C. ACONTECIMIENTOS
-           Investigación: Jair. Fuente principal: Hubeñák (2006), cap. 12,
-           «La revolución rusa», pp. 363-365. */
         grupo('Acontecimientos', [
           grupo('Revolución de Febrero de 1917', [
             hoja('▶ Video: Cae el zar: el vacío de poder', {
@@ -711,7 +657,6 @@ const DATOS_MAPA = {
           ])
         ]),
 
-        /* D. CONSECUENCIAS */
         grupo('Consecuencias', [
           grupo('Tratado de Brest-Litovsk', [
             hoja('Firma del tratado', {
@@ -782,14 +727,10 @@ const DATOS_MAPA = {
   ]
 };
 
-/* ==========================================================================
-   4. MAPA MENTAL — FUNCIONAMIENTO
-   ========================================================================== */
 (function iniciarMapaMental() {
   const contenedor = document.getElementById('contenedor-mapa-mental');
   if (!contenedor) return;
 
-  /* ---------- 4.1 Referencias al HTML ---------- */
   const vista = document.getElementById('mm-vista');
   const mundo = document.getElementById('mm-mundo');
   const capaLineas = document.getElementById('mm-lineas');
@@ -821,33 +762,28 @@ const DATOS_MAPA = {
   const visorPie = document.getElementById('mm-visor-pie');
   const visorCredito = document.getElementById('mm-visor-credito');
 
-  /* ---------- 4.2 Ajustes generales ---------- */
   const AJUSTES = {
-    anchoCompacto: 640,      // por debajo de este ancho: modo celular
-    separacionH: 60,         // distancia horizontal entre niveles
+    anchoCompacto: 640,
+    separacionH: 60,
     separacionHCompacta: 34,
-    separacionV: [0, 44, 22, 12, 10], // distancia vertical según el nivel
-    margen: 36,              // espacio libre al encuadrar
+    separacionV: [0, 44, 22, 12, 10],
+    margen: 36,
     zoomMin: 0.25,
     zoomMax: 2.2,
-    zoomAutoMax: 1.15,       // acercamiento máximo automático
-    duracion: 600            // duración de las animaciones (ms)
+    zoomAutoMax: 1.15,
+    duracion: 600
   };
   const SVG_NS = 'http://www.w3.org/2000/svg';
   const menosMovimiento = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  /* ---------- 4.3 Estado ---------- */
-  const nodos = [];           // lista plana de todos los nodos
-  let raiz = null;            // nodo central
-  let foco = null;            // nodo que se está explorando
-  let hojaAbierta = null;     // concepto cuya tarjeta está abierta
-  let modoTodo = false;       // "Expandir todo" activado
-  let compacto = false;       // diseño para pantallas angostas
+  const nodos = [];
+  let raiz = null;
+  let foco = null;
+  let hojaAbierta = null;
+  let modoTodo = false;
+  let compacto = false;
   const camara = { x: 0, y: 0, k: 1 };
 
-  /* ==========================================================
-     4.4 GENERACIÓN DE NODOS Y LÍNEAS
-     ========================================================== */
   function crearNodo(dato, padre, rama) {
     const n = {
       id: nodos.length,
@@ -862,10 +798,10 @@ const DATOS_MAPA = {
       lado: rama ? rama.lado : 0,
       expandido: false,
       visible: false,
-      w: 0, h: 0,             // tamaño medido
-      x: 0, y: 0,             // posición actual (centro)
-      tx: 0, ty: 0,           // posición de destino
-      sub: 0, sumaHijos: 0,   // alturas para la distribución
+      w: 0, h: 0,
+      x: 0, y: 0,
+      tx: 0, ty: 0,
+      sub: 0, sumaHijos: 0,
       el: null,
       linea: null
     };
@@ -873,7 +809,6 @@ const DATOS_MAPA = {
 
     const esHoja = !dato.hijos || dato.hijos.length === 0;
 
-    // Elemento HTML del nodo
     const el = document.createElement('button');
     el.type = 'button';
     el.className = 'mm-nodo mm-nodo--p' + Math.min(n.prof, 3) + (esHoja && n.prof > 0 ? ' mm-nodo--hoja' : '');
@@ -906,7 +841,6 @@ const DATOS_MAPA = {
     capaNodos.appendChild(el);
     n.el = el;
 
-    // Línea curva hacia el nodo padre
     if (padre) {
       const linea = document.createElementNS(SVG_NS, 'path');
       linea.setAttribute('class', 'mm-linea');
@@ -916,7 +850,6 @@ const DATOS_MAPA = {
       n.linea = linea;
     }
 
-    // Hijos (cada rama principal define su propio color y lado)
     (dato.hijos || []).forEach(function (datoHijo) {
       const ramaHijo = n.prof === 0 ? datoHijo : rama;
       n.hijos.push(crearNodo(datoHijo, n, ramaHijo));
@@ -925,7 +858,6 @@ const DATOS_MAPA = {
     return n;
   }
 
-  // Lado del nodo (izquierda/derecha) para el diseño y para el CSS
   function asignarLados() {
     nodos.forEach(function (n) {
       if (n.prof === 0) return;
@@ -934,7 +866,6 @@ const DATOS_MAPA = {
     });
   }
 
-  // Mide el tamaño real de cada nodo (depende del texto y del CSS)
   function medir() {
     nodos.forEach(function (n) {
       n.w = n.el.offsetWidth;
@@ -942,11 +873,6 @@ const DATOS_MAPA = {
     });
   }
 
-  /* ==========================================================
-     4.5 DISTRIBUCIÓN (sin superposiciones)
-     Cada nodo reserva un espacio vertical igual a la altura de
-     todos sus descendientes visibles; así nunca se pisan.
-     ========================================================== */
   function separacionVertical(prof) {
     return AJUSTES.separacionV[Math.min(prof, AJUSTES.separacionV.length - 1)];
   }
@@ -968,13 +894,12 @@ const DATOS_MAPA = {
   function ocultarDescendientes(n) {
     n.hijos.forEach(function (h) {
       h.visible = false;
-      h.tx = n.tx;   // al ocultarse, vuelven hacia su padre
+      h.tx = n.tx;
       h.ty = n.ty;
       ocultarDescendientes(h);
     });
   }
 
-  // Coloca una lista de hijos en columna, a un lado del nodo padre
   function colocarHijos(padre, lista, lado) {
     if (!lista.length) return;
     const sep = separacionVertical(padre.prof + 1);
@@ -999,7 +924,7 @@ const DATOS_MAPA = {
       return;
     }
     if (n === raiz) {
-      // Del centro salen ramas hacia la izquierda y hacia la derecha
+
       [-1, 1].forEach(function (lado) {
         colocarHijos(n, n.hijos.filter(function (h) { return h.lado === lado; }), lado);
       });
@@ -1015,9 +940,6 @@ const DATOS_MAPA = {
     ubicar(raiz);
   }
 
-  /* ==========================================================
-     4.6 DIBUJO (posiciones, líneas y cámara)
-     ========================================================== */
   function curva(padre, hijo) {
     const lado = hijo.lado;
     const x1 = padre.x + lado * padre.w / 2;
@@ -1047,7 +969,6 @@ const DATOS_MAPA = {
     return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
   }
 
-  // Animación de los nodos hacia su posición de destino
   let animacionNodos = 0;
   function animarNodos(conAnimacion) {
     cancelAnimationFrame(animacionNodos);
@@ -1069,7 +990,6 @@ const DATOS_MAPA = {
     else paso(inicio);
   }
 
-  // Animación suave de la cámara (zoom + desplazamiento)
   let animacionCamara = 0;
   function moverCamara(destino, conAnimacion) {
     cancelAnimationFrame(animacionCamara);
@@ -1078,7 +998,7 @@ const DATOS_MAPA = {
       aplicarCamara();
       return;
     }
-    // Se interpola el punto del mapa que queda en el centro de la vista
+
     const W = vista.clientWidth / 2, H = vista.clientHeight / 2;
     const k0 = camara.k, k1 = destino.k;
     const c0 = { x: (W - camara.x) / k0, y: (H - camara.y) / k0 };
@@ -1104,9 +1024,6 @@ const DATOS_MAPA = {
     cancelAnimationFrame(animacionCamara);
   }
 
-  /* ==========================================================
-     4.7 ZOOM AUTOMÁTICO (encuadre)
-     ========================================================== */
   function cajaDe(lista) {
     let x1 = Infinity, y1 = Infinity, x2 = -Infinity, y2 = -Infinity;
     lista.forEach(function (n) {
@@ -1118,7 +1035,6 @@ const DATOS_MAPA = {
     return { cx: (x1 + x2) / 2, cy: (y1 + y2) / 2, w: x2 - x1, h: y2 - y1 };
   }
 
-  // Espacio que ocupa la tarjeta (para no tapar los nodos con ella)
   function espacioTarjeta() {
     if (!hojaAbierta) return { derecha: 0, abajo: 0 };
     if (compacto) return { derecha: 0, abajo: tarjeta.offsetHeight + 14 };
@@ -1139,7 +1055,6 @@ const DATOS_MAPA = {
     };
   }
 
-  // Decide qué parte del mapa mostrar según el nivel actual
   function encuadrar(conAnimacion) {
     let lista;
     if (hojaAbierta) {
@@ -1152,11 +1067,8 @@ const DATOS_MAPA = {
     moverCamara(camaraPara(cajaDe(lista)), conAnimacion);
   }
 
-  /* ==========================================================
-     4.8 ESTADOS VISUALES (visible, atenuado, foco)
-     ========================================================== */
   function actualizarEstados() {
-    // Nodos protagonistas: el camino hasta el foco y sus hijos
+
     const activos = new Set();
     if (!modoTodo && foco !== raiz) {
       let a = foco;
@@ -1167,7 +1079,7 @@ const DATOS_MAPA = {
     let orden = 0;
     nodos.forEach(function (n) {
       const yaVisible = n.el.classList.contains('es-visible');
-      // Aparición progresiva: los nodos nuevos entran uno tras otro
+
       if (n.visible && !yaVisible && !menosMovimiento) {
         n.el.style.transitionDelay = (120 + Math.min(orden++, 14) * 45) + 'ms';
       } else {
@@ -1193,9 +1105,6 @@ const DATOS_MAPA = {
     });
   }
 
-  /* ==========================================================
-     4.9 INDICADOR DE NIVEL, RUTA Y BOTONES
-     ========================================================== */
   function camino(n) {
     const lista = [];
     while (n) { lista.unshift(n); n = n.padre; }
@@ -1254,9 +1163,6 @@ const DATOS_MAPA = {
     btnExpandir.setAttribute('aria-label', btnExpandir.title);
   }
 
-  /* ==========================================================
-     4.10 ACTUALIZACIÓN GENERAL
-     ========================================================== */
   function actualizar(conAnimacion) {
     const animar = conAnimacion !== false;
     calcularDistribucion();
@@ -1266,15 +1172,11 @@ const DATOS_MAPA = {
     encuadrar(animar);
   }
 
-  /* ==========================================================
-     4.11 NAVEGACIÓN ENTRE NIVELES
-     ========================================================== */
   function contraerTodo() {
     nodos.forEach(function (n) { n.expandido = false; });
     raiz.expandido = true;
   }
 
-  // Explora un nodo: se abre su camino y se cierran las demás ramas
   function enfocar(n) {
     modoTodo = false;
     cerrarTarjeta(false);
@@ -1318,35 +1220,31 @@ const DATOS_MAPA = {
     actualizar();
   }
 
-  // Clic en un nodo
   let seArrastro = false;
   function alHacerClic(n, evento) {
-    // Si el usuario estaba arrastrando el mapa, no se cuenta como clic
+
     if (seArrastro && evento.detail !== 0) return;
 
-    if (n.hijos.length === 0) {           // concepto final → ficha
+    if (n.hijos.length === 0) {
       abrirTarjeta(n);
       return;
     }
-    if (n === raiz) {                      // nodo central → vista general
+    if (n === raiz) {
       irAlMapaGeneral();
       return;
     }
-    if (modoTodo) {                        // en vista completa: abrir/cerrar libremente
+    if (modoTodo) {
       n.expandido = !n.expandido;
       actualizar();
       return;
     }
-    if (n.expandido && n === foco) {       // ya abierto → contraer
+    if (n.expandido && n === foco) {
       enfocar(n.padre);
     } else {
       enfocar(n);
     }
   }
 
-  /* ==========================================================
-     4.12 TARJETAS INFORMATIVAS
-     ========================================================== */
   function abrirTarjeta(n) {
     hojaAbierta = n;
     const f = n.ficha || { texto: '', fechas: [], personajes: [] };
@@ -1378,7 +1276,6 @@ const DATOS_MAPA = {
     });
     bloquePersonajes.hidden = !(f.personajes && f.personajes.length);
 
-    // Fuentes (opcional): si la ficha no las tiene, el bloque se oculta.
     if (tarjetaFuentes) {
       tarjetaFuentes.innerHTML = '';
       (f.fuentes || []).forEach(function (fu) {
@@ -1389,7 +1286,6 @@ const DATOS_MAPA = {
       bloqueFuentes.hidden = !(f.fuentes && f.fuentes.length);
     }
 
-    // Caja de imágenes (opcional): miniaturas con pie; al hacer clic se amplían.
     if (tarjetaImagenes) {
       tarjetaImagenes.innerHTML = '';
       (f.imagenes || []).forEach(function (im) {
@@ -1403,7 +1299,7 @@ const DATOS_MAPA = {
         el.src = im.src;
         el.alt = im.pie || '';
         el.loading = 'lazy';
-        el.addEventListener('error', function () { fig.remove(); });   // si no carga, se oculta
+        el.addEventListener('error', function () { fig.remove(); });
         boton.appendChild(el);
         boton.addEventListener('click', function () { abrirVisor(im); });
         fig.appendChild(boton);
@@ -1415,7 +1311,6 @@ const DATOS_MAPA = {
       bloqueImagenes.hidden = !(f.imagenes && f.imagenes.length);
     }
 
-    // Caja de video (opcional): miniatura de YouTube; al hacer clic se reproduce en grande.
     if (tarjetaVideos) {
       tarjetaVideos.innerHTML = '';
       const lista = (f.videos || []).filter(Boolean);
@@ -1454,15 +1349,14 @@ const DATOS_MAPA = {
     encuadrar(true);
   }
 
-  /* Visor de imagen ampliada */
   function abrirVisor(im) {
     if (!visor) return;
-    if (im.video && visorVideo) {               // video de YouTube
+    if (im.video && visorVideo) {
       visorImg.hidden = true;
       visorImg.src = '';
       visorVideo.hidden = false;
       visorVideo.src = urlYouTube(im.video, true);
-    } else {                                    // imagen
+    } else {
       if (visorVideo) { visorVideo.hidden = true; visorVideo.src = ''; }
       visorImg.hidden = false;
       visorImg.src = im.src.replace('?width=900', '?width=1600');
@@ -1488,7 +1382,7 @@ const DATOS_MAPA = {
     if (!visor || visor.hidden) return;
     visor.hidden = true;
     visorImg.src = '';
-    if (visorVideo) visorVideo.src = '';      // detiene el video al cerrar
+    if (visorVideo) visorVideo.src = '';
     document.body.classList.remove('mm-visor-abierto');
   }
 
@@ -1518,10 +1412,6 @@ const DATOS_MAPA = {
     cerrarTarjeta(true);
   });
 
-  /* ==========================================================
-     4.13 ZOOM MANUAL Y DESPLAZAMIENTO
-     ========================================================== */
-  // Zoom alrededor de un punto de la vista (px, py)
   function zoomEn(factor, px, py, conAnimacion) {
     const k = limitar(camara.k * factor, AJUSTES.zoomMin, AJUSTES.zoomMax);
     const wx = (px - camara.x) / camara.k;
@@ -1546,8 +1436,6 @@ const DATOS_MAPA = {
     encuadrar(true);
   });
 
-  // Ctrl + rueda (o pellizco en el trackpad) = zoom.
-  // La rueda sola sigue desplazando la página con normalidad.
   vista.addEventListener('wheel', function (e) {
     if (!(e.ctrlKey || e.metaKey)) return;
     e.preventDefault();
@@ -1555,7 +1443,6 @@ const DATOS_MAPA = {
     zoomEn(Math.exp(-e.deltaY * 0.0025), e.clientX - r.left, e.clientY - r.top, false);
   }, { passive: false });
 
-  // Arrastrar con ratón o dedo; pellizcar con dos dedos
   const punteros = new Map();
   let arrastre = null;
   let pellizco = null;
@@ -1619,7 +1506,7 @@ const DATOS_MAPA = {
         seArrastro = true;
         detenerCamara();
         vista.classList.add('arrastrando');
-        try { vista.setPointerCapture(e.pointerId); } catch (error) { /* sin captura */ }
+        try { vista.setPointerCapture(e.pointerId); } catch (error) {  }
       }
       if (seArrastro) {
         camara.x = arrastre.camX + dx;
@@ -1634,7 +1521,7 @@ const DATOS_MAPA = {
     punteros.delete(e.pointerId);
     if (punteros.size < 2) pellizco = null;
     if (punteros.size === 1) {
-      // Queda un dedo: continúa arrastrando desde su posición
+
       iniciarArrastre(Array.from(punteros.values())[0]);
     } else if (punteros.size === 0) {
       arrastre = null;
@@ -1644,9 +1531,6 @@ const DATOS_MAPA = {
   vista.addEventListener('pointerup', soltarPuntero);
   vista.addEventListener('pointercancel', soltarPuntero);
 
-  /* ==========================================================
-     4.14 TECLADO
-     ========================================================== */
   contenedor.addEventListener('keydown', function (e) {
     if (e.key === 'Escape' && hojaAbierta) {
       cerrarTarjeta(true);
@@ -1660,11 +1544,6 @@ const DATOS_MAPA = {
   btnAtras.addEventListener('click', nivelAnterior);
   btnExpandir.addEventListener('click', alternarExpandirTodo);
 
-  /* ==========================================================
-     4.15 DISEÑO RESPONSIVE
-     En pantallas angostas las dos ramas se apilan a la derecha
-     del nodo central para que los textos sean legibles.
-     ========================================================== */
   function revisarTamano(conAnimacion) {
     const debeSerCompacto = vista.clientWidth < AJUSTES.anchoCompacto;
     if (debeSerCompacto !== compacto) {
@@ -1684,9 +1563,6 @@ const DATOS_MAPA = {
     esperaTamano = requestAnimationFrame(function () { revisarTamano(false); });
   }
 
-  /* ==========================================================
-     4.16 INICIO
-     ========================================================== */
   function iniciar() {
     raiz = crearNodo(DATOS_MAPA, null, null);
     foco = raiz;
@@ -1696,11 +1572,9 @@ const DATOS_MAPA = {
     asignarLados();
     medir();
 
-    // Al principio solo se ve el nodo central…
     raiz.expandido = false;
     actualizar(false);
 
-    // …y las ramas aparecen cuando el usuario llega a la sección
     function mostrarRamas() {
       if (raiz.expandido) return;
       raiz.expandido = true;
@@ -1725,7 +1599,6 @@ const DATOS_MAPA = {
       window.addEventListener('resize', alCambiarTamano);
     }
 
-    // Si alguna fuente termina de cargar más tarde, se vuelve a medir
     if (document.fonts && document.fonts.addEventListener) {
       document.fonts.addEventListener('loadingdone', function () {
         medir();
@@ -1734,21 +1607,12 @@ const DATOS_MAPA = {
     }
   }
 
-  // Se espera a que carguen las fuentes para medir bien los nodos
   const fuentesListas = document.fonts && document.fonts.ready
     ? document.fonts.ready
     : Promise.resolve();
   fuentesListas.then(iniciar, iniciar);
 })();
 
-
-/* ==========================================================================
-   5. CUESTIONARIO INTERACTIVO
-   --------------------------------------------------------------------------
-   Para editar preguntas solo hay que cambiar el arreglo PREGUNTAS.
-   Cada pregunta: { tema, texto, opciones: [{ t: 'texto', ok: true/false, f: 'retroalimentación' }] }
-   La nota final se calcula sobre 20.
-   ========================================================================== */
 const PREGUNTAS = [
   {
     tema: 'Contexto histórico',
@@ -1940,11 +1804,11 @@ const PREGUNTAS = [
   const elTotalInicio = document.getElementById('quiz-total');
 
   const LETRAS = ['A', 'B', 'C', 'D', 'E'];
-  let orden = [];        // índices de preguntas en orden barajado
+  let orden = [];
   let actual = 0;
   let aciertos = 0;
   let respondida = false;
-  const detalle = [];    // {tema, ok}
+  const detalle = [];
 
   elTotalInicio.textContent = PREGUNTAS.length;
 
@@ -2039,7 +1903,7 @@ const PREGUNTAS = [
 
   function terminar() {
     const total = PREGUNTAS.length;
-    const nota = Math.round((aciertos / total) * 20 * 10) / 10;   // sobre 20, un decimal
+    const nota = Math.round((aciertos / total) * 20 * 10) / 10;
     const pct = Math.round(aciertos / total * 100);
 
     let mensaje, clase;
@@ -2055,7 +1919,6 @@ const PREGUNTAS = [
     circulo.className = 'quiz-circulo ' + clase;
     circulo.style.setProperty('--p', pct);
 
-    // Resumen por tema
     const porTema = {};
     detalle.forEach(function (d) {
       porTema[d.tema] = porTema[d.tema] || { ok: 0, n: 0 };
@@ -2085,7 +1948,6 @@ const PREGUNTAS = [
   btnSiguiente.addEventListener('click', siguiente);
   btnReiniciar.addEventListener('click', empezar);
 
-  // Teclado: A/B/C/D para responder, Enter para continuar
   raiz.addEventListener('keydown', function (e) {
     if (elPregunta.hidden) return;
     const k = e.key.toUpperCase();
@@ -2099,8 +1961,6 @@ const PREGUNTAS = [
   });
 })();
 
-// SECCIÓN: FUENTES BIBLIOGRÁFICAS DEL SÍLABO 
-// ==========================================================================
 const fuentesSilabo = [
   {
     enfoque: "Origen del Socialismo y Siglo XIX",
@@ -2162,11 +2022,6 @@ function alternarAporteFuente(index, boton) {
 
 document.addEventListener("DOMContentLoaded", cargarFuentes);
 
-
-/* ==========================================================================
-   6. VIDEO REPORTAJE
-   Usa las listas VIDEO_COMPLETO y ESCENAS definidas arriba.
-   ========================================================================== */
 function urlYouTube(id, autoplay) {
   return 'https://www.youtube-nocookie.com/embed/' + id +
          '?rel=0&modestbranding=1' + (autoplay ? '&autoplay=1' : '');
@@ -2177,7 +2032,7 @@ function urlYouTube(id, autoplay) {
   if (!pantalla) return;
   const v = VIDEO_COMPLETO;
 
-  if (!v.id) {                                       // aún no hay video completo
+  if (!v.id) {
     const vacio = document.createElement('div');
     vacio.className = 'vr-vacio';
     vacio.innerHTML = '<span class="vr-vacio__titulo">Próximamente</span>' +
@@ -2186,7 +2041,6 @@ function urlYouTube(id, autoplay) {
     return;
   }
 
-  // Portada con botón play; el reproductor se carga solo al hacer clic.
   const boton = document.createElement('button');
   boton.type = 'button';
   boton.className = 'vr-portada';

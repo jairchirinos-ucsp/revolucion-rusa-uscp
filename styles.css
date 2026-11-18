@@ -17,7 +17,6 @@ body {
   padding: 0 20px;
 }
 
-/* SECCIÓN 1: CABECERA (HERO) */
 .hero-section {
   position: relative;
   min-height: 100vh;
@@ -61,11 +60,6 @@ body {
   margin-bottom: 35px;
 }
 
-/* CAJA DE PREGUNTA CENTRAL */
-
-/* ==========================================================================
-   CAJA DE PREGUNTA CENTRAL
-   ========================================================================== */
 .question-card {
   background: rgba(26, 32, 44, 0.85);
   border: 1px solid #c99700;
@@ -82,7 +76,7 @@ body {
   color: #c99700;
   line-height: 1.5;
 }
-/* BOTÓN DE SCROLL */
+
 .scroll-btn {
   display: inline-flex;
   flex-direction: column;
@@ -109,7 +103,6 @@ body {
   60% { transform: translateY(-4px); }
 }
 
-/* SECCIÓN 2: INTRODUCCIÓN */
 .intro-section {
   padding: 80px 0;
   background-color: #14171d;
@@ -147,7 +140,6 @@ body {
   color: #ffffff;
 }
 
-/* SECCIÓN 3: MAPA MENTAL (PLACEHOLDER) */
 .map-section {
   padding: 80px 0;
   min-height: 80vh;
@@ -190,7 +182,6 @@ body {
   padding: 0 20px;
 }
 
-/* SECCIÓN 1: CABECERA (HERO) */
 .hero-section {
   position: relative;
   min-height: 100vh;
@@ -234,7 +225,6 @@ body {
   margin-bottom: 35px;
 }
 
-/* CAJA DE PREGUNTA CENTRAL */
 .question-card {
   background: rgba(26, 32, 44, 0.85);
   border-left: 5px solid #bd2d2d;
@@ -263,7 +253,6 @@ body {
   color: #ffffff;
 }
 
-/* BOTÓN DE SCROLL */
 .scroll-btn {
   display: inline-flex;
   flex-direction: column;
@@ -290,7 +279,6 @@ body {
   60% { transform: translateY(-4px); }
 }
 
-/* SECCIÓN 2: INTRODUCCIÓN */
 .intro-section {
   padding: 80px 0;
   background-color: #14171d;
@@ -328,7 +316,6 @@ body {
   color: #ffffff;
 }
 
-/* SECCIÓN 3: MAPA MENTAL */
 .map-section {
   padding: 80px 0;
   min-height: 80vh;
@@ -341,27 +328,11 @@ body {
   margin-bottom: 40px;
 }
 
-/* (Se eliminó .map-placeholder: el marcador fue reemplazado por el mapa real) */
-
-
-/* ==========================================================================
-   ==========================================================================
-   NUEVO — TODO LO QUE SIGUE FUE AÑADIDO PARA EL MENÚ FIJO Y EL MAPA MENTAL
-   ==========================================================================
-   ========================================================================== */
-
-/* --------------------------------------------------------------------------
-   A. DESPLAZAMIENTO SUAVE
-   scroll-padding-top evita que el menú fijo tape el título de cada sección.
-   -------------------------------------------------------------------------- */
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 72px;
 }
 
-/* --------------------------------------------------------------------------
-   B. MENÚ FIJO
-   -------------------------------------------------------------------------- */
 .nav-principal {
   position: fixed;
   top: 0;
@@ -372,7 +343,6 @@ html {
   transition: background-color 0.3s, border-color 0.3s, box-shadow 0.3s;
 }
 
-/* Fondo sólido al bajar por la página (lo activa script.js) */
 .nav-principal.con-fondo {
   background-color: rgba(15, 17, 21, 0.95);
   border-bottom-color: rgba(201, 151, 0, 0.25);
@@ -416,13 +386,12 @@ html {
   font-size: 0.8rem;
   letter-spacing: 2px;
   text-transform: uppercase;
-  white-space: nowrap;           /* el menú ya tiene 6 enlaces: evita que se partan en dos líneas */
+  white-space: nowrap;
   color: #a0aec0;
   text-decoration: none;
   transition: color 0.25s;
 }
 
-/* Subrayado dorado animado */
 .nav-enlace::after {
   content: '';
   position: absolute;
@@ -446,7 +415,6 @@ html {
   transform: scaleX(1);
 }
 
-/* Botón hamburguesa (solo en pantallas pequeñas) */
 .nav-principal__toggle {
   display: none;
   flex-direction: column;
@@ -522,9 +490,6 @@ html {
   }
 }
 
-/* --------------------------------------------------------------------------
-   C. MAPA MENTAL — CONTENEDOR Y BARRA DE CONTROLES
-   -------------------------------------------------------------------------- */
 .mm {
   position: relative;
   background-color: #14171d;
@@ -553,7 +518,6 @@ html {
   min-width: 0;
 }
 
-/* Indicador del nivel actual */
 .mm-nivel {
   flex: none;
   padding: 3px 10px;
@@ -568,7 +532,6 @@ html {
   white-space: nowrap;
 }
 
-/* Ruta (migas de pan) */
 .mm-migas {
   display: flex;
   flex-wrap: wrap;
@@ -651,15 +614,12 @@ html {
   outline-offset: 2px;
 }
 
-/* --------------------------------------------------------------------------
-   D. MAPA MENTAL — ÁREA DE EXPLORACIÓN (CÁMARA)
-   -------------------------------------------------------------------------- */
 .mm-vista {
   position: relative;
   height: clamp(440px, 72vh, 680px);
   overflow: hidden;
   cursor: grab;
-  touch-action: none;          /* permite arrastrar y pellizcar dentro del mapa */
+  touch-action: none;
   -webkit-user-select: none;
   user-select: none;
   background-color: #0f1115;
@@ -671,7 +631,6 @@ html {
   cursor: grabbing;
 }
 
-/* "Mundo": capa que se mueve y escala con la cámara */
 .mm-mundo {
   position: absolute;
   left: 0;
@@ -690,7 +649,6 @@ html {
   pointer-events: none;
 }
 
-/* Líneas curvas que conectan los nodos */
 .mm-linea {
   fill: none;
   stroke-linecap: round;
@@ -712,10 +670,6 @@ html {
   top: 0;
 }
 
-/* --------------------------------------------------------------------------
-   E. MAPA MENTAL — NODOS
-   --c = color de la rama · --t = color de texto sobre ese color
-   -------------------------------------------------------------------------- */
 .mm-nodo {
   --c: #c99700;
   --t: #0f1115;
@@ -741,7 +695,6 @@ html {
   visibility: visible;
 }
 
-/* Ramas que pierden protagonismo cuando se explora otra */
 .mm-nodo.es-visible.es-atenuado {
   opacity: 0.3;
 }
@@ -755,7 +708,6 @@ html {
   outline-offset: 3px;
 }
 
-/* En el lado izquierdo el símbolo +/− va hacia afuera (a la izquierda) */
 .mm-nodo[data-lado="izq"] {
   flex-direction: row-reverse;
   text-align: right;
@@ -766,7 +718,6 @@ html {
   min-width: 0;
 }
 
-/* Nivel 0: nodo central */
 .mm-nodo--p0 {
   width: 220px;
   padding: 18px 20px;
@@ -783,7 +734,6 @@ html {
   box-shadow: 0 0 0 6px rgba(201, 151, 0, 0.12), 0 12px 30px rgba(0, 0, 0, 0.5);
 }
 
-/* Nivel 1: ramas principales */
 .mm-nodo--p1 {
   width: 180px;
   padding: 14px 16px;
@@ -798,7 +748,6 @@ html {
   box-shadow: 0 8px 22px rgba(0, 0, 0, 0.45);
 }
 
-/* Nivel 2: subdivisiones (Causas, Actores…) */
 .mm-nodo--p2 {
   width: 190px;
   padding: 10px 14px;
@@ -812,7 +761,6 @@ html {
   border: 1.5px solid var(--c);
 }
 
-/* Nivel 3 o más con subtemas */
 .mm-nodo--p3 {
   width: 165px;
   padding: 9px 12px;
@@ -822,7 +770,6 @@ html {
   border: 1px solid var(--c);
 }
 
-/* Conceptos finales (abren una tarjeta) */
 .mm-nodo--hoja {
   width: 165px;
   padding: 8px 10px 8px 12px;
@@ -840,8 +787,6 @@ html {
   border-right: 3px solid var(--c);
 }
 
-/* Efectos hover (solo en dispositivos con ratón, para que no queden
-   "pegados" al tocar la pantalla en celulares) */
 @media (hover: hover) {
   .mm-nodo:hover {
     box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.08), 0 8px 20px rgba(0, 0, 0, 0.45);
@@ -867,12 +812,10 @@ html {
   }
 }
 
-/* Nodo en foco (el que se está explorando) */
 .mm-nodo.es-foco {
   box-shadow: 0 0 0 3px #0f1115, 0 0 0 5px var(--c), 0 10px 28px rgba(0, 0, 0, 0.5);
 }
 
-/* Concepto final cuya tarjeta está abierta */
 .mm-nodo.es-seleccionado {
   color: #ffffff;
   background-color: #1a202c;
@@ -880,7 +823,6 @@ html {
   box-shadow: 0 0 0 2px var(--c), 0 8px 20px rgba(0, 0, 0, 0.45);
 }
 
-/* Símbolo + / − de los nodos que se expanden */
 .mm-nodo__signo {
   flex: none;
   display: inline-flex;
@@ -903,7 +845,6 @@ html {
   background-color: var(--c);
 }
 
-/* Icono "i" de los conceptos con ficha */
 .mm-nodo__info {
   flex: none;
   display: inline-flex;
@@ -920,16 +861,12 @@ html {
   border-radius: 50%;
 }
 
-/* Versión compacta (celulares y pantallas angostas: la activa script.js) */
 .mm--compacto .mm-nodo--p0   { width: 150px; padding: 14px; font-size: 0.78rem; }
 .mm--compacto .mm-nodo--p1   { width: 140px; padding: 11px 12px; font-size: 0.74rem; }
 .mm--compacto .mm-nodo--p2   { width: 150px; padding: 9px 11px; font-size: 0.68rem; }
 .mm--compacto .mm-nodo--p3   { width: 140px; font-size: 0.72rem; }
 .mm--compacto .mm-nodo--hoja { width: 140px; font-size: 0.7rem; }
 
-/* --------------------------------------------------------------------------
-   F. MAPA MENTAL — CONTROLES DE ZOOM Y AYUDA
-   -------------------------------------------------------------------------- */
 .mm-zoom {
   position: absolute;
   left: 14px;
@@ -988,9 +925,6 @@ html {
   color: #718096;
 }
 
-/* --------------------------------------------------------------------------
-   G. MAPA MENTAL — TARJETA INFORMATIVA
-   -------------------------------------------------------------------------- */
 .mm-tarjeta {
   --c: #c99700;
   position: absolute;
@@ -1129,7 +1063,6 @@ html {
   border-radius: 20px;
 }
 
-/* Fuentes citadas en la tarjeta (formato APA breve) */
 .mm-fuentes {
   list-style: none;
 }
@@ -1142,7 +1075,6 @@ html {
   color: #a0aec0;
 }
 
-/* Caja de imágenes de la tarjeta */
 .mm-imagenes {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -1187,7 +1119,6 @@ html {
   color: #a0aec0;
 }
 
-/* Visor de imagen ampliada */
 .mm-visor {
   position: fixed;
   inset: 0;
@@ -1263,7 +1194,6 @@ body.mm-visor-abierto {
   }
 }
 
-/* En modo compacto la tarjeta aparece desde abajo */
 .mm--compacto .mm-tarjeta {
   top: auto;
   left: 10px;
@@ -1280,10 +1210,6 @@ body.mm-visor-abierto {
   transform: none;
 }
 
-/* --------------------------------------------------------------------------
-   H. AJUSTES RESPONSIVE PARA LAS SECCIONES QUE YA EXISTÍAN
-   (en computadora se ven exactamente igual que antes)
-   -------------------------------------------------------------------------- */
 @media (max-width: 768px) {
   .hero-section {
     padding: 100px 20px 60px;
@@ -1348,7 +1274,6 @@ body.mm-visor-abierto {
     letter-spacing: 1px;
   }
 
-  /* En celulares los botones del mapa muestran solo el icono */
   .mm-btn__texto {
     display: none;
   }
@@ -1363,10 +1288,6 @@ body.mm-visor-abierto {
   }
 }
 
-/* Respeta a quienes prefieren menos movimiento */
-/* ==========================================================================
-   VIDEOS: botón «play», video en la tarjeta y en el visor
-   ========================================================================== */
 .mm-imagen__boton {
   position: relative;
 }
@@ -1432,9 +1353,6 @@ body.mm-visor-abierto {
   display: none;
 }
 
-/* ==========================================================================
-   SECCIÓN: VIDEO REPORTAJE
-   ========================================================================== */
 .vr-section {
   padding: 80px 0 90px;
   background-color: #14171d;
@@ -1527,16 +1445,12 @@ body.mm-visor-abierto {
   }
 }
 
-/* ==========================================================================
-   SECCIÓN 4: DATOS CURIOSOS
-   ========================================================================== */
 .curiosos-section {
   padding: 80px 0 100px;
   background-color: #14171d;
   border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-/* Título grande y dorado de la sección */
 .curiosos-titulo {
   font-size: 3rem;
   font-weight: 900;
@@ -1647,9 +1561,6 @@ body.mm-visor-abierto {
   }
 }
 
-/* ==========================================================================
-   SECCIÓN 5: CUESTIONARIO INTERACTIVO
-   ========================================================================== */
 .quiz-section {
   padding: 80px 0 110px;
   background: radial-gradient(circle at top, #1a1d26 0%, #0f1115 70%);
@@ -1690,7 +1601,6 @@ body.mm-visor-abierto {
   to   { opacity: 1; transform: none; }
 }
 
-/* Inicio y final */
 .quiz-inicio,
 .quiz-final {
   text-align: center;
@@ -1729,7 +1639,6 @@ body.mm-visor-abierto {
   margin-bottom: 28px;
 }
 
-/* Botones */
 .quiz-btn {
   display: inline-block;
   padding: 13px 30px;
@@ -1779,7 +1688,6 @@ body.mm-visor-abierto {
   margin-top: 30px;
 }
 
-/* Pregunta */
 .quiz-cabecera {
   display: flex;
   align-items: center;
@@ -1871,7 +1779,6 @@ body.mm-visor-abierto {
   border-radius: 50%;
 }
 
-/* Estados tras responder */
 .quiz-opcion.es-correcta {
   opacity: 1;
   border-color: #3fae6a;
@@ -1910,7 +1817,6 @@ body.mm-visor-abierto {
 .quiz-feedback--ok  { border-left-color: #3fae6a; }
 .quiz-feedback--mal { border-left-color: #bd2d2d; }
 
-/* Nota final: círculo de progreso */
 .quiz-circulo {
   --p: 0;
   --color: #c99700;
@@ -2029,9 +1935,7 @@ body.mm-visor-abierto {
     transition: none;
   }
 }
-/* ==========================================================================
-   SECCIÓN: CONCLUSIONES Y LEGADO ACTUAL
-   ========================================================================== */
+
 .conclusions-section {
   padding: 80px 0;
   background-color: #14171d;
@@ -2128,9 +2032,6 @@ body.mm-visor-abierto {
   line-height: 1.75;
 }
 
-/* ==========================================================================
-   SECCIÓN: FUENTES BIBLIOGRÁFICAS
-   ========================================================================== */
 .sources-section {
   padding: 80px 0;
   background-color: #0f1115;
@@ -2204,9 +2105,6 @@ body.mm-visor-abierto {
   display: none;
 }
 
-/* ==========================================================================
-   INTEGRANTES DEL EQUIPO (en la cabecera, debajo del subtítulo)
-   ========================================================================== */
 .equipo-hero {
   max-width: 800px;
   margin: -15px auto 35px;
