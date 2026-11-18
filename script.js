@@ -470,7 +470,7 @@ const DATOS_MAPA = {
         /* C. ACONTECIMIENTOS
            Investigación: Jair. Fuente principal: Hubeñák (2006), cap. 12,
            «La revolución rusa», pp. 363-365. Cronología completada con
-           Encyclopaedia Britannica y el Archivo Histórico Provincial de Málaga. */
+           Encyclopaedia Britannica. */
         grupo('Acontecimientos', [
           grupo('Revolución de Febrero de 1917', [
             hoja('Antecedentes: un zar sin prestigio', {
@@ -495,7 +495,7 @@ const DATOS_MAPA = {
                 ['27 de febrero de 1917 (12 de marzo)', 'Huida de los ministros; se funda el Sóviet de Petrogrado.']
               ],
               personajes: ['Nicolás II', 'General Serguéi Jabálov'],
-              fuentes: ['Encyclopaedia Britannica (s. f.-b)'],
+              fuentes: [],
               imagenes: [
                 img("International Women's Day - February Revolution - Petrograd.jpg", 'Manifestación del Día Internacional de la Mujer en Petrogrado, 23 de febrero (8 de marzo) de 1917.'),
                 img('Soldiers demonstration.February 1917.jpg', 'Soldados amotinados se suman a la revolución, febrero de 1917.')
@@ -507,7 +507,7 @@ const DATOS_MAPA = {
                 ['2 de marzo de 1917 (15 de marzo)', 'Nicolás II abdica.']
               ],
               personajes: ['Nicolás II', 'Gran duque Miguel', 'Aleksandr Guchkov', 'Vasili Shulguín'],
-              fuentes: ['Hubeñák (2006, p. 364)', 'Encyclopaedia Britannica (s. f.-b; s. f.-c)'],
+              fuentes: ['Hubeñák (2006, p. 364)', 'Encyclopaedia Britannica (s. f.-c)'],
               imagenes: [
                 img('1917 март Отречение Николая II манифест.jpg', 'Manifiesto de abdicación de Nicolás II, marzo de 1917.'),
                 img('The last photo of Nicholas II.jpg', 'Nicolás II tras su abdicación, en Tsárskoye Seló (1917).')
@@ -519,7 +519,7 @@ const DATOS_MAPA = {
                 ['3 de marzo de 1917 (16 de marzo)', 'Miguel rechaza el trono: cae la monarquía.']
               ],
               personajes: ['Gran duque Miguel'],
-              fuentes: ['Encyclopaedia Britannica (s. f.-b)']
+              fuentes: []
             })
           ]),
           grupo('Gobierno provisional', [
@@ -530,7 +530,7 @@ const DATOS_MAPA = {
                 ['1 de marzo de 1917 (14 de marzo)', 'Asume el Gobierno provisional; Orden n.º 1 del Sóviet.']
               ],
               personajes: ['Gueorgui Lvov', 'Aleksandr Kérenski'],
-              fuentes: ['Encyclopaedia Britannica (s. f.-b; s. f.-c)'],
+              fuentes: ['Encyclopaedia Britannica (s. f.-c)'],
               imagenes: [
                 img('Governo provvisorio russo marzo 1917.jpg', 'Primer Gobierno provisional, marzo de 1917.'),
                 img('Georgy Lvov 1917.jpg', 'El príncipe Gueorgui Lvov, primer jefe del Gobierno provisional.')
@@ -542,7 +542,7 @@ const DATOS_MAPA = {
                 ['18 de junio de 1917 (1 de julio)', 'Ofensiva de Brusílov, que fracasa en dos semanas.']
               ],
               personajes: ['Gueorgui Lvov', 'Aleksandr Kérenski', 'Alekséi Brusílov'],
-              fuentes: ['Archivo Histórico Provincial de Málaga (2017)', 'Encyclopaedia Britannica (s. f.-b)'],
+              fuentes: [],
               imagenes: [
                 img('Political demonstration at Petrograd, 18th June 1917 (14264213940).jpg', 'Manifestación política en Petrogrado, 18 de junio (1 de julio) de 1917.')
               ]
@@ -554,7 +554,7 @@ const DATOS_MAPA = {
                 ['8 de julio de 1917 (21 de julio)', 'Kérenski reemplaza a Lvov como primer ministro.']
               ],
               personajes: ['Aleksandr Kérenski', 'Gueorgui Lvov', 'Vladimir Lenin', 'León Trotski'],
-              fuentes: ['Hubeñák (2006, p. 364)', 'Encyclopaedia Britannica (s. f.-b; s. f.-c)'],
+              fuentes: ['Hubeñák (2006, p. 364)', 'Encyclopaedia Britannica (s. f.-c)'],
               imagenes: [
                 img('Alexander Kerensky 1917.jpg', 'Aleksandr Kérenski, primer ministro desde julio de 1917.'),
                 img('19170704 Riot on Nevsky prosp Petrograd.jpg', 'Jornadas de Julio: disparos sobre la multitud en la avenida Nevski, 4 (17) de julio de 1917.')
@@ -567,7 +567,7 @@ const DATOS_MAPA = {
                 ['Mediados de septiembre de 1917', 'Mayoría bolchevique en Petrogrado y Moscú.']
               ],
               personajes: ['Lavr Kornílov', 'Aleksandr Kérenski', 'León Trotski'],
-              fuentes: ['Archivo Histórico Provincial de Málaga (2017)', 'Encyclopaedia Britannica (2026; s. f.-b)'],
+              fuentes: ['Encyclopaedia Britannica (2026)'],
               imagenes: [
                 img('Kornilov 1917.jpg', 'El general Lavr Kornílov en 1917.')
               ]
@@ -594,7 +594,7 @@ const DATOS_MAPA = {
                 ['21-22 de octubre de 1917 (3-4 de noviembre)', 'La guarnición obedece al Comité Militar Revolucionario.']
               ],
               personajes: ['Vladimir Lenin', 'León Trotski'],
-              fuentes: ['Hubeñák (2006, p. 364)', 'Encyclopaedia Britannica (s. f.-b; s. f.-d)'],
+              fuentes: ['Hubeñák (2006, p. 364)', 'Encyclopaedia Britannica (s. f.-d)'],
               imagenes: [
                 img('LeninAsIvanov1917.jpg', 'Lenin disfrazado, con el nombre falso de «Ivánov», durante la clandestinidad (1917).'),
                 img('Leo Trotzki 1917.jpg', 'León Trotski en 1917, presidente del Sóviet de Petrogrado.')
@@ -607,7 +607,7 @@ const DATOS_MAPA = {
                 ['Noche del 25 al 26 de octubre de 1917 (7-8 de noviembre)', 'Toma del Palacio de Invierno; arresto de los ministros.']
               ],
               personajes: ['León Trotski', 'Aleksandr Kérenski'],
-              fuentes: ['Archivo Histórico Provincial de Málaga (2017)', 'Encyclopaedia Britannica (s. f.-b; s. f.-c)'],
+              fuentes: ['Encyclopaedia Britannica (s. f.-c)'],
               imagenes: [
                 img('Stormningen av vinterpalatset.jpg', 'La toma del Palacio de Invierno (imagen difundida posteriormente).'),
                 img('After the capture of the Winter Palace 26 October 1917.jpg', 'Tras la toma del Palacio de Invierno, 26 de octubre (8 de noviembre) de 1917.')
@@ -620,7 +620,7 @@ const DATOS_MAPA = {
                 ['26 de octubre de 1917 (8 de noviembre)', 'Consejo de Comisarios del Pueblo; Decretos de Paz y de Tierra.']
               ],
               personajes: ['Vladimir Lenin', 'León Trotski'],
-              fuentes: ['Hubeñák (2006, p. 364)', 'Encyclopaedia Britannica (s. f.-b; s. f.-d)'],
+              fuentes: ['Hubeñák (2006, p. 364)', 'Encyclopaedia Britannica (s. f.-d)'],
               imagenes: [
                 img("Gothic Hall of the Winter Palace after the seizure by Soviets' military troops.jpg", 'Sala del Palacio de Invierno tras la ocupación por las tropas de los sóviets.')
               ]
