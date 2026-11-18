@@ -527,8 +527,7 @@ const DATOS_MAPA = {
 
         /* C. ACONTECIMIENTOS
            Investigación: Jair. Fuente principal: Hubeñák (2006), cap. 12,
-           «La revolución rusa», pp. 363-365. Cronología completada con
-           Encyclopaedia Britannica. */
+           «La revolución rusa», pp. 363-365. */
         grupo('Acontecimientos', [
           grupo('Revolución de Febrero de 1917', [
             hoja('▶ Video: Cae el zar: el vacío de poder', {
@@ -571,7 +570,7 @@ const DATOS_MAPA = {
                 ['2 de marzo de 1917 (15 de marzo)', 'Nicolás II abdica.']
               ],
               personajes: ['Nicolás II', 'Gran duque Miguel', 'Aleksandr Guchkov', 'Vasili Shulguín'],
-              fuentes: ['Hubeñák (2006, p. 364)', 'Encyclopaedia Britannica (s. f.-c)'],
+              fuentes: ['Hubeñák (2006, p. 364)'],
               imagenes: [
                 img('1917 март Отречение Николая II манифест.jpg', 'Manifiesto de abdicación de Nicolás II, marzo de 1917.'),
                 img('The last photo of Nicholas II.jpg', 'Nicolás II tras su abdicación, en Tsárskoye Seló (1917).')
@@ -594,7 +593,7 @@ const DATOS_MAPA = {
                 ['1 de marzo de 1917 (14 de marzo)', 'Asume el Gobierno provisional; Orden n.º 1 del Sóviet.']
               ],
               personajes: ['Gueorgui Lvov', 'Aleksandr Kérenski'],
-              fuentes: ['Encyclopaedia Britannica (s. f.-c)'],
+              fuentes: [],
               imagenes: [
                 img('Governo provvisorio russo marzo 1917.jpg', 'Primer Gobierno provisional, marzo de 1917.'),
                 img('Georgy Lvov 1917.jpg', 'El príncipe Gueorgui Lvov, primer jefe del Gobierno provisional.')
@@ -618,7 +617,7 @@ const DATOS_MAPA = {
                 ['8 de julio de 1917 (21 de julio)', 'Kérenski reemplaza a Lvov como primer ministro.']
               ],
               personajes: ['Aleksandr Kérenski', 'Gueorgui Lvov', 'Vladimir Lenin', 'León Trotski'],
-              fuentes: ['Hubeñák (2006, p. 364)', 'Encyclopaedia Britannica (s. f.-c)'],
+              fuentes: ['Hubeñák (2006, p. 364)'],
               imagenes: [
                 img('Alexander Kerensky 1917.jpg', 'Aleksandr Kérenski, primer ministro desde julio de 1917.'),
                 img('19170704 Riot on Nevsky prosp Petrograd.jpg', 'Jornadas de Julio: disparos sobre la multitud en la avenida Nevski, 4 (17) de julio de 1917.')
@@ -631,7 +630,7 @@ const DATOS_MAPA = {
                 ['Mediados de septiembre de 1917', 'Mayoría bolchevique en Petrogrado y Moscú.']
               ],
               personajes: ['Lavr Kornílov', 'Aleksandr Kérenski', 'León Trotski'],
-              fuentes: ['Encyclopaedia Britannica (2026)'],
+              fuentes: [],
               imagenes: [
                 img('Kornilov 1917.jpg', 'El general Lavr Kornílov en 1917.')
               ]
@@ -645,7 +644,7 @@ const DATOS_MAPA = {
                 ['Abril de 1917', 'Tesis de abril; la Conferencia del partido las adopta.']
               ],
               personajes: ['Vladimir Lenin'],
-              fuentes: ['Hubeñák (2006, p. 364, n. 21)', 'Encyclopaedia Britannica (s. f.-d)'],
+              fuentes: ['Hubeñák (2006, p. 364, n. 21)'],
               imagenes: [
                 img('Lenin in Stockholm 1917.jpg', 'Lenin en Estocolmo, de regreso a Rusia, abril de 1917.'),
                 img('Vladimir Lenin, 1917.jpg', 'Vladímir Lenin en 1917.')
@@ -658,20 +657,20 @@ const DATOS_MAPA = {
                 ['21-22 de octubre de 1917 (3-4 de noviembre)', 'La guarnición obedece al Comité Militar Revolucionario.']
               ],
               personajes: ['Vladimir Lenin', 'León Trotski'],
-              fuentes: ['Hubeñák (2006, p. 364)', 'Encyclopaedia Britannica (s. f.-d)'],
+              fuentes: ['Hubeñák (2006, p. 364)'],
               imagenes: [
                 img('LeninAsIvanov1917.jpg', 'Lenin disfrazado, con el nombre falso de «Ivánov», durante la clandestinidad (1917).'),
                 img('Leo Trotzki 1917.jpg', 'León Trotski en 1917, presidente del Sóviet de Petrogrado.')
               ]
             }),
             hoja('Toma del Palacio de Invierno', {
-              texto: 'Guardias Rojos, soldados y marinos ocuparon estaciones, puentes y el telégrafo de Petrogrado casi sin resistencia. Kérenski partió hacia el frente en busca de tropas. En la noche siguiente fue tomado el Palacio de Invierno, sede del Gobierno provisional, y sus ministros fueron arrestados. Britannica lo describe como un golpe «en gran medida incruento».',
+              texto: 'Guardias Rojos, soldados y marinos ocuparon estaciones, puentes y el telégrafo de Petrogrado casi sin resistencia. Kérenski partió hacia el frente en busca de tropas. En la noche siguiente fue tomado el Palacio de Invierno, sede del Gobierno provisional, y sus ministros fueron arrestados. Fue un golpe casi sin derramamiento de sangre.',
               fechas: [
                 ['24-25 de octubre de 1917 (6-7 de noviembre)', 'Ocupación de los puntos clave de Petrogrado.'],
                 ['Noche del 25 al 26 de octubre de 1917 (7-8 de noviembre)', 'Toma del Palacio de Invierno; arresto de los ministros.']
               ],
               personajes: ['León Trotski', 'Aleksandr Kérenski'],
-              fuentes: ['Encyclopaedia Britannica (s. f.-c)'],
+              fuentes: [],
               imagenes: [
                 img('Stormningen av vinterpalatset.jpg', 'La toma del Palacio de Invierno (imagen difundida posteriormente).'),
                 img('After the capture of the Winter Palace 26 October 1917.jpg', 'Tras la toma del Palacio de Invierno, 26 de octubre (8 de noviembre) de 1917.')
@@ -684,7 +683,7 @@ const DATOS_MAPA = {
                 ['26 de octubre de 1917 (8 de noviembre)', 'Consejo de Comisarios del Pueblo; Decretos de Paz y de Tierra.']
               ],
               personajes: ['Vladimir Lenin', 'León Trotski'],
-              fuentes: ['Hubeñák (2006, p. 364)', 'Encyclopaedia Britannica (s. f.-d)'],
+              fuentes: ['Hubeñák (2006, p. 364)'],
               imagenes: [
                 img("Gothic Hall of the Winter Palace after the seizure by Soviets' military troops.jpg", 'Sala del Palacio de Invierno tras la ocupación por las tropas de los sóviets.')
               ]
