@@ -26,6 +26,7 @@
         <li><a href="#inicio" class="nav-enlace">Inicio</a></li>
         <li><a href="#introduccion" class="nav-enlace">Contexto histórico</a></li>
         <li><a href="#mapa-mental-section" class="nav-enlace">Mapa mental</a></li>
+        <li><a href="#video-reportaje" class="nav-enlace">Video</a></li>
         <li><a href="#datos-curiosos" class="nav-enlace">Datos curiosos</a></li>
         <li><a href="#cuestionario" class="nav-enlace">Cuestionario</a></li>
         <li><a href="#conclusiones" class="nav-enlace">Conclusiones</a></li>
@@ -147,6 +148,10 @@
               <h4>Personajes relacionados</h4>
               <ul class="mm-chips" id="mm-tarjeta-personajes"></ul>
             </div>
+            <div class="mm-tarjeta__bloque" id="mm-tarjeta-bloque-videos" hidden>
+              <h4>Video</h4>
+              <div class="mm-imagenes" id="mm-tarjeta-videos"></div>
+            </div>
             <div class="mm-tarjeta__bloque" id="mm-tarjeta-bloque-imagenes" hidden>
               <h4>Imágenes</h4>
               <div class="mm-imagenes" id="mm-tarjeta-imagenes"></div>
@@ -162,6 +167,9 @@
             <button type="button" class="mm-visor__cerrar" id="mm-visor-cerrar" aria-label="Cerrar imagen">×</button>
             <figure class="mm-visor__figura">
               <img id="mm-visor-img" src="" alt="">
+              <iframe id="mm-visor-video" class="mm-visor__video" hidden title="Video del equipo"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"
+                      allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
               <figcaption>
                 <span id="mm-visor-pie"></span>
                 <small id="mm-visor-credito"></small>
@@ -172,6 +180,21 @@
       </div>
  
       <p class="mm-nota">Las fechas de 1917 siguen el calendario juliano que usaba Rusia; entre paréntesis se indica su equivalente en el calendario actual.</p>
+    </div>
+  </section>
+
+
+  <!-- SECCIÓN: VIDEO REPORTAJE (los enlaces de YouTube están en script.js: VIDEO_COMPLETO y ESCENAS) -->
+  <section id="video-reportaje" class="vr-section">
+    <div class="container">
+      <h2 class="section-title">Video Reportaje</h2>
+      <div class="divider"></div>
+      <p class="section-subtitle">Entrevistas imaginarias a los protagonistas de esta historia: trabajadores, soldados, el zar y la llegada de Lenin.</p>
+
+      <div class="vr-reproductor">
+        <div class="vr-pantalla" id="vr-pantalla"></div>
+        <h3 class="vr-titulo">De la Utopía a las Armas: el reportaje completo</h3>
+      </div>
     </div>
   </section>
 

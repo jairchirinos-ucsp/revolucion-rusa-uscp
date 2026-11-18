@@ -87,7 +87,8 @@ console.log("Script cargado correctamente.");
    - hoja(título, ficha)      → concepto final que abre una tarjeta.
      ficha = { texto, fechas: [[fecha, descripción], …], personajes: [...],
                fuentes: [...],     ← opcional: citas breves (APA) que se muestran en la tarjeta
-               imagenes: [...] }   ← opcional: caja de imágenes, ver función img()
+               imagenes: [...],    ← opcional: caja de imágenes, ver función img()
+               videos: [...] }     ← opcional: caja de video, ver función vid()
    ========================================================================== */
 function grupo(titulo, hijos) {
   return { titulo: titulo, hijos: hijos };
@@ -106,6 +107,39 @@ function img(archivo, pie) {
     enlace: 'https://commons.wikimedia.org/wiki/File:' + encodeURIComponent(archivo),
     pie: pie,
     credito: 'Wikimedia Commons (dominio público)'
+  };
+}
+
+/* ==========================================================================
+   VIDEOS DEL EQUIPO (YouTube)
+   - Para agregar o cambiar un video, solo se edita esta lista.
+   - id = lo que va después de "youtu.be/" en el enlace.
+   - Las escenas se ven dentro del mapa mental (hojas «▶ Video»).
+   - El video completo se ve en la sección «Video Reportaje».
+   ========================================================================== */
+const VIDEO_COMPLETO = { id: '', titulo: 'Video reportaje completo' };   // ← pegar aquí el id cuando esté listo
+
+const ESCENAS = [
+  { id: 'GABMLU0QNLM', titulo: 'Primera escena' },
+  { id: 'E5YKdeZqOvw', titulo: 'Segunda escena' },
+  { id: 'Toi1_CYTLu8', titulo: 'Tercera escena' },
+  { id: '6utNHXbtpPM', titulo: 'Cuarta escena' },
+  { id: 'DLGHmeNmM9Y', titulo: 'Quinta escena' },
+  { id: '',            titulo: 'Sexta escena' },
+  { id: 'Gdrias7sG-8', titulo: 'Séptima escena' }
+];
+
+/* vid(número de escena) → video para la caja «Video» de una ficha del mapa.
+   Ejemplo dentro de una hoja:  videos: [vid(3)] */
+function vid(numero, pie) {
+  const e = ESCENAS[numero - 1];
+  if (!e || !e.id) return null;
+  return {
+    video: e.id,
+    src: 'https://i.ytimg.com/vi/' + e.id + '/hqdefault.jpg',
+    pie: pie || e.titulo,
+    credito: 'Video del equipo (YouTube)',
+    enlace: 'https://youtu.be/' + e.id
   };
 }
 
@@ -131,6 +165,18 @@ const DATOS_MAPA = {
           personajes: ['Robert Owen', 'Charles Fourier', 'Karl Marx', 'Friedrich Engels']
         }),
         grupo('Socialismo utópico y científico', [
+          hoja('▶ Video: De la utopía a la ciencia', {
+            texto: 'Primera escena del video reportaje del equipo: presenta el socialismo utópico y el socialismo científico.',
+            fechas: [],
+            personajes: ['Robert Owen', 'Charles Fourier', 'Karl Marx', 'Friedrich Engels'],
+            videos: [vid(1)]
+          }),
+          hoja('▶ Video: Un obrero y las utopías de Owen y Fourier', {
+            texto: 'Segunda escena: entrevista a un trabajador de las fábricas de la era del vapor, que cuenta cómo las ideas de Charles Fourier y Robert Owen soñaban con comunidades unidas por la cooperación.',
+            fechas: [],
+            personajes: ['Robert Owen', 'Charles Fourier'],
+            videos: [vid(2)]
+          }),
           hoja('Socialismo utópico', {
             texto: 'Primera corriente socialista, surgida a inicios del siglo XIX. Sus pensadores denunciaron la miseria obrera de la Revolución Industrial y propusieron comunidades ideales basadas en la cooperación. Confiaban en el ejemplo y en la buena voluntad, no en la lucha política.',
             fechas: [
@@ -261,6 +307,12 @@ const DATOS_MAPA = {
         /* A. CAUSAS */
         grupo('Causas', [
           grupo('Causas políticas', [
+            hoja('▶ Video: Un soldado bajo la autocracia', {
+              texto: 'Tercera escena: entrevista a un soldado sobre lo que significaba vivir y servir bajo el dominio de la autocracia zarista.',
+              fechas: [],
+              personajes: ['Nicolás II'],
+              videos: [vid(3)]
+            }),
             hoja('Autocracia del zar Nicolás II', {
               texto: 'A inicios del siglo XX, el Imperio Ruso permanecía estancado en un absolutismo monárquico obsoleto bajo el mandato de Nicolás II, quien gobernaba amparado en el "derecho divino". El monarca estaba firmemente convencido de que su poder provenía de un mandato sagrado otorgado por Dios, por lo que su voluntad era ley suprema y no debía rendir cuentas ni ante un parlamento ni ante sus súbditos.',
               fechas: [['1894', 'Año en que Nicolás II asciende al trono y reafirma públicamente su compromiso de mantener intacto el absolutismo monárquico y el "derecho divino" heredado de su padre.']],
@@ -418,6 +470,12 @@ const DATOS_MAPA = {
             })
           ]),
           grupo('Nicolás II', [
+            hoja('▶ Video: Entrevista al zar', {
+              texto: 'Cuarta escena: entrevista al zar Nicolás II, el último emperador de Rusia.',
+              fechas: [],
+              personajes: ['Nicolás II'],
+              videos: [vid(4)]
+            }),
             hoja('Biografía breve', {
               texto: 'Último zar de Rusia (1868-1918), de la dinastía Románov. Reinó desde 1894. Fue ejecutado junto a su familia por los bolcheviques en Ekaterimburgo en julio de 1918.',
               fechas: [
@@ -473,6 +531,12 @@ const DATOS_MAPA = {
            Encyclopaedia Britannica. */
         grupo('Acontecimientos', [
           grupo('Revolución de Febrero de 1917', [
+            hoja('▶ Video: Cae el zar: el vacío de poder', {
+              texto: 'Quinta escena: el zar ya se ha ido y Rusia queda ante un vacío de poder. Un soldado cuenta la situación y se menciona por primera vez a Lenin, que pronto entrará en escena.',
+              fechas: [],
+              personajes: ['Nicolás II', 'Vladimir Lenin'],
+              videos: [vid(5)]
+            }),
             hoja('Antecedentes: un zar sin prestigio', {
               texto: 'Según Hubeñák, los movimientos populistas, socialistas y anarquistas del siglo XIX «encontraron terreno propicio en el clima socio-religioso de Rusia y en la pérdida de prestigio del Zar». Nicolás II, «el padre del pueblo», quedó debilitado por su personalidad, por la derrota ante Japón (1904-1905) y por su «lamentable papel» en la Primera Guerra Mundial. Hacia el invierno de 1916-1917, «el ansia de guerra se había agotado».',
               fechas: [
@@ -690,6 +754,12 @@ const DATOS_MAPA = {
             })
           ]),
           grupo('Creación de la URSS y legado global', [
+            hoja('▶ Video: Nace la Unión Soviética', {
+              texto: 'Séptima escena: introducción a la Unión Soviética y a la nueva etapa del comunismo, tras la Primera Guerra Mundial y la guerra civil.',
+              fechas: [],
+              personajes: ['Vladimir Lenin', 'Iósif Stalin'],
+              videos: [vid(7)]
+            }),
             hoja('Fundación de la URSS y el Komintern', {
               texto: 'Tras la victoria bolchevique se fundó la Unión de Repúblicas Socialistas Soviéticas (URSS), con eje en Rusia e incorporando repúblicas de Europa y Asia. Previamente, en 1919, se creó la III Internacional (Komintern) para expandir la revolución comunista al resto del mundo.',
               fechas: [
@@ -744,6 +814,9 @@ const DATOS_MAPA = {
   const bloqueFuentes = document.getElementById('mm-tarjeta-bloque-fuentes');
   const tarjetaImagenes = document.getElementById('mm-tarjeta-imagenes');
   const bloqueImagenes = document.getElementById('mm-tarjeta-bloque-imagenes');
+  const tarjetaVideos = document.getElementById('mm-tarjeta-videos');
+  const bloqueVideos = document.getElementById('mm-tarjeta-bloque-videos');
+  const visorVideo = document.getElementById('mm-visor-video');
   const visor = document.getElementById('mm-visor');
   const visorImg = document.getElementById('mm-visor-img');
   const visorPie = document.getElementById('mm-visor-pie');
@@ -1343,6 +1416,36 @@ const DATOS_MAPA = {
       bloqueImagenes.hidden = !(f.imagenes && f.imagenes.length);
     }
 
+    // Caja de video (opcional): miniatura de YouTube; al hacer clic se reproduce en grande.
+    if (tarjetaVideos) {
+      tarjetaVideos.innerHTML = '';
+      const lista = (f.videos || []).filter(Boolean);
+      lista.forEach(function (v) {
+        const fig = document.createElement('figure');
+        fig.className = 'mm-imagen mm-imagen--video';
+        const boton = document.createElement('button');
+        boton.type = 'button';
+        boton.className = 'mm-imagen__boton';
+        boton.setAttribute('aria-label', 'Reproducir video: ' + (v.pie || ''));
+        const el = document.createElement('img');
+        el.src = v.src;
+        el.alt = v.pie || '';
+        el.loading = 'lazy';
+        boton.appendChild(el);
+        const play = document.createElement('span');
+        play.className = 'mm-play';
+        play.setAttribute('aria-hidden', 'true');
+        boton.appendChild(play);
+        boton.addEventListener('click', function () { abrirVisor(v); });
+        fig.appendChild(boton);
+        const pie = document.createElement('figcaption');
+        pie.textContent = v.pie || '';
+        fig.appendChild(pie);
+        tarjetaVideos.appendChild(fig);
+      });
+      bloqueVideos.hidden = !lista.length;
+    }
+
     tarjeta.scrollTop = 0;
     tarjeta.classList.add('abierta');
     tarjeta.focus({ preventScroll: true });
@@ -1355,7 +1458,16 @@ const DATOS_MAPA = {
   /* Visor de imagen ampliada */
   function abrirVisor(im) {
     if (!visor) return;
-    visorImg.src = im.src.replace('?width=900', '?width=1600');
+    if (im.video && visorVideo) {               // video de YouTube
+      visorImg.hidden = true;
+      visorImg.src = '';
+      visorVideo.hidden = false;
+      visorVideo.src = urlYouTube(im.video, true);
+    } else {                                    // imagen
+      if (visorVideo) { visorVideo.hidden = true; visorVideo.src = ''; }
+      visorImg.hidden = false;
+      visorImg.src = im.src.replace('?width=900', '?width=1600');
+    }
     visorImg.alt = im.pie || '';
     visorPie.textContent = im.pie || '';
     visorCredito.innerHTML = '';
@@ -1377,6 +1489,7 @@ const DATOS_MAPA = {
     if (!visor || visor.hidden) return;
     visor.hidden = true;
     visorImg.src = '';
+    if (visorVideo) visorVideo.src = '';      // detiene el video al cerrar
     document.body.classList.remove('mm-visor-abierto');
   }
 
@@ -2049,3 +2162,56 @@ function alternarAporteFuente(index, boton) {
 }
 
 document.addEventListener("DOMContentLoaded", cargarFuentes);
+
+
+/* ==========================================================================
+   6. VIDEO REPORTAJE
+   Usa las listas VIDEO_COMPLETO y ESCENAS definidas arriba.
+   ========================================================================== */
+function urlYouTube(id, autoplay) {
+  return 'https://www.youtube-nocookie.com/embed/' + id +
+         '?rel=0&modestbranding=1' + (autoplay ? '&autoplay=1' : '');
+}
+
+(function iniciarVideoReportaje() {
+  const pantalla = document.getElementById('vr-pantalla');
+  if (!pantalla) return;
+  const v = VIDEO_COMPLETO;
+
+  if (!v.id) {                                       // aún no hay video completo
+    const vacio = document.createElement('div');
+    vacio.className = 'vr-vacio';
+    vacio.innerHTML = '<span class="vr-vacio__titulo">Próximamente</span>' +
+      '<span class="vr-vacio__texto">Mientras tanto, encuentra cada escena en las ramas del mapa mental marcadas con ▶ Video.</span>';
+    pantalla.appendChild(vacio);
+    return;
+  }
+
+  // Portada con botón play; el reproductor se carga solo al hacer clic.
+  const boton = document.createElement('button');
+  boton.type = 'button';
+  boton.className = 'vr-portada';
+  boton.setAttribute('aria-label', 'Reproducir: ' + v.titulo);
+  const img = document.createElement('img');
+  img.src = 'https://i.ytimg.com/vi/' + v.id + '/maxresdefault.jpg';
+  img.alt = '';
+  img.addEventListener('error', function () {
+    img.src = 'https://i.ytimg.com/vi/' + v.id + '/hqdefault.jpg';
+  }, { once: true });
+  const play = document.createElement('span');
+  play.className = 'mm-play mm-play--grande';
+  play.setAttribute('aria-hidden', 'true');
+  boton.appendChild(img);
+  boton.appendChild(play);
+  boton.addEventListener('click', function () {
+    const iframe = document.createElement('iframe');
+    iframe.src = urlYouTube(v.id, true);
+    iframe.title = v.titulo;
+    iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen';
+    iframe.allowFullscreen = true;
+    iframe.referrerPolicy = 'strict-origin-when-cross-origin';
+    pantalla.innerHTML = '';
+    pantalla.appendChild(iframe);
+  });
+  pantalla.appendChild(boton);
+})();
