@@ -86,7 +86,7 @@ const ESCENAS = [
   { id: 'Toi1_CYTLu8', titulo: 'Tercera escena' },
   { id: '6utNHXbtpPM', titulo: 'Cuarta escena' },
   { id: 'DLGHmeNmM9Y', titulo: 'Quinta escena' },
-  { id: '',            titulo: 'Sexta escena' },
+  { id: '4dB3OuZPh88', titulo: 'Sexta escena' },
   { id: 'Gdrias7sG-8', titulo: 'Séptima escena' }
 ];
 
@@ -364,6 +364,12 @@ const DATOS_MAPA = {
             })
           ]),
           grupo('Vladimir Lenin', [
+            hoja('▶ Video: Entrevista a Lenin', {
+              texto: 'Sexta escena: entrevista a Vladímir Lenin, líder de los bolcheviques.',
+              fechas: [],
+              personajes: ['Vladimir Lenin'],
+              videos: [vid(6)]
+            }),
             hoja('Biografía breve', {
               texto: 'Vladímir Ilich Uliánov (1870-1924), conocido como Lenin. Su hermano mayor fue ejecutado en 1887 por conspirar contra el zar. Fue deportado a Siberia y vivió años exiliado en Europa hasta que volvió a Rusia en abril de 1917.',
               fechas: [
