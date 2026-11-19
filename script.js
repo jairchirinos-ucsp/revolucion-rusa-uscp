@@ -78,7 +78,7 @@ function img(archivo, pie) {
   };
 }
 
-const VIDEO_COMPLETO = { id: '', titulo: 'Video reportaje completo' };
+const VIDEO_COMPLETO = { id: 'xGWIVy836qw', titulo: 'Video reportaje completo' };
 
 const ESCENAS = [
   { id: 'GABMLU0QNLM', titulo: 'Primera escena' },
