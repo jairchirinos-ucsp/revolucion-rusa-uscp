@@ -108,8 +108,8 @@ const DATOS_MAPA = {
 
     {
       titulo: 'Socialismo y comunismo',
-      color: '#c99700',
-      colorTexto: '#0f1115',
+      color: '#5fa8a0',
+      colorTexto: '#0d1117',
       lado: -1,
       hijos: [
         hoja('¿Qué son y en qué se diferencian?', {
@@ -792,8 +792,8 @@ const DATOS_MAPA = {
       hijos: [],
       padre: padre,
       prof: padre ? padre.prof + 1 : 0,
-      color: rama ? rama.color : '#c99700',
-      colorTexto: rama ? rama.colorTexto : '#0f1115',
+      color: rama ? rama.color : '#d4573f',
+      colorTexto: rama ? rama.colorTexto : '#0d1117',
       ladoBase: rama ? rama.lado : 0,
       lado: rama ? rama.lado : 0,
       expandido: false,
