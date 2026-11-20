@@ -2,6 +2,11 @@ console.log("Script cargado correctamente.");
 
 console.log("Script cargado correctamente.");
 
+/* ==========================================================================
+   MENÚ FIJO
+   Responsable: Camila Palo Aguilar
+   Pone fondo al menú al bajar, abre y cierra el menú en celulares y resalta la sección visible.
+   ========================================================================== */
 (function iniciarMenuFijo() {
   const nav = document.getElementById('nav-principal');
   if (!nav) return;
@@ -61,6 +66,12 @@ console.log("Script cargado correctamente.");
   }
 })();
 
+/* ==========================================================================
+   CONTENIDO DEL MAPA: FUNCIONES DE APOYO
+   Responsable: Camila Palo Aguilar y Jair Chirinos Bejar
+   grupo() crea un nodo con subtemas y hoja() un concepto con tarjeta. img() y vid() agregan
+   fotos de Wikimedia Commons y videos de YouTube a las tarjetas.
+   ========================================================================== */
 function grupo(titulo, hijos) {
   return { titulo: titulo, hijos: hijos };
 }
@@ -78,6 +89,11 @@ function img(archivo, pie) {
   };
 }
 
+/* ==========================================================================
+   VIDEOS DEL EQUIPO
+   Responsable: Jair Chirinos Bejar (videos grabados por todo el equipo)
+   Aquí están los enlaces de YouTube: el reportaje completo y las siete escenas.
+   ========================================================================== */
 const VIDEO_COMPLETO = { id: 'xGWIVy836qw', titulo: 'Video reportaje completo' };
 
 const ESCENAS = [
@@ -102,10 +118,55 @@ function vid(numero, pie) {
   };
 }
 
+/* ==========================================================================
+   ENLACE CAUSA ↔ CONSECUENCIA
+   Responsable: Jair Chirinos Bejar
+   Cada fila une una causa con una consecuencia y explica por qué están conectadas.
+   La tarjeta de cada nodo muestra estos enlaces y permite saltar de uno a otro.
+   ========================================================================== */
+const RELACIONES = [
+  ['Rusia en la Primera Guerra Mundial', 'Firma del tratado',
+    'La guerra que hundió al zar fue la misma que los bolcheviques tuvieron que cerrar a cualquier precio: firmaron la paz con Alemania aunque perdieran enormes territorios.'],
+  ['Derrotas militares', 'Salida de la Primera Guerra Mundial',
+    'Millones de soldados muertos y un ejército desmoralizado hicieron imposible seguir combatiendo; sacar a Rusia de la guerra fue la promesa que dio apoyo a Lenin.'],
+  ['Explotación agraria', 'Abolición de la propiedad privada',
+    'Siglos de tierras en manos de nobles e Iglesia explican el Decreto sobre la Tierra: la gran propiedad se expropió sin indemnización y se repartió entre los campesinos.'],
+  ['Explotación de los trabajadores', 'Abolición de la propiedad privada',
+    'Las jornadas agotadoras y los salarios de miseria en las fábricas llevaron al control obrero y luego a la nacionalización de la industria.'],
+  ['Desigualdad social', 'Abolición de la propiedad privada',
+    'La enorme distancia entre una élite rica y una mayoría desposeída fue la injusticia que el nuevo Estado quiso borrar eliminando la propiedad privada.'],
+  ['Vida del campesinado', 'Comunismo de guerra y planificación estatal',
+    'El campesino, que había apoyado la revolución esperando tierra, terminó sufriendo las requisas forzosas de cosechas del comunismo de guerra.'],
+  ['Escasez de alimentos', 'Comunismo de guerra y planificación estatal',
+    'La falta de alimentos no terminó con la revolución: para abastecer a las ciudades y al Ejército Rojo, el Estado tomó el control total de la producción.'],
+  ['Hambre', 'Comunismo de guerra y planificación estatal',
+    'El hambre que encendió la revolución reapareció en la guerra civil y justificó las requisas; terminó en la gran hambruna de 1921-1922.'],
+  ['Descontento popular', 'Ejército Rojo contra Ejército Blanco',
+    'El descontento derribó al zar, pero dividió al país: revolucionarios y defensores del antiguo orden terminaron enfrentándose en una guerra civil.'],
+  ['Autocracia del zar Nicolás II', 'Choque entre utopía y realidad autoritaria',
+    'La revolución nació contra el poder absoluto del zar, pero el nuevo régimen volvió a concentrar todo el poder, esta vez en un solo partido.'],
+  ['Represión política', 'Choque entre utopía y realidad autoritaria',
+    'La policía secreta zarista fue reemplazada por la Cheka y el «terror rojo»: la represión cambió de bando, pero no desapareció.'],
+  ['Falta de libertades políticas', 'Choque entre utopía y realidad autoritaria',
+    'Sin libertades bajo el zar, la promesa era una sociedad libre; en la práctica se impuso el partido único y se prohibió la oposición.'],
+  ['Concentración del poder político', 'Fundación de la URSS y el Komintern',
+    'Del poder concentrado en el emperador se pasó a un Estado centralizado en Moscú que unió a varias repúblicas bajo un mismo partido.'],
+  ['Pobreza extrema', 'Ascenso de Stalin y proyección del siglo XX',
+    'El atraso y la miseria heredados impulsaron los planes de industrialización acelerada de Stalin, que transformaron la URSS a un costo humano enorme.']
+];
+
+/* ==========================================================================
+   DATOS DEL MAPA MENTAL
+   Responsable: Todo el equipo
+   Cada rama está marcada abajo con el nombre de quien la investigó.
+   ========================================================================== */
 const DATOS_MAPA = {
   titulo: 'Utopías sociales, socialismo, comunismo y Revolución Rusa',
   hijos: [
 
+    /* RAMA: SOCIALISMO Y COMUNISMO — Responsable: Marijose Andrade Lupa
+       Explica el socialismo utópico y científico, a Marx y Engels, sus ideas
+       y cómo se desarrolló el pensamiento comunista. */
     {
       titulo: 'Socialismo y comunismo',
       color: '#5fa8a0',
@@ -241,6 +302,7 @@ const DATOS_MAPA = {
       ]
     },
 
+    /* RAMA: REVOLUCIÓN RUSA — Responsable: todo el equipo (ver cada subrama) */
     {
       titulo: 'Revolución Rusa',
       color: '#cf3b3b',
@@ -255,6 +317,8 @@ const DATOS_MAPA = {
           personajes: ['Zar Nicolás II', 'Vladimir Lenin', 'León Trotski']
         }),
 
+        /* CAUSAS — Responsable: Taiwa Taca Gutiérrez
+           Causas políticas, causas económicas y sociales, y la guerra como factor detonante. */
         grupo('Causas', [
           grupo('Causas políticas', [
             hoja('▶ Video: Un soldado bajo la autocracia', {
@@ -342,6 +406,8 @@ const DATOS_MAPA = {
           ])
         ]),
 
+        /* ACTORES — Responsable: todo el equipo
+           Marx, Lenin, Trotski, Nicolás II y los sóviets. */
         grupo('Actores', [
           grupo('Karl Marx', [
             hoja('Biografía breve', {
@@ -480,6 +546,9 @@ const DATOS_MAPA = {
           ])
         ]),
 
+        /* ACONTECIMIENTOS — Responsable: Jair Chirinos Bejar
+           Cronología de las revoluciones de Febrero y Octubre de 1917.
+           Fuente principal: Hubeñák (2006), cap. 12. */
         grupo('Acontecimientos', [
           grupo('Revolución de Febrero de 1917', [
             hoja('▶ Video: Cae el zar: el vacío de poder', {
@@ -663,6 +732,8 @@ const DATOS_MAPA = {
           ])
         ]),
 
+        /* CONSECUENCIAS — Responsable: Marijose Andrade Lupa
+           Brest-Litovsk, guerra civil, cambios económicos y creación de la URSS. */
         grupo('Consecuencias', [
           grupo('Tratado de Brest-Litovsk', [
             hoja('Firma del tratado', {
@@ -733,6 +804,12 @@ const DATOS_MAPA = {
   ]
 };
 
+/* ==========================================================================
+   FUNCIONAMIENTO DEL MAPA MENTAL
+   Responsable: Camila Palo Aguilar
+   Dibuja los nodos y las líneas, mueve la cámara (arrastrar y zoom), controla los niveles
+   y abre las tarjetas informativas.
+   ========================================================================== */
 (function iniciarMapaMental() {
   const contenedor = document.getElementById('contenedor-mapa-mental');
   if (!contenedor) return;
@@ -1251,6 +1328,94 @@ const DATOS_MAPA = {
     }
   }
 
+  /* Enlace causa ↔ consecuencia dentro de la tarjeta — Jair Chirinos Bejar */
+  const bloqueRelaciones = document.createElement('div');
+  bloqueRelaciones.className = 'mm-tarjeta__bloque mm-relaciones';
+  bloqueRelaciones.hidden = true;
+  tarjetaTexto.insertAdjacentElement('afterend', bloqueRelaciones);
+
+  function ramaDe(n) {
+    let a = n;
+    while (a && a.padre && a.padre.padre && a.padre.padre !== raiz) a = a.padre;
+    return a && a.padre ? a.titulo : '';
+  }
+
+  function buscarHoja(titulo, rama) {
+    return nodos.find(function (x) {
+      return x.titulo === titulo && x.hijos.length === 0 && ramaDe(x) === rama;
+    });
+  }
+
+  function irARelacion(destino) {
+    enfocar(destino.padre);
+    abrirTarjeta(destino);
+    destino.el.classList.remove('mm-nodo--pulso');
+    void destino.el.offsetWidth;
+    destino.el.classList.add('mm-nodo--pulso');
+    setTimeout(function () { destino.el.classList.remove('mm-nodo--pulso'); }, 2400);
+  }
+
+  function pintarRelaciones(n) {
+    const rama = ramaDe(n);
+    const esCausa = rama === 'Causas';
+    const esConsecuencia = rama === 'Consecuencias';
+    const lista = RELACIONES.filter(function (r) {
+      return (esCausa && r[0] === n.titulo) || (esConsecuencia && r[1] === n.titulo);
+    });
+    bloqueRelaciones.innerHTML = '';
+    bloqueRelaciones.hidden = !lista.length;
+    if (!lista.length) return;
+
+    const h4 = document.createElement('h4');
+    h4.textContent = esCausa ? 'Esta causa provocó…' : '¿Qué la provocó?';
+    bloqueRelaciones.appendChild(h4);
+
+    lista.forEach(function (r) {
+      const destino = buscarHoja(esCausa ? r[1] : r[0], esCausa ? 'Consecuencias' : 'Causas');
+      if (!destino) return;
+
+      const b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'mm-relacion' + (esCausa ? '' : ' mm-relacion--inversa');
+      b.style.setProperty('--c2', destino.color);
+
+      const linea = document.createElement('span');
+      linea.className = 'mm-relacion__linea';
+      const a = document.createElement('span');
+      a.className = 'mm-relacion__extremo mm-relacion__extremo--causa';
+      a.textContent = 'Causa';
+      const flecha = document.createElement('span');
+      flecha.className = 'mm-relacion__flecha';
+      flecha.setAttribute('aria-hidden', 'true');
+      const c = document.createElement('span');
+      c.className = 'mm-relacion__extremo mm-relacion__extremo--consecuencia';
+      c.textContent = 'Consecuencia';
+      linea.appendChild(a);
+      linea.appendChild(flecha);
+      linea.appendChild(c);
+
+      const titulo = document.createElement('strong');
+      titulo.className = 'mm-relacion__titulo';
+      titulo.textContent = destino.titulo;
+
+      const texto = document.createElement('span');
+      texto.className = 'mm-relacion__texto';
+      texto.textContent = r[2];
+
+      const ir = document.createElement('span');
+      ir.className = 'mm-relacion__ir';
+      ir.textContent = esCausa ? 'Ver la consecuencia →' : '← Ver la causa';
+
+      b.appendChild(linea);
+      b.appendChild(titulo);
+      b.appendChild(texto);
+      b.appendChild(ir);
+      b.setAttribute('aria-label', (esCausa ? 'Ir a la consecuencia: ' : 'Ir a la causa: ') + destino.titulo);
+      b.addEventListener('click', function () { irARelacion(destino); });
+      bloqueRelaciones.appendChild(b);
+    });
+  }
+
   function abrirTarjeta(n) {
     hojaAbierta = n;
     const f = n.ficha || { texto: '', fechas: [], personajes: [] };
@@ -1262,6 +1427,8 @@ const DATOS_MAPA = {
       .join(' › ');
     tarjetaTitulo.textContent = n.titulo;
     tarjetaTexto.textContent = f.texto;
+
+    pintarRelaciones(n);
 
     tarjetaFechas.innerHTML = '';
     (f.fechas || []).forEach(function (par) {
@@ -1619,6 +1786,11 @@ const DATOS_MAPA = {
   fuentesListas.then(iniciar, iniciar);
 })();
 
+/* ==========================================================================
+   CUESTIONARIO
+   Responsable: Jair Chirinos Bejar (preguntas de todo el equipo)
+   Cada pregunta trae su tema, sus alternativas y la explicación de cada una.
+   ========================================================================== */
 const PREGUNTAS = [
   {
     tema: 'Contexto histórico',
@@ -1790,6 +1962,7 @@ const PREGUNTAS = [
   }
 ];
 
+/* Lógica del cuestionario: baraja preguntas y alternativas, corrige y calcula la nota sobre 20. */
 (function iniciarCuestionario() {
   const raiz = document.getElementById('quiz');
   if (!raiz || !PREGUNTAS.length) return;
@@ -1967,6 +2140,11 @@ const PREGUNTAS = [
   });
 })();
 
+/* ==========================================================================
+   FUENTES DEL SÍLABO
+   Responsable: Marijose Andrade Lupa
+   Lista de la bibliografía y funciones que crean sus tarjetas en la sección Fuentes.
+   ========================================================================== */
 const fuentesSilabo = [
   {
     enfoque: "Origen del Socialismo y Siglo XIX",
@@ -2028,6 +2206,11 @@ function alternarAporteFuente(index, boton) {
 
 document.addEventListener("DOMContentLoaded", cargarFuentes);
 
+/* ==========================================================================
+   VIDEO REPORTAJE
+   Responsable: Jair Chirinos Bejar
+   Muestra la portada del reportaje completo y carga el reproductor de YouTube al hacer clic.
+   ========================================================================== */
 function urlYouTube(id, autoplay) {
   return 'https://www.youtube-nocookie.com/embed/' + id +
          '?rel=0&modestbranding=1' + (autoplay ? '&autoplay=1' : '');

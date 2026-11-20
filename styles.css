@@ -1,3 +1,8 @@
+/* ==========================================================================
+   ESTILOS GENERALES Y PORTADA
+   Responsable: Camila Palo Aguilar
+   Definí la tipografía, los colores base y el diseño de la portada.
+   ========================================================================== */
 * {
   margin: 0;
   padding: 0;
@@ -184,6 +189,11 @@ body {
   60% { transform: translateY(-4px); }
 }
 
+/* ==========================================================================
+   CONTEXTO HISTÓRICO
+   Responsable: Jair Chirinos Bejar
+   Tarjeta de lectura del párrafo introductorio.
+   ========================================================================== */
 .intro-section {
   padding: 80px 0;
   background-color: #121820;
@@ -409,6 +419,11 @@ body {
   margin-bottom: 40px;
 }
 
+/* ==========================================================================
+   MENÚ FIJO
+   Responsable: Camila Palo Aguilar
+   El menú se queda arriba al bajar por la página; en pantallas pequeñas pasa a menú desplegable.
+   ========================================================================== */
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 72px;
@@ -522,7 +537,7 @@ html {
 .nav-principal__toggle.abierto span:nth-child(2) { opacity: 0; }
 .nav-principal__toggle.abierto span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
-@media (min-width: 981px) and (max-width: 1360px) {
+@media (min-width: 1101px) and (max-width: 1480px) {
   .nav-principal__enlaces {
     gap: 16px;
   }
@@ -533,7 +548,7 @@ html {
   }
 }
 
-@media (max-width: 980px) {
+@media (max-width: 1100px) {
   .nav-principal__toggle {
     display: flex;
   }
@@ -552,7 +567,7 @@ html {
   }
 
   .nav-principal__enlaces.abierto {
-    max-height: 320px;
+    max-height: 480px;
     border-bottom: 1px solid rgba(212, 87, 63, 0.25);
   }
 
@@ -571,6 +586,11 @@ html {
   }
 }
 
+/* ==========================================================================
+   MAPA MENTAL
+   Responsable: Camila Palo Aguilar
+   Estilos del contenedor, los nodos por nivel, las líneas, los controles de zoom y las tarjetas.
+   ========================================================================== */
 .mm {
   position: relative;
   background-color: #121820;
@@ -1156,6 +1176,11 @@ html {
   color: #a3a9a6;
 }
 
+/* ==========================================================================
+   IMÁGENES DE LAS TARJETAS
+   Responsable: Jair Chirinos Bejar
+   Caja de fotos históricas y visor que las amplía al hacer clic.
+   ========================================================================== */
 .mm-imagenes {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -1369,6 +1394,11 @@ body.mm-visor-abierto {
   }
 }
 
+/* ==========================================================================
+   VIDEOS DENTRO DEL MAPA
+   Responsable: Jair Chirinos Bejar
+   Botón de reproducción sobre las miniaturas y visor de video de YouTube.
+   ========================================================================== */
 .mm-imagen__boton {
   position: relative;
 }
@@ -1434,6 +1464,11 @@ body.mm-visor-abierto {
   display: none;
 }
 
+/* ==========================================================================
+   VIDEO REPORTAJE
+   Responsable: Jair Chirinos Bejar
+   Reproductor grande del reportaje completo.
+   ========================================================================== */
 .vr-section {
   padding: 80px 0 90px;
   background-color: #121820;
@@ -1526,6 +1561,11 @@ body.mm-visor-abierto {
   }
 }
 
+/* ==========================================================================
+   ¿SABÍAS QUE...?
+   Responsable: Jair Chirinos Bejar
+   Título grande y tarjetas numeradas de los datos curiosos.
+   ========================================================================== */
 .curiosos-section {
   padding: 80px 0 100px;
   background-color: #121820;
@@ -1642,6 +1682,11 @@ body.mm-visor-abierto {
   }
 }
 
+/* ==========================================================================
+   CUESTIONARIO
+   Responsable: Jair Chirinos Bejar
+   Pantalla de inicio, preguntas, colores de acierto y error, y círculo con la nota final.
+   ========================================================================== */
 .quiz-section {
   padding: 80px 0 110px;
   background: radial-gradient(circle at top, #1a1d26 0%, #0d1117 70%);
@@ -2017,6 +2062,11 @@ body.mm-visor-abierto {
   }
 }
 
+/* ==========================================================================
+   CONCLUSIONES
+   Responsable: Marijose Andrade Lupa
+   Tarjetas con imagen y bloque del legado actual.
+   ========================================================================== */
 .conclusions-section {
   padding: 80px 0;
   background-color: #121820;
@@ -2113,6 +2163,11 @@ body.mm-visor-abierto {
   line-height: 1.75;
 }
 
+/* ==========================================================================
+   FUENTES
+   Responsable: Marijose Andrade Lupa
+   Tarjetas de la bibliografía con el botón para ver su aporte.
+   ========================================================================== */
 .sources-section {
   padding: 80px 0;
   background-color: #0d1117;
@@ -2186,6 +2241,11 @@ body.mm-visor-abierto {
   display: none;
 }
 
+/* ==========================================================================
+   INTEGRANTES
+   Responsable: Marijose Andrade Lupa
+   Lista de integrantes debajo del título de la portada.
+   ========================================================================== */
 .equipo-hero {
   max-width: 800px;
   margin: -15px auto 35px;
@@ -2229,6 +2289,11 @@ body.mm-visor-abierto {
   }
 }
 
+/* ==========================================================================
+   SECCIONES CLARAS (TEMA PAPEL)
+   Responsable: Jair Chirinos Bejar
+   Fondo claro en las secciones de lectura para crear contraste con las secciones oscuras.
+   ========================================================================== */
 .intro-section,
 .curiosos-section,
 .conclusions-section,
@@ -2379,4 +2444,169 @@ body.mm-visor-abierto {
 .source-usage {
   color: #363a3f;
   border-top-color: rgba(29, 33, 38, 0.14);
+}
+/* ==========================================================================
+   ENLACE CAUSA ↔ CONSECUENCIA
+   Responsable: Jair Chirinos Bejar
+   Tarjetas con un hilo rojo animado que unen cada causa con su consecuencia.
+   ========================================================================== */
+.mm-relaciones h4 {
+  color: #d4573f;
+}
+
+.mm-relacion {
+  --c2: #d4573f;
+  position: relative;
+  display: block;
+  width: 100%;
+  margin-top: 10px;
+  padding: 14px 16px 12px;
+  text-align: left;
+  font: inherit;
+  color: #e4e0d6;
+  background: linear-gradient(135deg, rgba(212, 87, 63, 0.12) 0%, rgba(13, 17, 23, 0.6) 70%);
+  border: 1px solid rgba(212, 87, 63, 0.35);
+  border-left: 3px solid #d4573f;
+  border-radius: 8px;
+  cursor: pointer;
+  overflow: hidden;
+  transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+}
+
+.mm-relacion:hover,
+.mm-relacion:focus-visible {
+  transform: translateX(3px);
+  border-color: #d4573f;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(212, 87, 63, 0.35);
+  outline: none;
+}
+
+.mm-relacion__linea {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+  font-family: 'Cinzel', serif;
+  font-size: 0.56rem;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+}
+
+.mm-relacion__extremo {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #7c8580;
+}
+
+.mm-relacion__extremo::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border: 1.5px solid currentColor;
+  border-radius: 50%;
+}
+
+.mm-relacion__extremo--causa {
+  color: #f2ece1;
+}
+
+.mm-relacion__extremo--causa::before {
+  background-color: #d4573f;
+  border-color: #d4573f;
+}
+
+.mm-relacion--inversa .mm-relacion__extremo--causa {
+  color: #7c8580;
+}
+
+.mm-relacion--inversa .mm-relacion__extremo--causa::before {
+  background-color: transparent;
+  border-color: currentColor;
+}
+
+.mm-relacion--inversa .mm-relacion__extremo--consecuencia {
+  color: #f2ece1;
+}
+
+.mm-relacion--inversa .mm-relacion__extremo--consecuencia::before {
+  background-color: #d4573f;
+  border-color: #d4573f;
+}
+
+.mm-relacion__flecha {
+  position: relative;
+  flex: 1;
+  height: 2px;
+  background: linear-gradient(90deg, #d4573f 0%, rgba(212, 87, 63, 0.25) 100%);
+  background-size: 200% 100%;
+  animation: mm-hilo 2.4s linear infinite;
+}
+
+.mm-relacion--inversa .mm-relacion__flecha {
+  background: linear-gradient(90deg, rgba(212, 87, 63, 0.25) 0%, #d4573f 100%);
+  background-size: 200% 100%;
+}
+
+.mm-relacion__flecha::after {
+  content: '';
+  position: absolute;
+  right: -1px;
+  top: 50%;
+  transform: translateY(-50%);
+  border-style: solid;
+  border-width: 4px 0 4px 7px;
+  border-color: transparent transparent transparent #d4573f;
+}
+
+@keyframes mm-hilo {
+  from { background-position: 100% 0; }
+  to   { background-position: -100% 0; }
+}
+
+.mm-relacion__titulo {
+  display: block;
+  margin-bottom: 4px;
+  font-family: 'Cinzel', serif;
+  font-size: 0.86rem;
+  line-height: 1.35;
+  color: #f2ece1;
+}
+
+.mm-relacion__texto {
+  display: block;
+  font-size: 0.78rem;
+  line-height: 1.55;
+  color: #cfcabd;
+}
+
+.mm-relacion__ir {
+  display: inline-block;
+  margin-top: 8px;
+  font-family: 'Cinzel', serif;
+  font-size: 0.62rem;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  color: #d4573f;
+  transition: letter-spacing 0.2s;
+}
+
+.mm-relacion:hover .mm-relacion__ir {
+  letter-spacing: 2.2px;
+}
+
+.mm-nodo--pulso {
+  animation: mm-pulso 0.8s ease-out 3;
+}
+
+@keyframes mm-pulso {
+  0%   { box-shadow: 0 0 0 0 rgba(212, 87, 63, 0.75); }
+  100% { box-shadow: 0 0 0 16px rgba(212, 87, 63, 0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mm-relacion__flecha,
+  .mm-nodo--pulso {
+    animation: none;
+  }
 }
